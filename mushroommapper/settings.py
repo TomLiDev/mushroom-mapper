@@ -31,6 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
+                 'mushroom-mapper-6a227ba72c70.herokuapp.com',
                  'mushroom-mapper.herokuapp.com', 'localhost']
 
 
