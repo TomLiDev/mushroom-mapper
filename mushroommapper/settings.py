@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
                  '8001-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
+                 '8002-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
                  'mushroom-mapper-6a227ba72c70.herokuapp.com',
                  'mushroom-mapper.herokuapp.com', 'localhost']
 
@@ -56,12 +57,12 @@ INSTALLED_APPS = [
     'mapper',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
