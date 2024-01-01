@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Find
+from .forms import CommentForm
 
 
 class FindList(generic.ListView):
@@ -13,7 +14,7 @@ class FindList(generic.ListView):
 class FindDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Find.objects.filter(status=1)
         find = get_object_or_404(queryset, slug=slug)
         comments = find.comments.filter(approved=True).order_by('created_on')
         liked = False
@@ -26,6 +27,7 @@ class FindDetail(View):
             {
                 "find": find,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "comment_form": CommentForm()
             },
         )
