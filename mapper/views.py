@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Find
 from .forms import CommentForm
 
@@ -63,3 +64,16 @@ class FindDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+class FindLike(View):
+
+    def find(self, request, slug, *args, **kwargs):
+        find = get_object_or_404(Find, slug=slug)
+
+        if find.likes.filter(id=request.user.id).exists():
+            find.likes.remove(request.user)
+        else:
+            find.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('find_detail', args=[slug]))
