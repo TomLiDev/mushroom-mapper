@@ -2,10 +2,14 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Find
-from .forms import CommentForm
+from .forms import CommentForm, FindForm
 
 
 class FindList(generic.ListView):
+    """
+    This is the class based function to display the homepage and overall
+    collection of finds.
+    """
     model = Find
     queryset = Find.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -13,6 +17,10 @@ class FindList(generic.ListView):
 
 
 class FindDetail(View):
+    """
+    This is class with functions to get and display the detail of a find from
+    the homepage. The post function allows the creation an posting of comments. 
+    """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Find.objects.filter(status=1)
@@ -67,6 +75,9 @@ class FindDetail(View):
 
 
 class FindLike(View):
+    """
+    This class contains the function to find likes, if they exist on a find.
+    """
 
     def find(self, request, slug, *args, **kwargs):
         find = get_object_or_404(Find, slug=slug)
@@ -80,6 +91,34 @@ class FindLike(View):
 
 
 class CreateFind(View):
+    """
+    This is the class with function to get and display the create find page for
+    a user to then create their own finds.
+    """
 
     def get(self, request):
-        return render(request, "create_find.html")
+
+        find_form = FindForm()
+
+        return render(
+            request,
+            "create_find.html",
+            {
+                "find_form": FindForm()
+            },
+        )
+
+    def post(self, request):
+
+        find_form = FindForm(data=request.POST)
+
+        if find_form.is_valid():
+            find_form.save()
+        
+        return render(
+            request,
+            "create_find.html",
+            {
+                "find_form": FindForm()
+            },
+        )

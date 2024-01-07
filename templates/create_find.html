@@ -1,10 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
-
-<p>Some text</p>
-    <form method="post">
-        <input type="submit" value="Submit" />
+<div>
+    <p>Creating a Find as: {{ user.username }}</p>
+    <form method="post" style="margin-top: 1.3em;">
+        {{ find_form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
     </form>
-    <p>Some text</p>
+</div>
 
 {% endblock content %}
