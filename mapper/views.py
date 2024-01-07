@@ -77,3 +77,9 @@ class FindLike(View):
             find.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('find_detail', args=[slug]))
+
+
+class CreateFind(View):
+
+    def get(self, request):
+        return render(request, "create_find.html")

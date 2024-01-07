@@ -30,9 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
-                 '8001-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
-                 '8002-tomlidev-mushroom-mapper-8jvk3fgnvq.us2.codeanyapp.com',
+ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
+                 '8001-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
+                 '8002-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
+                 '8003-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
+                 '8004-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
                  'mushroom-mapper-6a227ba72c70.herokuapp.com',
                  'mushroom-mapper.herokuapp.com', 'localhost']
 
