@@ -104,7 +104,7 @@ class CreateFind(View):
             request,
             "create_find.html",
             {
-                "find_form": FindForm()
+                "find_form": find_form
             },
         )
 
@@ -119,6 +119,14 @@ class CreateFind(View):
             request,
             "create_find.html",
             {
-                "find_form": FindForm()
+                "find_form": find_form
             },
         )
+
+class ViewAccount(generic.ListView):
+    """
+    This is the view which allows a user to view their accound and posts they have previously made
+    """
+    model = Find
+    template_name = 'view_account.html'
+    paginate_by = 2
