@@ -98,13 +98,11 @@ class CreateFind(View):
 
     def get(self, request):
 
-        find_form = FindForm()
-
         return render(
             request,
             "create_find.html",
             {
-                "find_form": find_form
+                "find_form": FindForm()
             },
         )
 
@@ -113,13 +111,14 @@ class CreateFind(View):
         find_form = FindForm(data=request.POST)
 
         if find_form.is_valid():
-            find_form.save()
+            find = find_form.save()
+            find.save()
         
         return render(
             request,
             "create_find.html",
             {
-                "find_form": find_form
+                "find_form": FindForm()
             },
         )
 
