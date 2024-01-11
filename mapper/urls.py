@@ -7,4 +7,5 @@ urlpatterns = [
     path('like/<slug:slug>', views.FindLike.as_view(), name='find_like'),
     path('create_find', views.CreateFind.as_view(), name='create_find'),
     path('view_account', views.ViewAccount.as_view(), name='view_account'),
+    path('view_finds', views.ViewFinds.as_view(), name='view_finds'),
 ]

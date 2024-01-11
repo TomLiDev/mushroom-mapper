@@ -129,3 +129,14 @@ class ViewAccount(generic.ListView):
     model = Find
     template_name = 'view_account.html'
     paginate_by = 2
+
+
+class ViewFinds(generic.ListView):
+    """
+    This is the view which allows a user to view their previously created finds so they can edit/remove
+    as desired
+    """
+
+    model = Find
+    template_name = 'view_finds.html'
+    paginate_by = 6

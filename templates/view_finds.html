@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+   <p>
+    This is where the users previous finds will be displayed
+   </p>
+</div>
+<!-- Section showing details of users previous finds -->
+<div>
+    Viewing finds of {{ user.username }}
+</div>
+{% for find in find_list %}
+    <p>A find</p>
+    <p>{{ find.author }}</p>
+    {% if find.author == user.username %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="image-container">
+                {{ find.author }}
+                </div>
+            </div>
+        <div>
+    {% endif %}
+{% endfor %}
+
+
+
+<!-- Section showing finds created by user -->
+
+{% endblock content %}
