@@ -9,10 +9,6 @@ body {
     color: #4A4A4F;
 }
 
-.red-o {
-    color: #E84610;
-}
-
 .thin {
     font-weight: 300;
 }
@@ -32,6 +28,15 @@ body {
 .card {
     border: none;
     background-color: transparent;
+}
+
+.welcome-message {
+    background-image: url(../images/mushroom-background3.jpg);
+    background-repeat: no-repeat;
+}
+
+.inner-welcome {
+    background-color: rgb(255, 255, 255, 0.75);
 }
 
 .image-container {
@@ -109,6 +114,11 @@ body {
 .btn-signup {
     background-color: #23BBBB;
     color: #fff;
+}
+
+.welcome_buttons {
+    margin: 30px;
+    background-color: green;
 }
 
 .btn-signup:hover,
