@@ -111,14 +111,14 @@ body {
     color: lightgray;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
 .welcome_buttons {
     margin: 30px;
     background-color: green;
+}
+
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
 }
 
 .btn-signup:hover,
