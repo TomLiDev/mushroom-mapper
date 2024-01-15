@@ -9,7 +9,7 @@
 <div>
     Viewing finds of {{ user.username }}
 </div>
-{% for find in find_list %}
+    {% for find in find_list %}
     <p>A find</p>
     <p>{{ find.author }}</p>
     {% if find.author == user.username %}

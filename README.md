@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project was intended to provide an interactive appliacaton for foraging enthusiasts to share images, thoughts and research on mushrooms they have found in their local area.
+Mushroom Mappers is a project intended to provide an interactive application for foraging enthusiasts to share images, thoughts and research on mushrooms they have found in their local area.
 
 ![An image of the finished website on different devices](documentation/space-quiz-homepage-devices.png)
 
@@ -15,23 +15,31 @@ Please use the link below to view the live, deployed site:
 - [Mushroom Mapper](#mushroom-mapper)
   - [Overview](#overview)
   - [CONTENTS](#contents)
-  - [User Experience](#user-experience)
-    - [User Stories](#user-stories)
-      - [First Time Visitors](#first-time-visitors)
-      - [Return Visitor](#return-visitor)
-  - [Design](#design)
-    - [Colour Scheme](#colour-scheme)
-    - [Typography](#typography)
-    - [Imagery](#imagery)
-    - [Wireframes](#wireframes)
-  - [Features](#features)
-    - [General Features On All pages](#general-features-on-all-pages)
-      - [Header/Nav Bar](#headernav-bar)
+  - [User Experience Design](#user-experience-design)
+    - [The Strategy Plane](#the-strategy-plane)
+      - [Site Goals](#site-goals)
+      - [Agile Planning](#agile-planning)
+        - [Epics](#epics)
+        - [User Stories](#user-stories)
+    - [The Scope Plane](#the-scope-plane)
+    - [The Structure Plane](#the-structure-plane)
+      - [Features](#features)
+      - [General Features On All pages](#general-features-on-all-pages)
+      - [Nav Bar](#nav-bar)
       - [Footer](#footer)
-    - [Register/Sign Up Page](#registersign-up-page)
-    - [Homepage](#homepage)
-    - [Post Page](#post-page)
-    - [404 Error Page](#404-error-page)
+      - [Register/Sign Up Page](#registersign-up-page)
+      - [Homepage](#homepage)
+      - [Post Page](#post-page)
+      - [404 Error Page](#404-error-page)
+    - [The Skeleton Plane](#the-skeleton-plane)
+      - [Wireframes](#wireframes)
+      - [Datebase Design](#database-design)
+      - [Security](#security)
+    - [The Surface Plane](#the-surface-plane)
+      - [Design](#design)
+        - [Colour Scheme](#colour-scheme)
+        - [Typography](#typography)
+        - [Imagery](#imagery)
   - [Future Implementations/Plans](#future-implementationsplans)
     - [Accessibility](#accessibility)
   - [Technologies Used](#technologies-used)
@@ -45,52 +53,106 @@ Please use the link below to view the live, deployed site:
   - [Credits](#credits)
     - [Code Used](#code-used)
       - [](#)
-      - [Fisher-Yates Shuffle Algorithm](#fisher-yates-shuffle-algorithm)
   - [Acknowledgements](#acknowledgements)
 
-## User Experience
+## User Experience Design
 
-Mushroom Mapper is designed to be an easy to use application for foraging enthusiasts to share information about their mushroom finds and share advice on identification. Many thousands of people in Britain enjoy foraging, however there is a great deal of uncertainty when it comes to mushrooms which are safe to eat and which should be left alone. This application is intended to help bridge that gap .
+### The Strategy Plane
 
-Key Features:
+#### Site Goals
 
-- Main page - A home page showing all posts users have created.
+The application is designed to be an engaging and social platform for mushroom foraging enthusiasts can share pictures and ideas on what they have found out in the wild. 
 
-- Creating/Editing/Deleting Posts - Users and site admins will be able to create and edit posts so that finds and information can be shared whilst also ensuring no deliberately false or offensive information is published.
+The site aims to be fun, easy to use and promote the values of safe, sustainable foraging whilst highlighting the importance of caution and sharing of accurate, reliable information to avoid mishaps. 
 
-- Location/Map View - Users will have the ability to see geographically where certain things have been found to build an understanding on the habitat of certain species and encourage social meet ups between foragers.
+#### Agile Planning
 
-- Comment/Like/Love/Share Posts - Users and admins will have the ability to interact with others posts to encourage and show support, whilst also spreading information about safe foraging practises.
+This application was designed and built in line with Agile methodologies, with small, incremental features developed over controlled sprints. There were XXXXXX sprints spaced out XXX weeks. 
 
-### User Stories
+Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on percieved requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
-#### First Time Visitors
+A kanban board was used to track the progress and manage the development lifecycle, this can be viewed here: XXXXX
 
-As a first time visitor I want to understand how to play the quiz and have the ability to start the quiz quickly and easily. I want to know which questions I get right and wrong, if wrong, I want to know what the correct answer was. Once completed, I want to know my overall score and how that compares to others.
+#### Epics
 
-I want a prompt to come back and play again in the future.
+#### User Stories
 
-#### Return Visitor
+### The Scope Plane
 
-As a return visitor I have to be able to easily check my past score against other players. I want to be able to start a new quiz without having to read through the instructions. Ideally I want to have a variety of questions so that when I come back to do the quiz again I am not getting the same questions. The ability to choose a different difficulty would also keep the game interesting.
+- Home page. A visually attractive home page capturing the core essence of thee Mushroom Mappers site. 
 
-## Design
+- Ability to perform CRUD functionality on Finds. Users and admins will have the ability to create, read, update and delete finds. 
 
-### Colour Scheme
+- Authentication/Role based functionality. Different functionality and abilities will be available to users who have registered and logged in to their account, unauthenticated users will have a more limited option of functionality to encourage sign up and long term engagement with the site. 
 
-As a site dedicated to a natural outdoor pursuit, I will use greens, browns and blues in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom adundance I may also use dark reds and yellows.
+- Account Management. Users will have the ability to manage certian aspects of their account themselves without the need for admin/super user involvement. 
 
-![Image of Color Palette](documentation/spacequiz-colour-pallette.png)
+- Responsive Design. The application will resize and maintain relevant functionality across all modern device screen sizes. 
 
-### Typography
+### The Structure Plane
 
-San's serif is used as the back-up font if FONT cannot be loaded for any reason.
+### Features
 
-### Imagery
+### General Features On All pages
 
-Apart from some relatively small icons and logos the site imagery itself will be kept minimal as to maximise focus on attention on users images of mushrooms.
+#### Nav Bar
 
-### Wireframes
+Every page will retain the same navigation bar across the top of the screen. This will provide links/options for:
+
+All users:
+Home - Return to home page
+Search - Bar to search desired content
+
+Unauthenticated User:
+Register - Redirect to a signup.html page providing a form to create an account
+
+Authenticated/logged in user
+Home - Return to home page
+View Account - Display details of the users account with some options for account management
+Logout - Display logout.html page to confirm account log out and return to homepage
+Search - Bar to search desired content
+
+![Image of the Nav Bar, found at the top of all pages](documentation/nav-bar.png)
+
+#### Footer
+
+Every page has the same footer bar comprising icon links to Facebook, Instagram, Twitter and Linkedin, with Made by Mushroom Mappers just hovering aboe the icons. This will remain the same throughout site navigation for all users. 
+
+![Image of the footer, found at the bottom of all pages](documentation/footer.png)
+
+### Register/Sign Up Page
+
+To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password. Once these steps have been succesfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
+
+### Homepage
+
+All users will be able to see a home page. 
+
+After logging in the user will be presented with the homepage. This will comprise a list of the latest posts with some of the brief key pieces of information shown against each. Each post will have a link prompting the user to view the full post details. Each post may have a small thumbnail like image presented against it on the homepage, however this will require testing to ensure that different image sizes, resolutions etc don't result in a messy homepage.
+
+Map link per post?
+
+![An image of the homepage on different devices](documentation/space-quiz-homepage-devices.png)
+
+### Find Details Page
+
+If a user clicks into a post they will be presented with the full details of that post. This will comprise a larger image of the find on the left of the page, with the post title, creator, created date displayed on the right. Below these pieces of information will be the full text of the post itself. Each post will include a link to view the location of the find on Google maps.
+
+### Create Find Page
+
+### View Account Page
+
+### 404 Error Page
+
+The 404 error page will be shown if there is an error somewhere in the navigation/direction in using the page.
+
+This will incorporate the nav bar and footer links as all the other pages. Centrally, a simple message will inform the user that this is the 404 error page with a link to take the user back to the home page.
+
+![An image of the 404 error page shown on different devices](documentation/error-page-devices.png)
+
+### The Skeleton Plane
+
+#### Wireframes
 
 Please use the links below to view the relevant wireframes, both desktop and mobile for each page.
 
@@ -106,47 +168,29 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 [404 Error page Wireframe](documentation/wireframe-error-page.png)
 
-## Features
+#### Database Design
 
-### General Features On All pages
+#### Security
 
-#### Header/Nav Bar
+### The Surface Plane
 
-Every page has the same navigation bar at the top, comprising a planet Earth icon and the word home in the top left. This is a link which takes the user back to the home page. In the right of the bar the user has the option to jump to the Leaderboard, I may also include a call to action such as - sign up for competitions/stay informed, which will bring the user to a sign up. Both these links will be made up of icons and text as a link to the relevant pages. I did experiment with just using an Icon or just using text but I feel the combination looks the best and provides the best navigation for the user.
+#### Design
 
-![Image of the Nav Bar, found at the top of all pages](documentation/nav-bar.png)
+#### Colour Scheme
 
-#### Footer
+As a site dedicated to a natural outdoor pursuit, I will use greens, browns and blues in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom adundance I may also use dark reds and yellows.
 
-Every page has the same footer bar comprising icon links to Facebook, Instagram, Twitter and Linkedin.
+![Image of Color Palette](documentation/spacequiz-colour-pallette.png)
 
-I did originally have this footer in a black bar running the length of the bottom of the screen, but this looked a little odd so I tried the icons simply floating as the bottom and I think this looks much nicer and cleaner.
+#### Typography
 
-![Image of the footer, found at the bottom of all pages](documentation/footer.png)
+San's serif is used as the back-up font if FONT cannot be loaded for any reason.
 
-### Register/Sign Up Page
+#### Imagery
 
-To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password. Once these steps have been succesfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
+Apart from some relatively small icons and logos the site imagery itself will be kept minimal as to maximise focus on attention on users images of mushrooms.
 
-### Homepage
-
-After logging in the user will be presented with the homepage. This will comprise a list of the latest posts with some of the brief key pieces of information shown against each. Each post will have a link prompting the user to view the full post details. Each post may have a small thumbnail like image presented against it on the homepage, however this will require testing to ensure that different image sizes, resolutions etc don't result in a messy homepage.
-
-Map link per post?
-
-![An image of the homepage on different devices](documentation/space-quiz-homepage-devices.png)
-
-### Post Page
-
-If a user clicks into a post they will be presented with the full details of that post. This will comprise a larger image of the find on the left of the page, with the post title, creator, created date displayed on te right. Below these pieces of information will be the full text of the post itself. Each post will include a link to view the location of the find on Google maps.
-
-### 404 Error Page
-
-The 404 error page will be shown if there is an error somewhere in the navigation/direction in using the page.
-
-This will incorporate the nav bar and footer links as all the other pages. Centrally, a simple message will inform the user that this is the 404 error page with a link to take the user back to the home page.
-
-![An image of the 404 error page shown on different devices](documentation/error-page-devices.png)
+Mushroom Mapper is designed to be an easy to use application for foraging enthusiasts to share information about their mushroom finds and share advice on identification. Many thousands of people in Britain enjoy foraging, however there is a great deal of uncertainty when it comes to mushrooms which are safe to eat and which should be left alone. This application is intended to help bridge that gap .
 
 ## Future Implementations/Plans
 
@@ -168,7 +212,7 @@ This site has been built to be as accessible as possible, specifically:
 
 ### Languages Used
 
-HTML, CSS and Javascript are used.
+HTML, CSS and Python were used. 
 
 ### Libraries and External Sources
 
@@ -177,6 +221,13 @@ HTML, CSS and Javascript are used.
 - Github - To save and store code for the website itself.
 
 - Code anywhere - The workspace and IDE for producing the site.
+- MS Visual Studio - Later replaced Code Anywhere due to reliability. 
+
+- Bootstrap - For styling and site components.
+
+- Django - For site construction.
+
+- Crispy Forms - For form styling and display.
 
 - Lucidchart - For wireframes and models.
 
@@ -245,10 +296,6 @@ Please see seperate testing.md for full details.
 The following sites were used for information/code:
 
 ####
-
-#### Fisher-Yates Shuffle Algorithm
-
-https://stackoverflow.com/questions/59810241/how-to-fisher-yates-shuffle-a-javascript-array
 
 ## Acknowledgements
 
