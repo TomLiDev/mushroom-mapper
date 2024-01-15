@@ -1,5 +1,5 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #1b4290;
 }
 
 .brand {
@@ -22,7 +22,9 @@ body {
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-image: url(../images/mushroom-background3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .card {
@@ -30,17 +32,22 @@ body {
     background-color: transparent;
 }
 
-.welcome-message {
-    background-image: url(../images/mushroom-background3.jpg);
-    background-repeat: no-repeat;
-}
-
 .inner-welcome {
     background-color: rgb(255, 255, 255, 0.75);
 }
 
+.main-finds-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .image-container {
     position: relative;
+}
+
+.find-thumbnail {
+    max-width: 350px;
 }
 
 .image-flash {
@@ -111,9 +118,19 @@ body {
     color: lightgray;
 }
 
-.welcome_buttons {
+.welcome-buttons {
     margin: 30px;
+}
+
+.create-find-button {
+    color: white;
     background-color: green;
+    border-color: green;
+}
+
+.create-find-button:hover {
+    color: white;
+    background-color: rgb(3, 95, 3);
 }
 
 .btn-signup {
