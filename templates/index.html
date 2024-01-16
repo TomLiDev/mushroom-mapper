@@ -1,16 +1,30 @@
 {% extends "base.html" %} {% block content %} 
+
+{% if not user.is_authenticated %}
+
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
+    <div class="row justify-content-center inner-welcome rounded">
+        <h1 class="display-4 text-center">Welcome to Mushroom Mappers</h1>
+        <div class="row justify-content-center">
+            <p class="lead my-3 col-4">Please create an account to enjoy the full site</p>
+            <a class="btn col-4 welcome-buttons btn-primary" href="{% url 'account_signup' %}">Register</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% if user.is_authenticated %}
         
 <!--This section will hold a welcome message-->
 
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
-    <div class="row justify-content-center inner-welcome rounded">
-        <div class="col-lg-4 px-0">
+    <div class="row p-4 justify-content-center align-items-center inner-welcome rounded">
+        <div class="col-lg-4 px-0 align-middle">
             <h1 class="display-4">Welcome {{ user.username }}</h1>
-            <p class="lead my-3">Remember the golden rule, if in doubt leave it out</p>
+            <p class="lead">Remember the golden rule, if in doubt leave it out</p>
         </div>
         <div class="col-4">
-            <div class="row">
+            <div class="row align-items-center">
                 <a class="btn gap-2 col-6 mx-auto welcome-buttons create-find-button" href="{% url 'create_find' %}">Create New Find</a>
             </div>
             <div class="row">
@@ -21,34 +35,38 @@
 </div>
 {% endif %}
 
-{% for find in find_list %}
-<div class="main-finds-container">
-    <div class="col-md-10">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
-            <div class="col p-4 d-flex flex-column position-static">
-                <h3 class="mb-0">{{ find.title }}</h3>
-                <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
-                <p class="card-text mb-auto">{{ find.slug }}.</p>
-                <a href="{% url 'find_detail' find.slug  %}" class="post-link">
-                Continue reading
-                </a>
-                <p class="card-text text-muted h6">
-                    {{ find.created_on }} <i class="far fa-heart"></i> 
-                    {{ find.number_of_likes }}
-                </p>
+<!-- Main Finds Section -->
+
+<div class="container-fluid">
+    <div class="row mb-2">
+        {% for find in find_list %}
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ find.title }}</h3>
+                    <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
+                    <p class="card-text mb-auto">{{ find.slug }}.</p>
+                    <a href="{% url 'find_detail' find.slug  %}" class="post-link">
+                    Continue reading
+                    </a>
+                    <p class="card-text text-muted h6">
+                        {{ find.created_on }} <i class="far fa-heart"></i> 
+                        {{ find.number_of_likes }}
+                    </p>
+                </div>
+            <div class="col-md-3 text-center find-thumbnail">
+                {% if "placeholder" in find.featured_image.url %}
+                <img class="card-img-top" src="static/images/mushroom-icon.jpg"/>
+                        
+                {% else %}
+                    <img class="card-img-top" src=" {{ find.featured_image.url }}"/>
+            
+                {% endif %}
             </div>
-        <div class="col-6 text-center find-thumbnail">
-            {% if "placeholder" in find.featured_image.url %}
-            <img class="card-img-top" src="static/images/mushroom-icon.jpg"/>
-                    
-            {% else %}
-                <img class="card-img-top" src=" {{ find.featured_image.url }}"/>
-        
-            {% endif %}
-        </div>   
+        </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 <!-- Main Find List Section -->
 
