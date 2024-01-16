@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Find
 from .forms import CommentForm, FindForm
+from django.utils.text import slugify
 
 
 class FindList(generic.ListView):
@@ -111,9 +112,16 @@ class CreateFind(View):
         find_form = FindForm(data=request.POST)
 
         if find_form.is_valid():
+            find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
+            print("another slug test", find.slug)
+            find.slug = slugify(find.title)
+            print("third slug test", find.slug)
+            print("this should be the whole thing", find)
+            print("title", find.title)
+            print("content", find.content)
             find.save()
-        
+            
         return render(
             request,
             "create_find.html",
@@ -136,7 +144,15 @@ class ViewFinds(generic.ListView):
     This is the view which allows a user to view their previously created finds so they can edit/remove
     as desired
     """
+    def get(self, request):
 
-    model = Find
-    template_name = 'view_finds.html'
-    paginate_by = 6
+        queryset = Find.objects.filter(status=1)
+
+        return render(
+            request,
+            "view_finds.html",
+            {
+                "finds":queryset
+            }
+        )
+    

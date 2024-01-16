@@ -11,4 +11,4 @@ class CommentForm(forms.ModelForm):
 class FindForm(forms.ModelForm):
     class Meta:
         model = Find
-        fields = ('title', 'author', 'content')
+        fields = ('title', 'author', 'content', 'featured_image')

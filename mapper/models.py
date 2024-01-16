@@ -8,7 +8,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Find(models.Model):
     title = models.CharField(max_length=300, unique=True)
-    slug = models.SlugField(max_length=300, unique=True)
+    slug = models.SlugField(max_length=300)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="finds")
     updated_on = models.DateTimeField(auto_now=True)
