@@ -133,6 +133,11 @@ body {
     background-color: rgb(3, 95, 3);
 }
 
+.create-find-button:focus {
+    color: white;
+    box-shadow: 0 0 0 0.25rem green;
+}
+
 .btn-signup {
     background-color: #23BBBB;
     color: #fff;
@@ -142,6 +147,15 @@ body {
 .btn-signup:active {
     background-color: #fff;
     color: #23BBBB;
+}
+
+.delete-button {
+    background-color: #b31c1c;
+    border-color: #b31c1c;
+}
+
+.delete-button:hover {
+    background-color: #7c1414;
 }
 
 .link {

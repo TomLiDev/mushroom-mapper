@@ -114,12 +114,8 @@ class CreateFind(View):
         if find_form.is_valid():
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
-            print("another slug test", find.slug)
             find.slug = slugify(find.title)
-            print("third slug test", find.slug)
-            print("this should be the whole thing", find)
-            print("title", find.title)
-            print("content", find.content)
+
             find.save()
             
         return render(
@@ -144,15 +140,28 @@ class ViewFinds(generic.ListView):
     This is the view which allows a user to view their previously created finds so they can edit/remove
     as desired
     """
+
     def get(self, request):
 
-        queryset = Find.objects.filter(status=1)
+        queryset = Find.objects.filter(author=request.user)
+
+        print("inside view finds")
+        print(queryset)
 
         return render(
             request,
             "view_finds.html",
             {
-                "finds":queryset
-            }
+                "user_finds":queryset
+            },
         )
+    
+class EditFind(generic.ListView):
+    """
+    This is the view which allows a user to access a Find they have previously created to edit the
+    details as they wish. 
+    """
+    
+    print("Edit view called")
+
     

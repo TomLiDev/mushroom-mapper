@@ -4,29 +4,45 @@
    <p>
     This is where the users previous finds will be displayed
    </p>
+   <p>
+    Your previous finds {{ user.username }}
+   </p>
 </div>
 <!-- Section showing details of users previous finds -->
-<div>
-    Viewing finds of {{ user.username }}
-</div>
-    {% for find in find_list %}
-    <p>A find</p>
-    <p>{{ find.author }}</p>
-    {% if find.author == user.username %}
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="image-container">
-                {{ find.author }}
+
+<div class="container-fluid">
+    <div class="row mb-2">
+        {% for find in user_finds %}
+        <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ find.title }}</h3>
+                    <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
+                    <p class="card-text mb-auto">{{ find.slug }}.</p>
+                    <a href="{% url 'find_detail' slug=find.slug %}" class="post-link">
+                    Continue reading
+                    </a>
+                    <p class="card-text text-muted h6">
+                        {{ find.created_on }} <i class="far fa-heart"></i> 
+                        {{ find.number_of_likes }}
+                    </p>
                 </div>
+            <div class="col-md-6 text-center find-thumbnail">
+                {% if "placeholder" in find.featured_image.url %}
+                <img class="card-img-top" src="static/images/mushroom-icon.jpg"/>
+                        
+                {% else %}
+                    <img class="card-img-top" src="{{ find.featured_image.url }}"/>
+            
+                {% endif %}
             </div>
-        <div>
+            <div class="row align-items-center">
+                <a class="btn gap-2 col-3 mx-auto welcome-buttons create-find-button" href="#">Edit this Find</a>
+                <a class="btn btn-secondary gap-2 col-3 mx-auto welcome-buttons delete-button" href="{% url 'view_finds' %}">Delete this Find</a>
+            </div>
+        </div>
     </div>
-    {% endif %}
-{% endfor %}
-
-
-
-<!-- Section showing finds created by user -->
+    {% endfor %}
+</div>
 
 {% endblock content %}
