@@ -161,7 +161,8 @@ class EditFind(generic.ListView):
     This is the view which allows a user to access a Find they have previously created to edit the
     details as they wish. 
     """
-    
+    model = Find
     print("Edit view called")
+    template_name = "edit_find.html"
 
     
