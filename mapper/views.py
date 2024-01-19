@@ -20,7 +20,7 @@ class FindList(generic.ListView):
 class FindDetail(View):
     """
     This is class with functions to get and display the detail of a find from
-    the homepage. The post function allows the creation an posting of comments. 
+    the homepage. The post function allows the creation and posting of comments. 
     """
 
     def get(self, request, slug, *args, **kwargs):
@@ -145,9 +145,6 @@ class ViewFinds(generic.ListView):
 
         queryset = Find.objects.filter(author=request.user)
 
-        print("inside view finds")
-        print(queryset)
-
         return render(
             request,
             "view_finds.html",
@@ -161,8 +158,39 @@ class EditFind(generic.ListView):
     This is the view which allows a user to access a Find they have previously created to edit the
     details as they wish. 
     """
-    model = Find
-    print("Edit view called")
-    template_name = "edit_find.html"
 
+    def get(self, request, slug):
+
+        find = get_object_or_404(Find, slug=slug)
+        print(find.clean_fields)
+        print("slug test", find.slug)
+
+        return render(
+        request,
+            "create_find.html",
+            {
+                "find_form": FindForm(instance=find), 'slug': slug
+            },
+        )
     
+    def post(self, request, slug):
+
+        find = get_object_or_404(Find, slug=slug)
+
+        find_form = FindForm(data=request.POST, instance=find)
+
+        if find_form.is_valid():
+            find_form.instance.slug = slugify(find_form.instance.title)
+            find = find_form.save()
+            find.slug = slugify(find.title)
+
+            find.save()
+
+            return render(
+            request,
+            "create_find.html",
+            {
+                "find_form": FindForm()
+            },
+        )
+

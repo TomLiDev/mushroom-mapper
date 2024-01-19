@@ -37,7 +37,7 @@
                 {% endif %}
             </div>
             <div class="row align-items-center">
-                <a class="btn gap-2 col-3 mx-auto welcome-buttons create-find-button" href="#">Edit this Find</a>
+                <a class="btn gap-2 col-3 mx-auto welcome-buttons create-find-button" href="{% url 'edit_find' find.slug %}">Edit this Find</a>
                 <a class="btn btn-secondary gap-2 col-3 mx-auto welcome-buttons delete-button" href="#">Delete this Find</a>
             </div>
         </div>
