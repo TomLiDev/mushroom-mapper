@@ -7,6 +7,7 @@ urlpatterns = [
     path('create_find/', views.CreateFind.as_view(), name='create_find'),
     path('view_account/', views.ViewAccount.as_view(), name='view_account'),
     path('view_finds/', views.ViewFinds.as_view(), name='view_finds'),
+    path('<slug:slug>/', views.DeleteFind.as_view(), name='delete_find'),
     path('<slug:slug>/', views.EditFind.as_view(), name='edit_find'),
     path('<slug:slug>/', views.FindDetail.as_view(), name='find_detail'),
 ]

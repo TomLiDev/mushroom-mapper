@@ -23,8 +23,6 @@ body {
 
 .main-bg {
     background-image: url(../images/mushroom-background3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .card {
@@ -32,8 +30,8 @@ body {
     background-color: transparent;
 }
 
-.inner-welcome {
-    background-color: rgb(255, 255, 255, 0.75);
+.inner {
+    background-color: rgb(255, 255, 255, 0.85);
 }
 
 .main-finds-container {

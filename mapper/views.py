@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
+from django.contrib import messages
 
 
 class FindList(generic.ListView):
@@ -153,6 +154,7 @@ class ViewFinds(generic.ListView):
             },
         )
     
+    
 class EditFind(generic.ListView):
     """
     This is the view which allows a user to access a Find they have previously created to edit the
@@ -194,3 +196,23 @@ class EditFind(generic.ListView):
             },
         )
 
+
+class DeleteFind(View):
+    """
+    This is the view which allows a user to delete one of their previous finds
+    """
+
+    def get(self, request, slug):
+        find = get_object_or_404(Find, slug=slug)
+        queryset = Find.objects.filter(author=request.user)
+
+        find.delete()
+        messages.SUCCESS(request, 'This find has been successfully deleted')
+
+        return render(
+            request,
+            "view_finds.html",
+            {
+                "user_finds":queryset
+            },
+        )
