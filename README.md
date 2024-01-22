@@ -75,7 +75,69 @@ A kanban board was used to track the progress and manage the development lifecyc
 
 #### Epics
 
+The project had 6 Epics which encompass the main development effort for Mushroom Mappers. Each epic includes user stories for specific functionalities and site requirements.
+
+EPIC 1 - Project Set Up
+
+This epic incorporates the user stories requird for the initial project set up and initial deployment. This epic and the user stories within was the first to be completed.
+
+EPIC 2 - Create Project Documentation
+
+An ongoing epic until project completion, although this does include user stories in the traditional Agile sense, I felt it was important and useful to have a note to keep aspects such as project secrets hidden as necessary throughout the project. Due to issues with reliability several different workspaces were created during the development of this project, therefore the reminder to keep relevant pieces of information secret was useful. 
+
+EPIC 3 - CRUD User Profile
+
+This epic includes the functionality and user stories needed for user to create, read, update and delete certain aspects of their user profile from within the application itself. 
+
+EPIC 4 - Authentication: Sign in/out and registration
+
+A key epic, this includes the user stories to allow a user to create their initial profile and access the full site, sign out and sign in, whilst also providing security and control and users accessing and managing their own accounts. This epic also includes specifying and controlling what content and functionalities an authenticated, signed in user can access versus a 'generic' user who has not yet created an account.
+
+EPIC 5 - CRUD User Finds
+
+This epic includes the user stories for users creating, reading, updating and deleting their own finds on the application. Finds are intended to be the key, main content of the application, which users will create, read, like and generally interactive with. To achieve these in a user friendly, appealing way user stories such as users being able to view a single, filtered page of their own finds was also included in this epic. 
+
 #### User Stories
+
+The below is a list of the user stories linked and required to achieve completion of each Epic, with a brief one line description of the epic itself. Each user story was created with a specific list of tasks which act as acceptance criteria and facilitate an objective determination on whether the functionality was developed, and user story completed, to the required level. Some user stories do not have a more detailed acceptance criteria as this is not necessary, e.g. create Readme. 
+
+EPIC 1 - Project Set Up
+As a Developer I will perform the initial project set up so I can continue and complete the development of this project
+
+- Install Django and other necessary libraries
+- Ensure env.py and other sensitive information kept secure
+- Succesfully deploy via Heroku early prior to main development effort
+
+
+EPIC 2 - Project Documentation
+As a developer I will create the project documentation so that other developers and interested parties can understand the project and its purpose in more detail and create their own if desired.
+
+- Write and maintain project Readme
+- Write and maintain testing doc
+- Create github issue request, epics and project board whilst maintain clear commit messages thorughout dev lifecycle.
+
+EPIC 3 - CRUD User Profile
+As a User I can Create/register, read, update and delete my profile so I can Log in to the site with my details and information saved, amend details as needs be and remove my account completely if I no longer want to use it, without the involvment of an admin.
+
+- Create User Account
+- Read/View User Profile
+- Edit/Update User Profile
+
+EPIC 4 - Authentication: Sign in/out and registration
+As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
+
+- Sign In
+- Sign Out
+- Control site access based on authentication
+
+EPIC 5 - CRUD User Finds
+
+As a User I can Create, read, update and delete my finds so I can share my finds and information, update information I have already shared and delete any information I no longer want to be public.
+
+- User Create Finds
+- User Update/Edit Finds
+- User read Finds
+- User Delete Finds
 
 ### The Scope Plane
 
@@ -294,6 +356,8 @@ Please see seperate testing.md for full details.
 ### Code Used
 
 The following sites were used for information/code:
+
+- https://www.pythontutorial.net/django-tutorial/  - Useful concise information for understanding how to retrieve existing database items and edit/delete them via forms. 
 
 ####
 

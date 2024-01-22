@@ -155,13 +155,14 @@ class ViewFinds(generic.ListView):
         )
     
     
-class EditFind(generic.ListView):
+class EditFind(View):
     """
     This is the view which allows a user to access a Find they have previously created to edit the
     details as they wish. 
     """
 
     def get(self, request, slug):
+        print("Edit find get entered")
 
         find = get_object_or_404(Find, slug=slug)
         print(find.clean_fields)
@@ -169,14 +170,14 @@ class EditFind(generic.ListView):
 
         return render(
         request,
-            "create_find.html",
+            "view_finds.html",
             {
                 "find_form": FindForm(instance=find), 'slug': slug
             },
         )
     
     def post(self, request, slug):
-
+        print("Edit find post entered")
         find = get_object_or_404(Find, slug=slug)
 
         find_form = FindForm(data=request.POST, instance=find)
@@ -203,6 +204,7 @@ class DeleteFind(View):
     """
 
     def get(self, request, slug):
+        print("Delete find entered")
         find = get_object_or_404(Find, slug=slug)
         queryset = Find.objects.filter(author=request.user)
 
