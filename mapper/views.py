@@ -25,8 +25,7 @@ class FindDetail(View):
     """
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Find.objects.filter(status=1)
-        find = get_object_or_404(queryset, slug=slug)
+        find = get_object_or_404(Find, slug=slug)
         comments = find.comments.filter(approved=True).order_by('created_on')
         liked = False
         if find.likes.filter(id=self.request.user.id).exists():
@@ -116,8 +115,17 @@ class CreateFind(View):
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
             find.slug = slugify(find.title)
+            edittext = "edit"
+            deletetext = "delete"
+            find.edit_slug = (find.slug + edittext)
+            find.delete_slug = (find.slug + deletetext)
+            print("edit slug test", find.edit_slug)
+            print("delete slug test", find.delete_slug)
 
             find.save()
+
+        else:
+            print("ERROR with saving form")
             
         return render(
             request,
@@ -165,12 +173,13 @@ class EditFind(View):
         print("Edit find get entered")
 
         find = get_object_or_404(Find, slug=slug)
-        print(find.clean_fields)
-        print("slug test", find.slug)
+        print("Cleand fields test", find.clean_fields)
+        data = find.clean_fields
+        print("data test", data)
 
         return render(
         request,
-            "view_finds.html",
+            "create_find.html",
             {
                 "find_form": FindForm(instance=find), 'slug': slug
             },
@@ -179,6 +188,7 @@ class EditFind(View):
     def post(self, request, slug):
         print("Edit find post entered")
         find = get_object_or_404(Find, slug=slug)
+        queryset = Find.objects.filter(author=request.user)
 
         find_form = FindForm(data=request.POST, instance=find)
 
@@ -187,13 +197,15 @@ class EditFind(View):
             find = find_form.save()
             find.slug = slugify(find.title)
 
+            print("slug test", find.slug)
+
             find.save()
 
             return render(
             request,
-            "create_find.html",
+            "view_finds.html",
             {
-                "find_form": FindForm()
+                "user_finds":queryset
             },
         )
 
@@ -209,7 +221,7 @@ class DeleteFind(View):
         queryset = Find.objects.filter(author=request.user)
 
         find.delete()
-        messages.SUCCESS(request, 'This find has been successfully deleted')
+        print("Deleted")
 
         return render(
             request,

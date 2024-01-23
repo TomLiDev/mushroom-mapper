@@ -10,6 +10,15 @@
 </div>
 <!-- Section showing details of users previous finds -->
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="container-fluid">
     <div class="row mb-2">
         {% for find in user_finds %}
