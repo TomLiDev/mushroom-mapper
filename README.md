@@ -353,11 +353,13 @@ Please see seperate testing.md for full details.
 
 ## Credits
 
-### Code Used
+### Code and Information Used
 
 The following sites were used for information/code:
 
 - https://www.pythontutorial.net/django-tutorial/  - Useful concise information for understanding how to retrieve existing database items and edit/delete them via forms. 
+
+- https://www.fullstackpython.com/django-utils-text-slugify-examples.html - Read for understanding the slugify function for converting a title into a slug-friendly string.
 
 ####
 
