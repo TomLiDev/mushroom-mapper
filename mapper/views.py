@@ -109,18 +109,15 @@ class CreateFind(View):
 
     def post(self, request):
 
-        find_form = FindForm(data=request.POST)
+        find_form = FindForm(request.POST, request.FILES)
 
         if find_form.is_valid():
+            find = FindForm()
+            find.featured_image = request.POST.get('featured_image')
+            find_form.save()
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
             find.slug = slugify(find.title)
-            edittext = "edit"
-            deletetext = "delete"
-            find.edit_slug = (find.slug + edittext)
-            find.delete_slug = (find.slug + deletetext)
-            print("edit slug test", find.edit_slug)
-            print("delete slug test", find.delete_slug)
 
             find.save()
 

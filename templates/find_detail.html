@@ -45,6 +45,10 @@
                                 <button type="submit" name="blogpost_id" value="{{find.slug}}" class="btn-like"><i
                                         class="far fa-heart"></i></button>
                                 {% endif %}
+                            <div>
+                                "{{ find.featured_image.url }}"
+                                <img src="{{ find.featured_image.url }}" style="max-width: 300px; max-height: 300px;">
+                            </div>
                             </form>
                             {% else %}
                             <span class="text-secondary"><i class="far fa-heart"></i></span>

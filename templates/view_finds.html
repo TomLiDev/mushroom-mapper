@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load static %}
 
 <div>
    <p>
@@ -38,7 +39,7 @@
                 </div>
             <div class="col-md-6 text-center find-thumbnail">
                 {% if "placeholder" in find.featured_image.url %}
-                <img class="card-img-top" src="static/images/mushroom-icon.jpg"/>
+                <img class="card-img-top" src="{% static 'images\mushroom-icon.jpg' %}"/>
                         
                 {% else %}
                     <img class="card-img-top" src="{{ find.featured_image.url }}"/>
