@@ -112,8 +112,7 @@ class CreateFind(View):
         find_form = FindForm(request.POST, request.FILES)
 
         if find_form.is_valid():
-            find = FindForm()
-            find.featured_image = request.POST.get('featured_image')
+            find_form.instance.featured_image = request.POST.get('featured_image')
             find_form.save()
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
