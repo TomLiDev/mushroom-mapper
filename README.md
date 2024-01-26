@@ -363,6 +363,8 @@ The following sites were used for information/code:
 
 - https://www.fullstackpython.com/django-utils-text-slugify-examples.html - Read for understanding the slugify function for converting a title into a slug-friendly string.
 
+- https://alphacoder.xyz/image-upload-with-django-and-cloudinary/ - Information for setting up form to take a user image attachment and upload to Cloudinary. 
+
 ####
 
 ## Acknowledgements
