@@ -11,7 +11,7 @@
     <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
         {{ find_form | crispy }}
         {% csrf_token %}
-        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        <button type="submit" class="btn btn-signup btn-lg" onclick="return confirm('Are you sure?');">Submit</button>
     </form>
 </div>
 

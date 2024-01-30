@@ -9,4 +9,5 @@ urlpatterns = [
     path('view_finds/', views.ViewFinds.as_view(), name='view_finds'),
     path('detail/<slug:slug>/', views.FindDetail.as_view(), name='find_detail'),
     path('edit/<slug:slug>/', views.EditFind.as_view(), name='edit_find'),
+    path('delete/<slug:slug>/', views.DeleteFind.as_view(), name='delete_find'),
 ]

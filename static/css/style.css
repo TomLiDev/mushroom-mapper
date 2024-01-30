@@ -179,3 +179,9 @@ body {
     background: transparent;
     border: none;
 }
+
+/** Styling for Toast messages */
+
+#myDeleteFindToast {
+    background-color: #cdcdcd;
+}
