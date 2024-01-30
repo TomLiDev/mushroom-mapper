@@ -19,12 +19,9 @@ function myTrigger2() {
     console.log("test 3", this.slug)
 };
 
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    const toast = new bootstrap.Toast(toastLiveExample)
+var map = L.map('map').setView([51.505, -0.30], 9);
 
-    toast.show()
-  })
-}
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);

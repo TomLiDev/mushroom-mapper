@@ -36,6 +36,9 @@
     </div>
 </div>
 {% endif %}
+<div class="map-container">
+    <div id="map" class="m-5"></div>
+</div>
 
 <!-- Main Finds Section -->
 
@@ -52,7 +55,8 @@
                     Continue reading
                     </a>
                     <p class="card-text text-muted h6">
-                        {{ find.created_on }} <i class="far fa-heart"></i> 
+                        {{ find.created_on }} <i class="far fa-heart"></i>
+                        {{ find.location }} 
                         {{ find.number_of_likes }}
                     </p>
                 </div>

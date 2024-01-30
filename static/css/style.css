@@ -185,3 +185,13 @@ body {
 #myDeleteFindToast {
     background-color: #cdcdcd;
 }
+
+#map {
+    position: relative;
+    height: 180px;
+    width: 90%;  
+}
+
+.map-container {
+    width: 100%;
+}

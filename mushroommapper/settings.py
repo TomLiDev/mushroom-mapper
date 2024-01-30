@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'mapper',
+    'location_field.apps.DefaultConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
