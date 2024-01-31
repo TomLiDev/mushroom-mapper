@@ -1,4 +1,4 @@
-from .models import Comment, Find
+from .models import Comment, Find, Location
 from django import forms
 
 

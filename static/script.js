@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("test");
     let button = document.getElementById("delete-find-button");
-    button.addEventListener("click", myTrigger2);
 });
 
 function myTrigger() {
@@ -19,9 +18,33 @@ function myTrigger2() {
     console.log("test 3", this.slug)
 };
 
-var map = L.map('map').setView([51.505, -0.30], 9);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+let map;
+
+async function initMap() {
+  console.log("Map test")
+  // The location of Uluru
+  const position = { lat: 51.508742, lng: -0.120850 };
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+  // The map, centered at Uluru
+  map = new Map(document.getElementById("map"), {
+    zoom: 6,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+  });
+
+  // The marker, positioned at Uluru
+  const marker = new AdvancedMarkerElement({
+    map: map,
+    position: position,
+    title: "Uluru",
+  });
+
+  console.log("Map test end")
+}
+
+initMap();
