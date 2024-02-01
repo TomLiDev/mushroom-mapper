@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Find, Comment, Location
+from .models import Find, Comment, Location, Habitat
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -30,3 +30,11 @@ class LocationAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {'location'}
     list_display = ('find', 'county', 'location')
+
+
+admin.site.register(Habitat)
+class HabitatAdmin(admin.ModelAdmin):
+
+    prepopulated_fields = {'habitat'}
+    list_display = ('habitat', 'created_on')
+    list_filter = ('approved', 'created_on')

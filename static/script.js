@@ -91,6 +91,7 @@ async function initMap() {
     document.getElementById("location-test").innerHTML = sessionStorage.getItem("StoringTest");
     document.getElementById("id_content").innerText = sessionStorage.getItem("StoringTest");
     document.getElementById("id_location").innerText = sessionStorage.getItem("StoringTest");
+    document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest");
   }
 
   console.log("Map test end")

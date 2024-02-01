@@ -4,19 +4,19 @@ from cloudinary.models import CloudinaryField
 from location_field.models.plain import PlainLocationField
 
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-class Location(models.Model):
-    county = models.CharField(max_length=100)
-    location = PlainLocationField(based_fields=['county'], zoom=7)
+class Habitat(models.Model):
+    habitat = models.CharField(max_length=300, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
-        return self.location
+        return self.habitat
     
 
 class Find(models.Model):
@@ -31,8 +31,12 @@ class Find(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-
+    location = models.DecimalField(max_digits=20, decimal_places=16)
+    location_coordinates = models.TextField()
+    habitat = models.ForeignKey(Habitat, on_delete=models.CASCADE, related_name="find_habitat", null=True, blank=True)
+    suspected_edible = models.BooleanField(blank=True, default=False)
+    suspected_poisonous = models.BooleanField(blank=True, default=False)
+    
 
     class Meta:
         ordering = ['-created_on']
@@ -58,3 +62,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Location(models.Model):
+    county = models.CharField(max_length=100)
+    location = PlainLocationField(based_fields=['county'], zoom=7)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return self.location
