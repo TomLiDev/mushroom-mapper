@@ -1,7 +1,10 @@
+
+
 /** Custom JS written to support button click functions such as toast messages */
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("test");
+    console.log(result2)
     let button = document.getElementById("delete-find-button");
 });
 
