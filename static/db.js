@@ -1,4 +1,4 @@
-var pg = require('pg');
+// var pg = require('pg');
 //or native libpq bindings
 //var pg = require('pg').native
 
@@ -19,6 +19,8 @@ client.connect(function(err) {
     console.log("test in DB file")
     // >> output: 2018-08-23T14:02:57.117Z
     module.exports = result2
-    window.findsformap = result2
+    window.result2formaps = result2
+
+    return result2, result2formaps
   });
 });

@@ -5,7 +5,7 @@
 
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
     <div class="row justify-content-center inner rounded">
-        <h1 class="display-4 text-center">Welcome to Mushroom Mappers</h1>
+        <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
         <div class="row justify-content-center">
             <p class="lead my-3 col-4">Please create an account to enjoy the full site</p>
             <a class="btn col-4 welcome-buttons btn-primary" href="{% url 'account_signup' %}">Register</a>
@@ -22,7 +22,7 @@
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
     <div class="row p-4 justify-content-center align-items-center inner rounded">
         <div class="col-lg-4 px-0 align-middle">
-            <h1 class="display-4">Welcome {{ user.username }}</h1>
+            <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
             <p class="lead">Remember the golden rule, if in doubt leave it out</p>
         </div>
         <div class="col-4">
@@ -37,24 +37,33 @@
 </div>
 {% endif %}
 <div class="map-container">
-    <div id="map" class="m-5"></div>
-</div>
-
-<h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div>
-        <div id="map"></div>
-
-        <!-- prettier-ignore -->
-        <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+    <div id="map" class="m-5">
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
             ({key: "AIzaSyDOq8JAMrKnQQxMk3SRcJGwkbFMOZ-sUko", v: "weekly"});</script>
     </div>
+</div>
 
 <!-- Main Finds Section -->
+<div id="hidden">
+    {% for find in find_list %}
+    <div class="hidden-created-on">
+        {{ find.created_on }}
+    </div>
+    <div class="hidden-author">
+        {{ find.author }}
+    </div>
+    <div class="hidden-coordinates">
+        {{ find.location_coordinates }}
+    </div>
+    {% endfor %}
+</div>
+    
 
 <div class="container-fluid">
     <div class="row mb-2">
         {% for find in find_list %}
+        
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
                 <div class="col p-4 d-flex flex-column position-static">

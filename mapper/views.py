@@ -5,6 +5,7 @@ from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
 from django.contrib import messages
+from django.core import serializers 
 
 
 class FindList(generic.ListView):
@@ -16,6 +17,9 @@ class FindList(generic.ListView):
     queryset = Find.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
+
+    map_finds2 = Find.objects.filter(status=1).order_by('-created_on')
+    map_finds = serializers.serialize("json", Find.objects.all())
 
 
 class FindDetail(View):

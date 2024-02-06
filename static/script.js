@@ -1,11 +1,43 @@
 
-
 /** Custom JS written to support button click functions such as toast messages */
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("test");
-    console.log(result2)
-    let button = document.getElementById("delete-find-button");
+  console.log("test");
+  if (document.getElementsByTagName("h1")[0].id === "welcome-text") {
+    console.log(document.getElementsByClassName("hidden-created-on")[0].innerText)
+    console.log(document.getElementsByClassName("hidden-author")[0].innerHTML)
+    console.log(document.getElementsByClassName("hidden-coordinates")[0].innerHTML)
+    const dates = document.getElementsByClassName("hidden-created-on")
+    const coordinates = document.getElementsByClassName("hidden-coordinates")
+    console.log("TEST in first grab", dates[0].innerText)
+
+    datesTemp = []
+    authorsTemp = []
+    latsTemp = []
+    lngsTemp = []
+
+
+    for (i = 0; i < dates.length; i++) {
+      console.log(dates[i].innerText)
+      let date = dates[i].innerText
+      datesTemp.push(date)
+      sessionStorage.setItem("MarkerDates", datesTemp)
+    };
+    console.log("TEST AFTER LOOP", sessionStorage.getItem("MarkerDates"))
+
+    for (i = 0; i < coordinates.length; i++) {
+      console.log(coordinates[i].innerText)
+      let latiPlace = parseFloat(coordinates[i].innerText.slice(1, 18))
+      let lngiPlace = parseFloat(coordinates[i].innerText.slice(20, 39))
+      latsTemp.push(latiPlace)
+      lngsTemp.push(lngiPlace)
+      console.log("DATA CHECK", typeof latiPlace, typeof lngiPlace)
+    };
+    console.log("Test after loop", latsTemp, lngsTemp)
+
+  };
+
+  let button = document.getElementById("delete-find-button");
 });
 
 function myTrigger() {
@@ -44,8 +76,30 @@ async function initMap() {
   const marker = new AdvancedMarkerElement({
     map: map,
     position: position,
-    title: "Uluru",
   });
+
+  console.log("Marker Test", sessionStorage.getItem("MarkerPlaces"))
+
+  positionsTest = []
+
+  for (let i = 0; i < placesTemp.length; i++) {
+    console.log(placesTemp[i])
+    lati = placesTemp[i].slice(1, 18)
+    lngi = placesTemp[i].slice(20, 39)
+    console.log("lat", lati)
+    console.log("lng", lngi)
+    
+    parseFloat(lati)
+    parseFloat(lngi)
+    console.log("DATA", typeof"lati")
+    let tempPosition = `{ lat: ${lati}, lng: ${lngi} }`;
+    console.log("Working?", tempPosition)
+
+    new AdvancedMarkerElement({
+      map: map,
+      position: { lat: lati, lng: lngi},
+    })
+  }
 
   marker.addListener('click', function(){
     console.log("Click test")
@@ -88,13 +142,10 @@ async function initMap() {
     console.log("Marker place test")
     sessionStorage.setItem("StoringTest", latLng)
     console.log(sessionStorage.getItem("StoringTest"))
-    const formLocation = document.createElement("div");
-    formLocation.innerText = sessionStorage.getItem("StoringTest");
-    document.body.append(formLocation);
-    document.getElementById("location-test").innerHTML = sessionStorage.getItem("StoringTest");
-    document.getElementById("id_content").innerText = sessionStorage.getItem("StoringTest");
-    document.getElementById("id_location").innerText = sessionStorage.getItem("StoringTest");
-    document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest");
+    
+    if (document.getElementsByTagName("h2")[0].id === "create-find") {
+      document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
+    };
   }
 
   console.log("Map test end")
