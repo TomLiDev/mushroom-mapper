@@ -201,7 +201,7 @@ body {
     width: 400px; /* The width is the width of the web page */
   }
 
-#hidden {
+.hidden {
     height: 0px;
     width: 0px;
 }
