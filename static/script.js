@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	let button = document.getElementById("delete-find-button");
 
 	if (document.getElementsByClassName("hidden").length > 0) {
-		console.log("test");
+		infoText = "Scroll around the map to view other finds!"
 		const dates = document.getElementsByClassName("hidden-created-on")
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
 		console.log("TEST in first grab", dates[0].innerText)
@@ -58,6 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		initMap();
 	};
+
+	if (document.getElementsByClassName("hidden").length === 0) {
+		infoText = "Click the location of your find!"
+		initMap()
+	}
+
 });
 
 
@@ -73,10 +79,11 @@ async function initMap() {
 	//@ts-ignore
 	const { Map } = await google.maps.importLibrary("maps");
 	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 	// The map, centered at default start location
 	map = new Map(document.getElementById("map"), {
-		zoom: 6,
+		zoom: 8,
 		center: position,
 		mapId: "DEMO_MAP_ID",
   	});
@@ -91,9 +98,13 @@ async function initMap() {
 	function createExistingMarkers () {
 	for (let i = 0; i < latsTemp.length; i++) {
 		console.log("Marker test", latsTemp[i])
-		new AdvancedMarkerElement({
+		new google.maps.Marker({
 			map: map,
 			position: { lat: latsTemp[i], lng: lngsTemp[i]},
+			icon: {
+				url: 'https://res.cloudinary.com/dlaafkcej/image/upload/v1706194954/flcwqvrklxne80ibigwv.jpg',
+				scaledSize: new google.maps.Size(36, 36)
+			}
 		})
 	}
 	}
@@ -109,7 +120,7 @@ async function initMap() {
   	});
 
   	let infoWindow = new google.maps.InfoWindow({
-    	content: "Test Message Yo",
+    	content: infoText,
     	position: position,
   	});
 
@@ -119,37 +130,38 @@ async function initMap() {
     	console.log("Second click test")
     	map.setZoom(8);
   	});
-
-  	map.addListener('click', (mapsMouseEvent) => {
-    	infoWindow.close();
-    	infoWindow = new google.maps.InfoWindow({
-      	position: mapsMouseEvent.latLng,
-    });
-    infoWindow.setContent(
-      	JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
-    );	
-    infoWindow.open(map);
- 	});
-
-  	map.addListener('click', (e) => {
-    	placeMarkerAndPan(e.latLng, map);
-  	});
-  
-  	function placeMarkerAndPan(latLng, map) {
-    	new google.maps.Marker({
-      	position: latLng,
-      	map: map,
-    });
-    map.panTo(latLng)
-    console.log("Marker place test")
-    sessionStorage.setItem("StoringTest", latLng)
-    console.log(sessionStorage.getItem("StoringTest"))
+	
 	
 	if (document.getElementsByTagName("h2")[0].id === "create-find") {
 		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
+
+		map.addListener('click', (mapsMouseEvent) => {
+			infoWindow.close();
+			infoWindow = new google.maps.InfoWindow({
+			  position: mapsMouseEvent.latLng,
+		});
+		infoWindow.setContent(
+			  JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
+		);	
+		infoWindow.open(map);
+		 });
+
+		map.addListener('click', (e) => {
+			placeMarkerAndPan(e.latLng, map);
+		  });
+	  
+		  function placeMarkerAndPan(latLng, map) {
+			new google.maps.Marker({
+			  position: latLng,
+			  map: map,
+		});
+		map.panTo(latLng)
+		console.log("Marker place test")
+		sessionStorage.setItem("StoringTest", latLng)
+		console.log(sessionStorage.getItem("StoringTest"))
 	  };
 
 	}
 
   console.log("Map test end")
-}
+};
