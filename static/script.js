@@ -27,12 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		infoText = "Scroll around the map to view other finds!"
 		const dates = document.getElementsByClassName("hidden-created-on")
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
+		const slugs = document.getElementsByClassName("hidden-slugs")
+		console.log("test", slugs[1].innerText)
+		console.log("Early data check for slugs", typeof slugs[0])
 		console.log("TEST in first grab", dates[0].innerText)
 
 		datesTemp = []
 		authorsTemp = []
 		latsTemp = []
 		lngsTemp = []
+		slugsTemp = []
 
 
 		for (i = 0; i < dates.length; i++) {
@@ -56,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 		console.log("Test after loop", latsTemp, lngsTemp)
 
+		for (i = 0; i < dates.length; i++) {
+			console.log("Slug test in loop", slugs[i].innerText)
+			slugNow = String(slugs[i].innerText)
+			console.log("Slug 4", slugNow, typeof slugNow)
+			slugsTemp.push(slugNow)
+			console.log("Slug test final", slugsTemp)
+		}
+		console.log("Slug test after loop", slugsTemp)
+
 		initMap();
 	};
 
@@ -78,7 +91,7 @@ async function initMap() {
 	// Request needed libraries.
 	//@ts-ignore
 	const { Map } = await google.maps.importLibrary("maps");
-	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+	const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 	// The map, centered at default start location
@@ -101,39 +114,56 @@ async function initMap() {
 		new google.maps.Marker({
 			map: map,
 			position: { lat: latsTemp[i], lng: lngsTemp[i]},
-			icon: {
-				url: 'https://res.cloudinary.com/dlaafkcej/image/upload/v1706194954/flcwqvrklxne80ibigwv.jpg',
-				scaledSize: new google.maps.Size(36, 36)
-			}
 		})
 	}
 	}
+
+
+	const information = document.createElement("div");
+	information.className = "information";
+	information.textContent = "This is some text";
+
+	function createAdvancedMarkers () {
+	for	(let i = 0; i < latsTemp.length; i++) {
+			console.log("Marker test", latsTemp[i])
+			new AdvancedMarkerElement({
+				map: map,
+				position: { lat: latsTemp[i], lng: lngsTemp[i]},
+			})
+		};
+	};
 		
 	if (document.getElementsByClassName("hidden").length > 0) {
-		createExistingMarkers()
+		createAdvancedMarkers()
 	}
+
+	marker.addListener('gmp-click', function(){
+		console.log("Click test advanced")
+	});
 	
-
-  	marker.addListener('click', function(){
-    	console.log("Click test")
-    	map.setZoom(9);
-  	});
-
-  	let infoWindow = new google.maps.InfoWindow({
+  	let infoWindowStart = new google.maps.InfoWindow({
     	content: infoText,
     	position: position,
   	});
 
-  	infoWindow.open(map);
+  	infoWindowStart.open(map);
+
+	marker.addListener('click', function(){
+		console.log("Marker click test")
+	});
 
   	map.addListener('click', function(){
     	console.log("Second click test")
     	map.setZoom(8);
   	});
+
+	  let infoWindow = new google.maps.InfoWindow({
+    	content: infoText,
+    	position: position,
+  	});
 	
 	
 	if (document.getElementsByTagName("h2")[0].id === "create-find") {
-		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
 
 		map.addListener('click', (mapsMouseEvent) => {
 			infoWindow.close();
@@ -147,19 +177,17 @@ async function initMap() {
 		 });
 
 		map.addListener('click', (e) => {
-			placeMarkerAndPan(e.latLng, map);
+			placeMarker(e.latLng, map);
 		  });
 	  
-		  function placeMarkerAndPan(latLng, map) {
-			new google.maps.Marker({
-			  position: latLng,
-			  map: map,
-		});
+		function placeMarker(latLng, map) {
 		map.panTo(latLng)
 		console.log("Marker place test")
 		sessionStorage.setItem("StoringTest", latLng)
 		console.log(sessionStorage.getItem("StoringTest"))
+		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
 	  };
+	  
 
 	}
 

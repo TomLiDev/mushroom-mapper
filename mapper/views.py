@@ -103,6 +103,7 @@ class CreateFind(View):
 
     def get(self, request):
 
+        find_form = FindForm(initial={'author': request.user})
         return render(
             request,
             "create_find.html",
@@ -113,18 +114,19 @@ class CreateFind(View):
 
     def post(self, request):
 
-        find_form = FindForm(request.POST, request.FILES)
+        find_form = FindForm(request.POST, request.FILES, initial={'author': request.user})
 
         if find_form.is_valid():
             find_form.save()
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
             find.slug = slugify(find.title)
+            find.author = request.user
 
             find.save()
 
         else:
-            print("ERROR with saving form")
+            print("Error with saving form")
             
         return render(
             request,

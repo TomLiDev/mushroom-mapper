@@ -1,6 +1,10 @@
 {% extends "base.html" %} {% block content %} 
 {% load static %}
 
+
+<!-- This section holds the welcome message, with different options depending if 
+     user is authenticated or not -->
+
 {% if not user.is_authenticated %}
 
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
@@ -16,9 +20,6 @@
 {% endif %}
 
 {% if user.is_authenticated %}
-        
-<!--This section will hold a welcome message-->
-
 <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
     <div class="row p-4 justify-content-center align-items-center inner rounded">
         <div class="col-lg-4 px-0 align-middle">
@@ -36,6 +37,8 @@
     </div>
 </div>
 {% endif %}
+
+<!-- Section for the map element -->
 <div class="map-container">
     <div id="map" class="m-5">
     <!-- prettier-ignore -->
@@ -44,8 +47,8 @@
     </div>
 </div>
 
-<!-- Main Finds Section -->
-<div class="hidden">
+<!-- Hidden div for storing the values of find_list -->
+<div class="hidden" >
     {% for find in find_list %}
     <div class="hidden-created-on">
         {{ find.created_on }}
@@ -56,10 +59,13 @@
     <div class="hidden-coordinates">
         {{ find.location_coordinates }}
     </div>
+    <div class="hidden-slugs">
+        {{ find.slug }}
+    </div>
     {% endfor %}
 </div>
     
-
+<!-- Main Finds Section -->
 <div class="container-fluid">
     <div class="row mb-2">
         {% for find in find_list %}
@@ -137,7 +143,7 @@
                 </div>
             </div>
 
-        <!-- This section displays page navigation options -->
+        <!-- This section displays pagination options -->
 
         {% if is_paginated %}
         <nav aria-label="Page navigation">

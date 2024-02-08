@@ -23,7 +23,7 @@ class Find(models.Model):
     title = models.CharField(max_length=300, unique=True)
     slug = models.SlugField(max_length=300)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="finds")
+        User, on_delete=models.CASCADE, related_name="finds", blank=True, null=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder', blank=True)
