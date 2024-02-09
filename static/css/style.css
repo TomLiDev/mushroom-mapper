@@ -233,3 +233,22 @@ body {
     border-right: 8px solid transparent;
     border-top: 8px solid #4285F4;
   }
+
+  /** Form Styling */
+
+  .form-containers {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-text-containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .form-longer-text {
+    width: 70%;
+  }
