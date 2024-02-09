@@ -133,6 +133,10 @@ No errors were raised on any page.
 
 ### Testing User Stories
 
+**col1 **|**col2**|**col3**
+:-----:|:-----:|:-----:
+one|two|three
+
 #### First Time Visitors
 
 | Aim                                                 | How does the site achieve this?                                                                                                                                                                                                   |

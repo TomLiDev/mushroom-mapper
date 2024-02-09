@@ -91,7 +91,7 @@ async function initMap() {
 	// Request needed libraries.
 	//@ts-ignore
 	const { Map } = await google.maps.importLibrary("maps");
-	const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 	// The map, centered at default start location
@@ -104,7 +104,7 @@ async function initMap() {
   	// Initial marker location control
   	const marker = new AdvancedMarkerElement({
     	map: map,
-    	position: position,
+    	position,
   	});
 
 	// Below function is triggered on the homepage only, it creates map markers from existing find locations
@@ -123,19 +123,51 @@ async function initMap() {
 	information.className = "information";
 	information.textContent = "This is some text";
 
-	function createAdvancedMarkers () {
-	for	(let i = 0; i < latsTemp.length; i++) {
-			console.log("Marker test", latsTemp[i])
-			new AdvancedMarkerElement({
-				map: map,
-				position: { lat: latsTemp[i], lng: lngsTemp[i]},
-			})
-		};
+
+	tempTestCoordinates = [
+		{
+			number: 1,
+			position: {
+			lat: 50.52990586913295,
+			lng: -1.1425785156249924,
+		},
+	},
+	{
+		number: 2,
+		position: {
+		lat: 51.12992586913295,
+		lng: -1.1425785156249924,
+	},
+	},
+	{
+		number: 3,
+		position: {
+		lat: 52.12996586913295,
+		lng: -1.1425785156249924,
+		},
+	},
+];
+
+
+	for	(const i of tempTestCoordinates) {
+		console.log("hello")
+		console.log(i.position)
+		const AdvancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
+			map,
+			content: buildContent(i),
+			position: i.position,
+			title: "W",
+			
+		})
 	};
-		
-	if (document.getElementsByClassName("hidden").length > 0) {
-		createAdvancedMarkers()
+
+	function buildContent(i) {
+		const content = document.createElement("div");
+		content.innerText = "This is text, what testing text this is"
+		;
+		return content;
 	}
+
 
 	marker.addListener('gmp-click', function(){
 		console.log("Click test advanced")

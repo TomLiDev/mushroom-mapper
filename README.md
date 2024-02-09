@@ -218,15 +218,13 @@ This will incorporate the nav bar and footer links as all the other pages. Centr
 
 Please use the links below to view the relevant wireframes, both desktop and mobile for each page.
 
-[Homepage Wireframes](documentation/wireframe-index.png)
+[Homepage Wireframes](documentation/homepage-wireframe.PNG)
 
-[Username Wireframe](documentation/wireframe-index.png)
+[Create Find Page Wireframe](documentation/create-find-wireframe.PNG)
 
-[Quiz Start Wireframe](documentation/wireframe-quiz-start.png)
+[View Finds Page Wireframe](documentation/view-finds-wireframe.PNG)
 
-[Results Wireframe](documentation/wireframe-results.png)
-
-[Leaderboard Wireframe](documentation/wireframe-results.png)
+[Find (Individual) Detail Wireframe](documentation/find-detail-wireframe.PNG)
 
 [404 Error page Wireframe](documentation/wireframe-error-page.png)
 
@@ -309,19 +307,36 @@ HTML, CSS and Python were used.
 
 ## Deployment
 
-This was website was deployed using Github pages. Instructions to do this are:
+This was website was deployed using Heroku. Instructions to do this are:
 
 1. Go to Github and Log in (or sign up).
 
-2. Find the repository for this project, TomLiDev/Space-Quiz-Pilot-Assessment.
+2. Find the repository for this project, TomLiDev/mushroom-mappers.
 
-3. Click on the Settings link.
+3. Copy, (or clone as below) the code from the repository into your IDE.
 
-4. Click on the Pages link in the left hand side navigation bar.
+4. In your IDE, install the necessary project dependencies by running pip install -r requirements.txt
 
-5. In the Source section, choose main from the drop down select branch menu. Select Root from the drop down select folder menu.
+5. Go to Heroku, and log in (or sign up)
 
-6. Click Save. Your live Github Pages site is now deployed at the URL shown.
+6. Navigate to the Heroku Dashboard and click "Create new app".
+
+7. Enter a name.
+
+8. From the "Add buildpack" option, add the Python buildpack and save
+
+9. Add the node.js buildpack and save.
+
+10. Select Github from the deployment method.
+
+11. Find the repository name you have given to your version of this project, click connect. 
+
+12. Scroll to the next section and select automatic deploys, choosing to enable automatic deploys.
+
+13. Save and commit your code in your IDE.
+
+14. Check your commit has gone through and the Heroku automatic deployment has been successful.
+
 
 ## Local Development
 
@@ -329,7 +344,7 @@ This was website was deployed using Github pages. Instructions to do this are:
 
 1. Log in (or sign up) to Github.
 
-2. Go to the repository for this project, TomLiDev/Space-Quiz-Pilot-Assessment.
+2. Go to the repository for this project, TomLiDev/mushroom-mappers.
 
 3. Click the Fork button in the top right corner.
 
@@ -337,7 +352,7 @@ This was website was deployed using Github pages. Instructions to do this are:
 
 1. Log in (or sign up) to GitHub.
 
-2. Go to the repository for this project, TomLiDev/Space-Quiz-Pilot-Assessment.
+2. Go to the repository for this project, TomLiDev/mushroom-mappers.
 
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 
