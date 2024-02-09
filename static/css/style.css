@@ -1,3 +1,5 @@
+/** General styling rules **/
+
 * {
     padding: 0;
     margin: 0;
@@ -14,8 +16,8 @@ body {
     color: #4A4A4F;
 }
 
-.thin {
-    font-weight: 300;
+.main-bg {
+    background-image: url(https://res.cloudinary.com/dlaafkcej/image/upload/v1706044474/mushroom-background3_uxnza6.jpg);
 }
 
 .light-bg {
@@ -24,10 +26,6 @@ body {
 
 .dark-bg {
     background-color: #445261;
-}
-
-.main-bg {
-    background-image: url(https://res.cloudinary.com/dlaafkcej/image/upload/v1706044474/mushroom-background3_uxnza6.jpg);
 }
 
 .card {
@@ -50,7 +48,7 @@ body {
 }
 
 .find-thumbnail {
-    max-width: 350px;
+    max-width: 300px;
 }
 
 .image-flash {
@@ -101,12 +99,12 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.find-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.find-link:hover,
 .page-link {
     color: #E84610;
 }
@@ -120,6 +118,18 @@ body {
     margin-left: 5%;
     color: lightgray;
 }
+
+.home-container {
+    display: flex;
+}
+
+#logo-holder {
+    display: flex;
+    height: 30px;
+    padding-right: 10px;
+}
+
+/** Button Styling and hover effects **/
 
 .welcome-buttons {
     margin: 10px;
@@ -190,6 +200,8 @@ body {
 #myDeleteFindToast {
     background-color: #cdcdcd;
 }
+
+/** Map and map marker styling */
 
 .map-container {
     width: 100%;

@@ -20,7 +20,7 @@
 {% endif %}
 
 {% if user.is_authenticated %}
-<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
+<div class="p-4 p-md-5 rounded text-body-emphasis bg-body-secondary welcome-message">
     <div class="row p-4 justify-content-center align-items-center inner rounded">
         <div class="col-lg-4 px-0 align-middle">
             <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
@@ -74,24 +74,21 @@
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">{{ find.title }}</h3>
-                    <div>{{ find.location_coordinates }} </div>
                     <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
                     <p class="card-text mb-auto">{{ find.slug }}.</p>
-                    <a href="{% url 'find_detail' find.slug %}" class="post-link">
+                    <a href="{% url 'find_detail' find.slug %}" class="find-link">
                     Continue reading
                     </a>
                     <p class="card-text text-muted h6">
-                        {{ find.created_on }} <i class="far fa-heart"></i>
+                        <i class="far fa-heart"></i>
                         {{ find.number_of_likes }}
                     </p>
                 </div>
-            <div class="col-md-3 text-center find-thumbnail">
+            <div class="text-center find-thumbnail">
                 {% if "placeholder" in find.featured_image.url %}
                 <img class="card-img-top" src="{% static 'images\mushroom-icon.jpg' %}">
                 {% else %}
-
-                    <img class="card-img-top" src="{{ find.featured_image.url }}">
-            
+                <img class="card-img-top" src="{{ find.featured_image.url }}">
                 {% endif %}
             </div>
         </div>

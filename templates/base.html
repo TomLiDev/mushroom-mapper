@@ -34,8 +34,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Mushroom</span><span
-                        class="thin">|Mapper</span></a>
+            <a class="navbar-brand home-container" href="{% url 'home' %}">
+                <span id="logo-holder"><img src="{% static 'images\map-mushroom-icon.jpg' %}"></span>
+                <span class="brand">Mushroom</span>
+                <span class="brand">Mappers</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,9 +66,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                <form role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                </form>
                 <span class="navbar-text text-muted">
                     Learn about the UK's fantastic fungi!
                 </span>
