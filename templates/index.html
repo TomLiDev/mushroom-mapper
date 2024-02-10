@@ -5,42 +5,37 @@
 <!-- This section holds the welcome message, with different options depending if 
      user is authenticated or not -->
 
-{% if not user.is_authenticated %}
-
-<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary welcome-message">
-    <div class="row justify-content-center inner border-general">
-        <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
-        <div class="row justify-content-center">
+<div class="p-4 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary welcome-message">
+    <div class="justify-content-center inner border rounded text-center">
+        <div class="col-12 p-2">
+            <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
+        </div>
+        <div class="row my-center">
+            {% if not user.is_authenticated %}
             <p class="lead my-3 col-4">Please create an account to enjoy the full site</p>
-            <a class="btn col-4 welcome-buttons btn-primary" href="{% url 'account_signup' %}">Register</a>
-        </div>
-        <img src="{% static 'images\mushroom-icon.jpg' %}" alt="test image" style="max-width: 300px; max-height: 300px;">
-    </div>
-</div>
-{% endif %}
-
-{% if user.is_authenticated %}
-<div class="p-4 p-md-5 rounded text-body-emphasis bg-body-secondary welcome-message">
-    <div class="row p-4 justify-content-center align-items-center inner border rounded">
-        <div class="col-lg-4 px-0 align-middle">
-            <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
-            <p class="lead">Remember the golden rule, if in doubt leave it out</p>
-        </div>
-        <div class="col-4">
-            <div class="row align-items-center">
-                <a class="btn gap-2 col-6 mx-auto welcome-buttons create-find-button" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
-            </div>
-            <div class="row">
-                <a class="btn btn-secondary gap-2 col-6 mx-auto welcome-buttons" href="{% url 'view_finds' %}">Your Existing Finds</a>
+            <a class="btn col-4 welcome-buttons btn-signup my-center" href="{% url 'account_signup' %}">Register</a>
+            {% else %}
+                <div class="row">
+                    <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
+                    <p class="lead">Remember the golden rule, if in doubt leave it out</p>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-2">
+                    </div>
+                        <a class="btn gap-2 col-3 mx-auto create-find-button m-4" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
+                        <a class="btn btn-secondary gap-2 col-3 mx-auto m-4" href="{% url 'view_finds' %}">Your Existing Finds</a>
+                    <div class="col-2">
+                    </div>
+                    </row>
             </div>
         </div>
+        {% endif %}
     </div>
 </div>
-{% endif %}
 
 <!-- Section for the map element -->
 <div class="map-container">
-    <div id="map" class="m-5">
+    <div id="map" class="m-5 medium-rounded shadow-sm">
     <!-- prettier-ignore -->
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
             ({key: "AIzaSyDOq8JAMrKnQQxMk3SRcJGwkbFMOZ-sUko", v: "weekly"});</script>
@@ -67,11 +62,11 @@
     
 <!-- Main Finds Section -->
 <div class="container-fluid">
-    <div class="row mb-2">
+    <div class="row mb-2 p-4">
         {% for find in find_list %}
         
-        <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
+        <div class="col-md-6 p-4 overflow-visible">
+            <div class="row g-0 border rounded overflow-visible flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">{{ find.title }}</h3>
                     <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
@@ -84,7 +79,10 @@
                         {{ find.number_of_likes }}
                     </p>
                 </div>
-            <div class="text-center find-thumbnail">
+            <div class="text-center find-thumbnail container-fluid">
+                <div class="habitat-flash">
+                    {{ find.habitat}}
+                </div>
                 {% if "placeholder" in find.featured_image.url %}
                 <img class="card-img-top" src="{% static 'images\mushroom-icon.jpg' %}">
                 {% else %}
