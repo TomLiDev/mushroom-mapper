@@ -34,7 +34,7 @@ body {
 }
 
 .inner {
-    background-color: rgb(255, 255, 255, 0.85);
+    background-color: rgb(255, 255, 255, 0.9);
 }
 
 .main-finds-container {
@@ -129,6 +129,15 @@ body {
     padding-right: 10px;
 }
 
+.width-80 {
+    width: 80%;
+}
+
+.border-general {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
 /** Button Styling and hover effects **/
 
 .welcome-buttons {
@@ -152,14 +161,14 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: green;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    color: white;
+    background-color: rgb(3, 95, 3);
 }
 
 .delete-button {
@@ -232,23 +241,42 @@ body {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 8px solid #4285F4;
-  }
+}
 
   /** Form Styling */
 
-  .form-containers {
+.form-containers {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .form-text-containers {
+.form-text-containers {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-  }
+    margin-top: 20px;
+}
 
-  .form-longer-text {
+.form-longer-text {
     width: 70%;
-  }
+}
+
+label {
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.form-group {
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: border 1s, background-color 1s;
+}
+
+.form-group:hover {
+    background-color: rgb(255, 255, 255, 0.9);
+    border: 1px solid green;
+}
+
