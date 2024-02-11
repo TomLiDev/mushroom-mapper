@@ -53,6 +53,18 @@ body {
     position: relative;
 }
 
+.find-image-large {
+    max-width: 400px;
+    width: 100%;
+}
+
+.view-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+}
+
 .image-flash {
     position: absolute;
     bottom: 5%;
@@ -157,10 +169,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .medium-rounded {
     border-radius: 10px;
+}
+
+.view-find-pad {
+    padding-left: 10%;
+    padding-top: 40px;
+}
+
+.my-shadow {
+    box-shadow: 5px 5px 3px #888888;
 }
 
 /** Button Styling and hover effects **/
@@ -294,10 +316,16 @@ label {
     border: 1px solid transparent;
     border-radius: 10px;
     transition: border 1s, background-color 1s;
+    background-color: rgb(255, 255, 255, 0.9);
 }
 
 .form-group:hover {
     background-color: rgb(255, 255, 255);
     border: 1px solid green;
+}
+
+#id_featured_image {
+    padding: 10px;
+    margin: 10px;
 }
 

@@ -5,7 +5,7 @@
 <!-- This section holds the welcome message, with different options depending if 
      user is authenticated or not -->
 
-<div class="p-4 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary welcome-message">
+<div class="p-4 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary">
     <div class="justify-content-center inner border rounded text-center">
         <div class="col-12 p-2">
             <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
@@ -69,6 +69,7 @@
             <div class="row g-0 border rounded overflow-visible flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">{{ find.title }}</h3>
+                    <h5>{{ find.author }}</h5>
                     <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
                     <p class="card-text mb-auto">{{ find.slug }}.</p>
                     <a href="{% url 'find_detail' find.slug %}" class="find-link">
