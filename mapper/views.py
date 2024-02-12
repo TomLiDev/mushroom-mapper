@@ -166,20 +166,37 @@ class EditFind(View):
     """
 
     def get(self, request, slug):
+
+        
         print("Edit find get entered")
 
         find = get_object_or_404(Find, slug=slug)
-        print("Cleand fields test", find.clean_fields)
-        data = find.clean_fields
-        print("data test", data)
 
-        return render(
-        request,
-            "create_find.html",
-            {
-                "find_form": FindForm(instance=find), 'slug': slug
-            },
-        )
+        if not find.author == request.user:
+            messages.error(
+                request,
+                """Error, you are not the creator of this find, so therefore
+                you cannot edit. Please log in to confirm your account."""
+            )
+
+            return render(
+            request,
+            "index.html",
+            )
+
+        else:
+
+            print("Cleaned fields test", find.clean_fields)
+            data = find.clean_fields
+            print("data test", data)
+
+            return render(
+            request,
+                "create_find.html",
+                {
+                    "find_form": FindForm(instance=find), 'slug': slug
+                },
+            )
     
     def post(self, request, slug):
         print("Edit find post entered")

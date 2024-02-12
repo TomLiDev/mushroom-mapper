@@ -49,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		initMap()
 	}
 
-	let button = document.getElementById("delete-find-button");
-
-	if (document.getElementsByClassName("hidden").length > 1) {
+	if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
 		infoText = "Scroll around the map to view other finds!"
 		const dates = document.getElementsByClassName("hidden-created-on")
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
@@ -99,11 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		infoText = "Click the location of your find!"
 
 		initMap();
+		createExistingMarkers();
+		
 	};
-
-	if (document.getElementsByClassName("hidden").length === 0) {
-		initMap()
-	}
 
 });
 
@@ -114,7 +110,7 @@ let map;
 
 async function initMap() {
 	console.log("Map test")
-	// The deafult starting location of the map
+	// The default starting location of the map
 	const position = { lat: 51.508742, lng: -0.120850 };
 	// Request needed libraries.
 	//@ts-ignore
@@ -135,34 +131,36 @@ async function initMap() {
     	position,
   	});
 
-	  if (document.getElementsByTagName("h2")[0].id === "create-find") {
-
+	if (document.getElementsByTagName("h2")[0].id === "create-find") {
 		infoText = "Click the location of your find!"
 
-		map.addListener('click', (mapsMouseEvent) => {
-			infoWindow.close();
-			infoWindow = new google.maps.InfoWindow({
-			  position: mapsMouseEvent.latLng,
-		});
-		infoWindow.setContent(
-			  JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
-		);	
-		infoWindow.open(map);
-		 });
+	map.addListener('click', (mapsMouseEvent) => {
+		infoWindow.close();
+		infoWindow = new google.maps.InfoWindow({
+			position: mapsMouseEvent.latLng,
+	});
 
-		map.addListener('click', (e) => {
-			placeMarker(e.latLng, map);
-		  });
+	infoWindow.setContent(
+			JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
+	);	
+	infoWindow.open(map);
+	});
+
+	map.addListener('click', (e) => {
+		placeMarker(e.latLng, map);
+	});
 	  
-		function placeMarker(latLng, map) {
-		map.panTo(latLng)
-		console.log("Marker place test")
-		sessionStorage.setItem("StoringTest", latLng)
-		console.log(sessionStorage.getItem("StoringTest"))
-		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
-	  };
+	function placeMarker(latLng, map) {
+	map.panTo(latLng)
+	console.log("Marker place test")
+	sessionStorage.setItem("StoringTest", latLng)
+	console.log(sessionStorage.getItem("StoringTest"))
+	document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
+	}
+
 
 	// Below function is triggered on the homepage only, it creates map markers from existing find locations
+
 	function createExistingMarkers () {
 	for (let i = 0; i < latsTemp.length; i++) {
 		console.log("Marker test", latsTemp[i])
@@ -171,6 +169,10 @@ async function initMap() {
 			position: { lat: latsTemp[i], lng: lngsTemp[i]},
 		})
 	}
+	}
+
+	if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
+		createExistingMarkers()
 	}
 
 
