@@ -4,7 +4,6 @@ from cloudinary.models import CloudinaryField
 from location_field.models.plain import PlainLocationField
 
 
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -30,7 +29,7 @@ class Find(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    likes = models.ManyToManyField(User, related_name='find_likes', blank=True)
     location = models.DecimalField(max_digits=20, decimal_places=16, blank=True, null=True)
     location_coordinates = models.TextField()
     habitat = models.ForeignKey(Habitat, on_delete=models.CASCADE, related_name="find_habitat", null=True, blank=True)
@@ -51,7 +50,7 @@ class Find(models.Model):
 class Comment(models.Model):
     find = models.ForeignKey(
         Find, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     email = models.EmailField()
     body = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)

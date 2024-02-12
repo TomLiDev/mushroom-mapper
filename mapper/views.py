@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
@@ -84,7 +84,7 @@ class FindLike(View):
     This class contains the function to find likes, if they exist on a find.
     """
 
-    def find(self, request, slug, *args, **kwargs):
+    def post(self, request, slug, *args, **kwargs):
         find = get_object_or_404(Find, slug=slug)
 
         if find.likes.filter(id=request.user.id).exists():
@@ -126,15 +126,10 @@ class CreateFind(View):
             find.save()
 
         else:
-            print("Error with saving form")
+            print("Error with saving find")
             
-        return render(
-            request,
-            "create_find.html",
-            {
-                "find_form": FindForm()
-            },
-        )
+        return HttpResponseRedirect(request.path_info)
+    
 
 class ViewAccount(generic.ListView):
     """

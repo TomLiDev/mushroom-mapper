@@ -1,6 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
 {% load crispy_forms_tags %}
+<div class="hidden" id="hidden-create">
+    create
+</div>
+
 <div class="container-fluid width-80">
     <div class="form-text-containers inner rounded p-2 border">
         <h2 id="create-find">{% if slug %} Edit {% else %} Create New {% endif %} Find</h2>
@@ -8,7 +12,7 @@
         {{ slug }}
         {% endif %}
         <div>
-            <p>{% if slug %} Edit {% else %} Create {% endif %} Find as: {{ user.username }}</p>
+            <p>{% if slug %} Editing {% else %} Creating {% endif %} Find as: {{ user.username }}</p>
         </div>
 
         <h4>Where did you find... Your find?</h4>
@@ -16,7 +20,7 @@
             <p>
                 Use the map to pinpoint the location of your find, then click on the
                 spot to bring the coordinates into the form. You don't have to do 
-                this, but without coordinate your find will not be shown on the map.
+                this, but without coordinates your find will not be shown on the map.
             </p>
         </div>
     </div>
@@ -24,19 +28,36 @@
 
 <!-- Section for the map element -->
 <div class="map-container">
-    <div id="map" class="m-5">
+    <div id="map" class="m-3 medium-rounded shadow-sm">
     <!-- prettier-ignore -->
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
             ({key: "AIzaSyDOq8JAMrKnQQxMk3SRcJGwkbFMOZ-sUko", v: "weekly"});</script>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="form-containers">
-        <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+<div class="container-fluid width-80 mb-3">
+    <div>
+        <form id="create-find-form" method="post" style="margin-top: 1.3em shadow-sm" enctype="multipart/form-data" onsubmit="thisTestFunction()">
             {{ find_form | crispy }}
             {% csrf_token %}
-            <button type="submit" class="btn btn-signup btn-lg m-4 w-100" onclick="return confirm('Are you sure you want to create this find?');">Submit</button>
+            <div class="my-center">
+                {% if slug %}
+                <button id="edit-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you happy with your edits? You will be redirected to the home page');">Edit</button>
+                {% else %}
+                <button id="create-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you want to create this find?');">Submit</button>
+                {% endif %}
+            </div>
         </form>
+    </div>
+</div>
+
+<!-- Sections for storing toast message -->
+
+<div class="toast-container position-fixed top-50 start-50 translate-middle my-center">
+    <div id="create-find-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+        <div>
+            <strong class="me-auto">New find created!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
 </div>
 

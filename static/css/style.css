@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+* {
+    color: #4a4a4f;
+}
+
 body {
     background-color: #1b4290;
 }
@@ -94,36 +98,15 @@ body {
 
 .masthead {
     margin-top: 10px;
-    overflow: hidden;
     position: relative;
     display: inline-block;
     height: 33vh;
     width: 100%;
 }
 
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
 .masthead-image {
     position: relative;
     overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
 }
 
 .find-link {
@@ -143,7 +126,11 @@ body {
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #4a4a4f;
+}
+
+.find-icon-container {
+    width: 150px;
 }
 
 .home-container {
@@ -163,6 +150,14 @@ body {
 .border-general {
     border: 1px solid gray;
     border-radius: 5px;
+}
+
+.border-top {
+    border-top: 1px solid gray;
+}
+
+.border-bottom {
+    border-bottom: 1px solid gray;
 }
 
 .my-center {
@@ -253,6 +248,18 @@ body {
     background-color: #cdcdcd;
 }
 
+#create-find-toast {
+    padding: 30px;
+    font-size: larger;
+    background-color: rgba(1, 131, 1, 0.9);
+    color: white;
+}
+
+#create-find-toast:hover {
+    transition: background-color 1s;
+    background-color: rgba(1, 131, 1);
+}
+
 /** Map and map marker styling */
 
 .map-container {
@@ -272,6 +279,11 @@ body {
     font-size: 0;
 }
 
+#hidden-create {
+    opacity: 0;
+    font-size: 0;
+}
+
 
 .information:after {
     content: "";
@@ -287,11 +299,6 @@ body {
 }
 
   /** Form Styling */
-
-.form-containers {
-    display: flex;
-    justify-content: center;
-}
 
 .form-text-containers {
     display: flex;

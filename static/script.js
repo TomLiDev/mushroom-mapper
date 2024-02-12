@@ -21,9 +21,37 @@ function myTrigger2() {
  */
 
 document.addEventListener("DOMContentLoaded", function () {
+
+	if (document.getElementsByClassName("hidden")[0].id ==="hidden-create") {
+
+		if (localStorage.getItem("find-success") === "yes") {
+			console.log("Has this worked?")
+			var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+			var toastList = toastElList.map(function(toastEl) {
+			  return new bootstrap.Toast(toastEl)
+			})
+			toastList.forEach(toast => toast.show())
+			localStorage.setItem("find-success", "no")
+		} 
+
+		console.log("Create find page")
+
+		document.getElementById("create-find-form").onsubmit = function() {myFunction()};
+
+		function myFunction() {
+		console.log("Create find submitted")
+		localStorage.setItem("find-success", "yes")
+		console.log(localStorage.getItem("find-success"))
+		console.log(typeof localStorage.getItem("find-success"))
+		alert("The form was submitted 2");
+		}
+
+		initMap()
+	}
+
 	let button = document.getElementById("delete-find-button");
 
-	if (document.getElementsByClassName("hidden").length > 0) {
+	if (document.getElementsByClassName("hidden").length > 1) {
 		infoText = "Scroll around the map to view other finds!"
 		const dates = document.getElementsByClassName("hidden-created-on")
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
@@ -68,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
 			console.log("Slug test final", slugsTemp)
 		}
 		console.log("Slug test after loop", slugsTemp)
+		infoText = "Click the location of your find!"
 
 		initMap();
 	};
 
 	if (document.getElementsByClassName("hidden").length === 0) {
-		infoText = "Click the location of your find!"
 		initMap()
 	}
 
@@ -106,6 +134,33 @@ async function initMap() {
     	map: map,
     	position,
   	});
+
+	  if (document.getElementsByTagName("h2")[0].id === "create-find") {
+
+		infoText = "Click the location of your find!"
+
+		map.addListener('click', (mapsMouseEvent) => {
+			infoWindow.close();
+			infoWindow = new google.maps.InfoWindow({
+			  position: mapsMouseEvent.latLng,
+		});
+		infoWindow.setContent(
+			  JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
+		);	
+		infoWindow.open(map);
+		 });
+
+		map.addListener('click', (e) => {
+			placeMarker(e.latLng, map);
+		  });
+	  
+		function placeMarker(latLng, map) {
+		map.panTo(latLng)
+		console.log("Marker place test")
+		sessionStorage.setItem("StoringTest", latLng)
+		console.log(sessionStorage.getItem("StoringTest"))
+		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
+	  };
 
 	// Below function is triggered on the homepage only, it creates map markers from existing find locations
 	function createExistingMarkers () {
@@ -146,7 +201,7 @@ async function initMap() {
 		lng: -1.1425785156249924,
 		},
 	},
-];
+	];
 
 
 	for	(const i of tempTestCoordinates) {
@@ -193,35 +248,9 @@ async function initMap() {
     	content: infoText,
     	position: position,
   	});
-	
-	
-	if (document.getElementsByTagName("h2")[0].id === "create-find") {
-
-		map.addListener('click', (mapsMouseEvent) => {
-			infoWindow.close();
-			infoWindow = new google.maps.InfoWindow({
-			  position: mapsMouseEvent.latLng,
-		});
-		infoWindow.setContent(
-			  JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
-		);	
-		infoWindow.open(map);
-		 });
-
-		map.addListener('click', (e) => {
-			placeMarker(e.latLng, map);
-		  });
-	  
-		function placeMarker(latLng, map) {
-		map.panTo(latLng)
-		console.log("Marker place test")
-		sessionStorage.setItem("StoringTest", latLng)
-		console.log(sessionStorage.getItem("StoringTest"))
-		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
-	  };
-	  
-
-	}
 
   console.log("Map test end")
-};
+	  }
+}
+
+initMap()

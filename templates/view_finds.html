@@ -46,7 +46,7 @@
                         {% endif %}
                     </div>
                 </div>
-            <div class="row align-items-center m-4 p-2">
+            <div class="row align-items-center m-4 p-2 border-top">
                 <a class="btn gap-2 col-3 mx-auto welcome-buttons create-find-button" href="{% url 'edit_find' find.slug %}">Edit this Find</a>
                 <a class="btn btn-secondary gap-2 col-3 mx-auto welcome-buttons delete-button" id="delete-find-button" 
                 href="{% url 'delete_find' find.slug %}" onclick="return confirm('Are you sure you want to delete this find?');">Delete this Find</a>
@@ -55,7 +55,7 @@
     {% endfor %}
 </div>
 
-<!-- These sections are for storing toast messages, all stored on base.html to ensure they can be triggered -->
+<!-- Sections for storing toast message -->
 
 <div class="toast-container position-fixed top-50 start-50 translate-middle">
     <div id="myDeleteFindToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
