@@ -95,51 +95,7 @@
     {% endfor %}
 </div>
 
-<!-- Main Find List Section -->
-
-<div class="container-fluid">
-    <div class="row">
-            <div class="col-12 mt-3 left">
-                <div class="row">
-                    {% for find in find_list %}
-                    <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                            {% if "placeholder" in find.featured_image.url %}
-                            <img
-                            class="card-img-top"
-                            src="{% static 'images\mushroom-icon.jpg' %}"
-                            />
-                            {% else %}
-                            <img
-                            class="card-img-top"
-                            src=" {{ find.featured_image.url }}"
-                            />
-                            {% endif %}
-                            <div class="image-flash">
-                            <p class="author">Author: {{ find.author }}</p>
-                            </div>
-                        </div>
-                        <a href="{% url 'find_detail' find.slug  %}" class="post-link">
-                            <h2 class="card-title">{{ find.title }}</h2>
-                            <p class="card-text">{{ find.excerpt }}</p>
-                        </a>
-                        <hr />
-                        <p class="card-text text-muted h6">
-                            {{ find.created_on }} <i class="far fa-heart"></i> 
-                            {{ find.number_of_likes }}
-                        </p>
-                        </div>
-                    </div>
-                    </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="row">{% endif %} {% endfor %}</div>
-                </div>
-            </div>
-
-        <!-- This section displays pagination options -->
+<!-- This section displays pagination options -->
 
         {% if is_paginated %}
         <nav aria-label="Page navigation">

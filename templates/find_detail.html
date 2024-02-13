@@ -7,6 +7,7 @@
         <div class="container medium-rounded col-12 light-bg p-4 border-general">
             <div class="row">
                 <div class="col-md-6 masthead-text">
+                    <!-- This section holds the left-top column of find-detail -->
                     <h1 class="post-title">{{ find.title }}</h1>
                     <p class="post-subtitle border-bottom">Created By: {{ find.author }}
                     <p class="post-subtitle border-bottom">Find Created on: {{ find.created_on }}</p>
@@ -24,6 +25,7 @@
                     </div>
                     {% endif %}
                 </div>
+                <!-- This section holds the right-top column of find-detail, taken up by the image. -->
                 <div class="d-none d-md-block col-md-6 masthead-image">
                     {% if "placeholder" in find.featured_image.url %}
                     <img src="{% static 'images\mushroom-icon.jpg' %}" width="100%">
@@ -33,13 +35,14 @@
                 </div>
             </div>
             <div class="row border-top">
+                <!-- This section holds the central row of find-detail, which is the main find content and icons
+                for likes and comments. -->
                 <div class="col card mb-4  mt-3 left  top">
                     <div class="card-body">
                         <p class="card-text ">
                             {{ find.content | safe }}
                         </p>
                         <div class="row">
-        
                             <div class="col-1">
                                 <strong>
                                     {% if user.is_authenticated %}
@@ -56,23 +59,21 @@
                                     {% else %}
                                     <span class="text-secondary"><i class="far fa-heart"></i></span>
                                     {% endif %}
-                                    <!-- The number of likes goes before the closing strong tag -->
                                     <span class="text-secondary">{{ find.number_of_likes }} </span>
                                 </strong>
                             </div>
                             <div class="col-1">
                                 {% with comments.count as total_comments %}
                                 <strong class="text-secondary"><i class="far fa-comments"></i>
-                                    <!-- Our total_comments variable goes before the closing strong tag -->
                                     {{ total_comments }}</strong>
                                 {% endwith %}
                             </div>
                         </div>
                     </div>
                 </div>
-            
-        </div>
-        <div class="row border-top">
+            </div>
+            <div class="row border-top">
+            <!-- This section holds the bottom-left section of find-detail, which displays previous comments. -->
             <div class="col-md-6 card mb-4  mt-3 ">
                 <h3>Comments:</h3>
                 <div class="card-body">
@@ -90,8 +91,9 @@
                 </div>
             </div>
             <div class="col-md-6 card mb-4  mt-3 ">
+                <!-- This section holds the bottom-right section of find-detail, which displays the form to leave
+                a comment. -->
                 <div class="card-body">
-                    <!-- For later -->
                     {% if commented %}
                     <div class="alert alert-success" role="alert">
                         Your comment is awaiting approval

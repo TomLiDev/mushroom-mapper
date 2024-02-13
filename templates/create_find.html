@@ -5,6 +5,7 @@
     create
 </div>
 
+<!-- Section for storing welcome/information text -->
 <div class="container-fluid width-80">
     <div class="form-text-containers inner rounded p-2 border">
         <h2 id="create-find">{% if slug %} Edit {% else %} Create New {% endif %} Find</h2>
@@ -41,7 +42,7 @@
             {% csrf_token %}
             <div class="my-center">
                 {% if slug %}
-                <button id="edit-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you happy with your edits? You will be redirected to the home page');">Edit</button>
+                <button id="edit-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you happy with your edits? You will be redirected your finds page');">Edit</button>
                 {% else %}
                 <button id="create-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you want to create this find?');">Submit</button>
                 {% endif %}
@@ -50,7 +51,7 @@
     </div>
 </div>
 
-<!-- Sections for storing toast message -->
+<!-- Section for storing toast message -->
 
 <div class="toast-container position-fixed top-50 start-50 translate-middle my-center">
     <div id="create-find-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">

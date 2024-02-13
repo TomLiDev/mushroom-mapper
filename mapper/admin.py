@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Find, Comment, Location, Habitat
+from .models import Find, Comment, Habitat
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -23,13 +23,6 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-
-
-admin.site.register(Location)
-class LocationAdmin(admin.ModelAdmin):
-
-    prepopulated_fields = {'location'}
-    list_display = ('find', 'county', 'location')
 
 
 admin.site.register(Habitat)

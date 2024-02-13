@@ -124,6 +124,10 @@ class CreateFind(View):
             find.author = request.user
 
             find.save()
+            messages.success(
+                request,
+                "Find successfully created."
+            )
 
         else:
             print("Error with saving find")
@@ -161,13 +165,13 @@ class ViewFinds(generic.ListView):
     
 class EditFind(View):
     """
-    This is the view which allows a user to access a Find they have previously created to edit the
-    details as they wish. 
+    This is the view which allows a user to access a Find they have previously
+    created to edit the details as they wish. Function starts withs a control
+    to ensure the user trying to edit the find is the find author.
     """
 
     def get(self, request, slug):
 
-        
         print("Edit find get entered")
 
         find = get_object_or_404(Find, slug=slug)
@@ -214,6 +218,10 @@ class EditFind(View):
 
             find.save()
 
+            messages.success(
+                request,
+                "Find successfully edited."
+            )
             return render(
             request,
             "view_finds.html",
@@ -225,21 +233,41 @@ class EditFind(View):
 
 class DeleteFind(View):
     """
-    This is the view which allows a user to delete one of their previous finds
+    This is the view which is triggered when a user confirms they want to
+    delete one of their previous finds. Function starts with a control to
+    ensure user trying to delete the find is the find author. 
     """
 
     def get(self, request, slug):
         print("Delete find entered")
         find = get_object_or_404(Find, slug=slug)
-        queryset = Find.objects.filter(author=request.user)
 
-        find.delete()
-        print("Deleted")
-
-        return render(
+        if not find.author == request.user:
+            messages.error(
+                request,
+                """Error, you are not the creator of this find, so therefore
+                you cannot delete it. Please log in to confirm your account."""
+            )
+            return render(
             request,
-            "view_finds.html",
-            {
-                "user_finds":queryset
-            },
-        )
+            "index.html",
+            )
+        
+        else:
+
+            queryset = Find.objects.filter(author=request.user)
+
+            find.delete()
+            
+            messages.success(
+                request,
+                """Find deleted."""
+            )
+
+            return render(
+                request,
+                "view_finds.html",
+                {
+                    "user_finds":queryset
+                },
+            )
