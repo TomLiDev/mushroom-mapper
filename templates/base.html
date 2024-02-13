@@ -73,6 +73,7 @@
         </div>
     </nav>
 
+    <!-- Django message container -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -100,8 +101,14 @@
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i></p>
     </footer>
+    <script>
+        setTimeout(function() {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
     <script src="{% static 'script.js' %}"></script>
-
 </body>
 
 </html>

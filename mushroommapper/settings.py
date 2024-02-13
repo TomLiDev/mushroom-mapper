@@ -31,6 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
                  '8001-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
                  '8002-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
