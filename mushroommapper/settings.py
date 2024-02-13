@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
                  '8001-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
