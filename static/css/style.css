@@ -116,11 +116,18 @@ body {
 .find-link {
     text-decoration: none;
     color: #445261;
+    border: solid 1px transparent;
+    transition: border 1s, color 1s;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .find-link:hover,
 .page-link {
-    color: #E84610;
+    color: darkgreen;
+    border: 1px solid darkgreen;
 }
 
 .post-title {

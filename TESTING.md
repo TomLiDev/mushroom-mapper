@@ -163,6 +163,51 @@ Testing was conducted using Google Chrome, MS Edge and Safari.
 
 ### Homepage
 
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+IF USER NOT AUTHENTICATED| | | | 
+Register Link|Returned to register/create account page|Clicked link|Returned to create account page|Pass
+Register Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+Login Link|Returned to sign in page|Clicked link|Returned to sign in page|Pass
+Login Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+IF USER AUTHENTICATED/SIGNED IN| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+Logout Link|Returned to sign out page|Clicked link|Returned to sign out page|Pass
+Logout Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+View Finds Link|Returned to users View Finds page|Clicked link|Returned to users View Finds page|Pass
+View Finds Link Hover|Returned to users View Finds page|Clicked link|Returned to users View Finds page|Pass
+User name displayed|Item in nav bar should appear as "Logged in as: Username", After log in|Logged in|Item appear in nav bar displaying "Logged in as: Username.|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+HOMEPAGE SPECIFIC TESTING| | | | 
+ | | | | 
+IF USER NOT AUTHENTICATED| | | | 
+Register Button Click|Pale blue highlight around button, redirect to Sign Up page |Clicked button|Blue highlight appeared around button and redirected to sign up page|Pass
+Register Button Hover|Button background turns darker green|Hovered over button|Button turned darker green| 
+Map stuff| | | | 
+Map stuff| | | | 
+Continue Reading Link on Find - Click|Returns the relevant find detail page|Clicked continue reading link|Returned relevant find detail page| 
+Continue Reading Link on Find - Hover|Text turns dark green with dark green box surrounding|Hovered over link|Text turned dark green with dark green box surrounding it| 
+Pagination nav options| | | | 
+ | | | | 
+IF USER AUTHENTICATED| | | | 
+Create Find Button|Returns the create find page|Clicked button|Redirected to create find page| 
+Create Find Button Hover|Button turns dark green|Hovered over button|Button turned dark green| 
+Your Existing Finds Button|Returns the user to view finds page, filtered to display finds they have created|Clicked button|Returned to view finds page with filtered list of finds| 
+Your Existing Finds Button Hover|Button turns darker grey|Hovered over button|Button turned darker grey| 
+
+
+### OLD OLD OLD
+### Homepage
+
 | Feature/Function    | Expected Outcome                                          | Method of Test    | Result                           | Pass/Fail |
 | :------------------ | :-------------------------------------------------------- | :---------------- | :------------------------------- | :-------- |
 | NAVBAR              |                                                           |                   |                                  |
