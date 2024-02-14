@@ -5,7 +5,6 @@
 
 <head>
     <title>Mushroom Mapper</title>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -34,10 +33,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand home-container" href="{% url 'home' %}">
-                <span id="logo-holder"><img src="{% static 'images\map-mushroom-icon.jpg' %}"></span>
-                <span class="brand">Mushroom</span>
-                <span class="brand">Mappers</span></a>
+            <a class="navbar-brand home-container nav-item" href="{% url 'home' %}">
+                <span id="logo-holder"><img src="{% static 'images\map-mushroom-icon.jpg' %}" alt="mushroom mappers home icon and link"></span>
+                <span class="brand">MushroomMappers</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,24 +43,24 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}" aria-label="home link">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_finds' %}">Your Finds</a>
+                        <a class="nav-link" href="{% url 'view_finds' %}" aria-label="link to view your finds">Your Finds</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}" aria-label="link to log out">Logout</a>
                     </li>
                     <li class="navbar-text">
                         Logged in as: {{ user.username }}
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}" aria-label="link to sign up and create an account">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" aria-label="link to logout">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -78,7 +76,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                <div class="alert {{ message.tags }} alert-dismissible fade show message-display" id="msg" role="alert">
                     {{ message | safe }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -96,19 +94,14 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-white">Made by Mushroom Mappers</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+        <p class="m-0 text-center text-white">Follow us: 
+            <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fab fa-facebook-square ms-3 text-white"></i></a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page"><i class="fab fa-twitter-square ms-3 text-white"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page"><i class="fab fa-instagram-square ms-3 text-white"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Visit our Youtube page"><i class="fab fa-youtube-square ms-3 text-white"></i></a>
+            </p>
     </footer>
-    <script>
-        setTimeout(function() {
-            let messages = document.getElementById("msg");
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
-    </script>
-    <script src="{% static 'script.js' %}"></script>
+
 </body>
 
 </html>

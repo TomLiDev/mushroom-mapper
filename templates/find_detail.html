@@ -15,22 +15,22 @@
                     {% if find.suspected_edible is True %}
                     <div class="post-subtitle">
                         <p>Suspected Edible</p>
-                        <img class="find-icon-container" src="{% static 'images\edible-icon1.jpg' %}">
+                        <img class="find-icon-container" src="{% static 'images\edible-icon1.jpg' %}" alt="knife and fork icon">
                     </div>
                     {% endif %}
                     {% if find.suspected_poisonous is True %}
                     <div class="post-subtitle">
                         <p>Suspected Poisonous!</p>
-                        <img class="find-icon-container" src="{% static 'images\poison-icon1.jpg' %}">
+                        <img class="find-icon-container" src="{% static 'images\poison-icon1.jpg' %}" alt="poisonous icon">
                     </div>
                     {% endif %}
                 </div>
                 <!-- This section holds the right-top column of find-detail, taken up by the image. -->
                 <div class="d-none d-md-block col-md-6 masthead-image">
                     {% if "placeholder" in find.featured_image.url %}
-                    <img src="{% static 'images\mushroom-icon.jpg' %}" width="100%">
+                    <img src="{% static 'images\mushroom-icon.jpg' %}" width="100%" alt="placeholder image of mushroom">
                     {% else %}
-                    <img src=" {{ find.featured_image.url }}" width="100%">
+                    <img src=" {{ find.featured_image.url }}" width="100%" alt="image of mushroom find provided by user">
                     {% endif %}
                 </div>
             </div>
