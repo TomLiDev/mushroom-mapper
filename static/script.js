@@ -101,12 +101,20 @@ async function initMap() {
 			console.log("Marker test", latsTemp[i])
 			marker = new google.maps.Marker({
 				map: map,
-				position: new google.maps.LatLng(latsTemp[i], lngsTemp[i])
+				position: new google.maps.LatLng(latsTemp[i], lngsTemp[i]),
+				title: "Click for Find Details",
 			})
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-				  infowindow.setContent(slugsTemp[i]);
+					text = slugsTemp[i]
+					text2 = `http://127.0.0.1:8000/detail/${text}`
+					text3 = text2.replace(/['"]+/g, '')
+					anchor = document.createElement('a')
+					anchor.href = text3;
+					anchor.innerText = 'View this find';
+
+				  infowindow.setContent(anchor);
 				  infowindow.open(map, marker);
 				}
 			  })(marker, i));

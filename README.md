@@ -380,6 +380,10 @@ The following sites were used for information/code:
 
 - https://alphacoder.xyz/image-upload-with-django-and-cloudinary/ - Information for setting up form to take a user image attachment and upload to Cloudinary. 
 
+- https://stackoverflow.com/questions/3059044/google-maps-js-api-v3-simple-multiple-marker-example - Helpful as guidance as how to create markers and event listeners in Google maps.
+
+- https://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string - Information for removing quotes and double quotes in template literals. Needed specifically to make the link for the Google map marker info window.
+
 ####
 
 ## Acknowledgements
