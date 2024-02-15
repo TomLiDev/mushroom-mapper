@@ -1,7 +1,6 @@
 {% extends "base.html" %} {% block content %} 
 {% load static %}
 
-
 <!-- This section holds the welcome message, with different options depending if 
      user is authenticated or not -->
 
@@ -42,7 +41,8 @@
     </div>
 </div>
 
-<!-- Hidden div for storing the values of find_list -->
+<!-- Hidden div for storing the values of find_list. These fields are used by scipt.js to pick up the values for
+creating the map markers. -->
 <div class="hidden" id="hidden-index">
     {% for find in find_list %}
     <div class="hidden-created-on">
@@ -71,7 +71,6 @@
                     <h3 class="mb-0">{{ find.title }}</h3>
                     <h5>{{ find.author }}</h5>
                     <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
-                    <p class="card-text mb-auto">{{ find.slug }}.</p>
                     <a href="{% url 'find_detail' find.slug %}" class="find-link">
                     Continue reading
                     </a>
@@ -102,15 +101,13 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
-                    >&laquo; PREV
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV
                     </a>
                 </li>
                 {% endif %} {% if page_obj.has_next %}
                 <li>
                     <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-                    NEXT &raquo;</a
-                    >
+                    NEXT &raquo;</a>
                 </li>
                 {% endif %}
             </ul>

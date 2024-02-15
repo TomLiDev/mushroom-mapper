@@ -1,4 +1,4 @@
-/** General styling rules **/
+/** General and homepage styling rules **/
 
 * {
     padding: 0;
@@ -36,11 +36,6 @@ body {
     background-color: darkgreen;
 }
 
-.card {
-    border: none;
-    background-color: transparent;
-}
-
 .inner {
     background-color: rgb(255, 255, 255, 0.9);
 }
@@ -73,14 +68,6 @@ body {
 
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #23BBBB;
-}
-
 .habitat-flash {
     position: absolute;
     right: -5px;
@@ -92,25 +79,6 @@ body {
     width: 50%;
     font-weight: 400;
     border-radius: 20px 0px 0px 20px;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
 }
 
 .find-link {
@@ -133,11 +101,6 @@ body {
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: #4a4a4f;
 }
 
 .find-icon-container {

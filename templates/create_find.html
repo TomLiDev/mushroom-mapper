@@ -37,28 +37,19 @@
 </div>
 <div class="container-fluid width-80 mb-3">
     <div>
-        <form id="create-find-form" method="post" style="margin-top: 1.3em shadow-sm" enctype="multipart/form-data" onsubmit="thisTestFunction()">
+        <form id="create-find-form" method="post" style="margin-top: 1.3em shadow-sm" enctype="multipart/form-data">
             {{ find_form | crispy }}
             {% csrf_token %}
             <div class="my-center">
                 {% if slug %}
-                <button id="edit-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you happy with your edits? You will be redirected your finds page');">Edit</button>
+                <button id="edit-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center"
+                onclick="return confirm('Are you sure you happy with your edits? You will be redirected your finds page');">Edit</button>
                 {% else %}
-                <button id="create-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center" onclick="return confirm('Are you sure you want to create this find?');">Submit</button>
+                <button id="create-find" type="submit" class="btn btn-signup btn-lg m-4 width-80 my-center"
+                onclick="return confirm('Are you sure you want to create this find?');">Submit</button>
                 {% endif %}
             </div>
         </form>
-    </div>
-</div>
-
-<!-- Section for storing toast message -->
-
-<div class="toast-container position-fixed top-50 start-50 translate-middle my-center">
-    <div id="create-find-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-        <div>
-            <strong class="me-auto">New find created!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
     </div>
 </div>
 

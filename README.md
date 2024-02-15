@@ -384,6 +384,8 @@ The following sites were used for information/code:
 
 - https://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string - Information for removing quotes and double quotes in template literals. Needed specifically to make the link for the Google map marker info window.
 
+- https://stackoverflow.com/questions/18500759/createelement-a-href-variable1variable2-a - Useful information for creating an anchor element from variables, required for the Google markers info window.
+
 ####
 
 ## Acknowledgements
