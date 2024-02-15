@@ -101,7 +101,15 @@
             <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Visit our Youtube page"><i class="fab fa-youtube-square ms-3 text-white"></i></a>
             </p>
     </footer>
-
+    <!-- Automatic timeout function for messages -->
+    <script>
+        setTimeout(function() {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>

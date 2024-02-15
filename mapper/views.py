@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
@@ -13,6 +13,7 @@ class FindList(generic.ListView):
     This is the class based function to display the homepage and overall
     collection of finds.
     """
+
     model = Find
     queryset = Find.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'

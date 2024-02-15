@@ -1,20 +1,4 @@
 
-/** Custom JS written to support button click functions such as toast messages */
-
-function myTrigger() {
-    console.log("test csssssssssssssssssssssssss")
-    let slug = document.getElementById("find-slug-from-views-html").innerHTML;
-    
-    const toast = new bootstrap.Toast(myDeleteFindToast)
-
-    toast.show()
-};
-
-function myTrigger2() {
-    console.log("test 3", this.slug)
-};
-
-
 /** This section contains controlling statements to trigger map initilisation and creation of data used in map,
  * most of this code is for creating the latitude and longitude data points needed to place custom markers
  * on the map to show the location of existing finds.
@@ -22,56 +6,33 @@ function myTrigger2() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
+	console.log("First test")
+	
 	if (document.getElementsByClassName("hidden")[0].id ==="hidden-create") {
-
-		if (localStorage.getItem("find-success") === "yes") {
-			console.log("Has this worked?")
-			var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-			var toastList = toastElList.map(function(toastEl) {
-			  return new bootstrap.Toast(toastEl)
-			})
-			toastList.forEach(toast => toast.show())
-			localStorage.setItem("find-success", "no")
-		} 
-
-		console.log("Create find page")
-
-		document.getElementById("create-find-form").onsubmit = function() {myFunction()};
-
-		function myFunction() {
-		console.log("Create find submitted")
-		localStorage.setItem("find-success", "yes")
-		console.log(localStorage.getItem("find-success"))
-		console.log(typeof localStorage.getItem("find-success"))
-		alert("The form was submitted 2");
-		}
 
 		initMap()
 	}
 
 	if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
 		infoText = "Scroll around the map to view other finds!"
-		const dates = document.getElementsByClassName("hidden-created-on")
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
 		const slugs = document.getElementsByClassName("hidden-slugs")
 		console.log("test", slugs[1].innerText)
 		console.log("Early data check for slugs", typeof slugs[0])
-		console.log("TEST in first grab", dates[0].innerText)
 
-		datesTemp = []
-		authorsTemp = []
+		
 		latsTemp = []
 		lngsTemp = []
 		slugsTemp = []
 
 
-		for (i = 0; i < dates.length; i++) {
-			console.log(dates[i].innerText)
-			let date = dates[i].innerText
-			datesTemp.push(date)
-			sessionStorage.setItem("MarkerDates", datesTemp)
+		for (i = 0; i < slugs.length; i++) {
+			console.log(slugs[i].innerText)
+			let slugString = JSON.stringify(slugs[i].innerText)
+			console.log("Slug testin loop", typeof slugString, slugString)
+			slugsTemp.push(slugString)
 		};
-		console.log("TEST AFTER LOOP", sessionStorage.getItem("MarkerDates"))
+		console.log("Slug test after loop", slugsTemp)
 
 		for (i = 0; i < coordinates.length; i++) {
 			console.log(coordinates[i].innerText)
@@ -84,20 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
 			console.log("DATA CHECK", typeof latiPlace, typeof lngiPlace, typeof sessionStorage.getItem("latsTest"))
 			console.log(sessionStorage.getItem("latsTest"))
 		};
-		console.log("Test after loop", latsTemp, lngsTemp)
 
-		for (i = 0; i < dates.length; i++) {
-			console.log("Slug test in loop", slugs[i].innerText)
-			slugNow = String(slugs[i].innerText)
-			console.log("Slug 4", slugNow, typeof slugNow)
-			slugsTemp.push(slugNow)
-			console.log("Slug test final", slugsTemp)
+		mapMarkerDAta = []
+
+		for (i = 0; i < coordinates.length; i++) {
+			tempContainer = []
+			tempContainer.push(slugsTemp[i])
+			tempContainer.push(latsTemp[i])
+			tempContainer.push(lngsTemp[i])
+			console.log("container test", tempContainer)
+			mapMarkerDAta.push(tempContainer)
 		}
-		console.log("Slug test after loop", slugsTemp)
-		infoText = "Click the location of your find!"
+		console.log("Full map data test", mapMarkerDAta)
+		sessionStorage.setItem("MapData", mapMarkerDAta)
 
 		initMap();
-		createExistingMarkers();
 		
 	};
 
@@ -131,7 +93,34 @@ async function initMap() {
     	position,
   	});
 
-	if (document.getElementsByTagName("h2")[0].id === "create-find") {
+	  function createExistingMarkers () {
+		infowindow = new google.maps.InfoWindow()
+		var marker, i;
+
+		for (let i = 0; i < latsTemp.length; i++) {
+			console.log("Marker test", latsTemp[i])
+			marker = new google.maps.Marker({
+				map: map,
+				position: new google.maps.LatLng(latsTemp[i], lngsTemp[i])
+			})
+
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+				  infowindow.setContent(slugsTemp[i]);
+				  infowindow.open(map, marker);
+				}
+			  })(marker, i));
+
+		}
+		}
+	
+		if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
+			console.log("WAY DOWN")
+			createExistingMarkers()
+		}
+
+	if (document.getElementsByClassName("hidden")[0].id ==="hidden-create") {
+		console.log("This bit")
 		infoText = "Click the location of your find!"
 
 	map.addListener('click', (mapsMouseEvent) => {
@@ -157,23 +146,10 @@ async function initMap() {
 	console.log(sessionStorage.getItem("StoringTest"))
 	document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
 	}
+	
 
 
 	// Below function is triggered on the homepage only, it creates map markers from existing find locations
-
-	function createExistingMarkers () {
-	for (let i = 0; i < latsTemp.length; i++) {
-		console.log("Marker test", latsTemp[i])
-		new google.maps.Marker({
-			map: map,
-			position: { lat: latsTemp[i], lng: lngsTemp[i]},
-		})
-	}
-	}
-
-	if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
-		createExistingMarkers()
-	}
 
 
 	const information = document.createElement("div");
