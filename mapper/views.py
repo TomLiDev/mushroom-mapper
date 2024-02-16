@@ -5,7 +5,6 @@ from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
 from django.contrib import messages
-from django.core import serializers 
 
 
 class FindList(generic.ListView):
@@ -18,9 +17,6 @@ class FindList(generic.ListView):
     queryset = Find.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
-
-    map_finds2 = Find.objects.filter(status=1).order_by('-created_on')
-    map_finds = serializers.serialize("json", Find.objects.all())
 
 
 class FindDetail(View):
@@ -131,7 +127,10 @@ class CreateFind(View):
             )
 
         else:
-            print("Error with saving find")
+            messages.error(
+                request,
+                """Your find was not created, please try again."""
+            )
             
         return HttpResponseRedirect(request.path_info)
     
@@ -204,7 +203,7 @@ class EditFind(View):
             )
     
     def post(self, request, slug):
-        print("Edit find post entered")
+
         find = get_object_or_404(Find, slug=slug)
         queryset = Find.objects.filter(author=request.user)
 
@@ -214,22 +213,22 @@ class EditFind(View):
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
             find.slug = slugify(find.title)
-
-            print("slug test", find.slug)
-
+            newSlug = find.slug
             find.save()
 
             messages.success(
                 request,
                 "Find successfully edited."
             )
-            return render(
-            request,
-            "view_finds.html",
-            {
-                "user_finds":queryset
-            },
-        )
+
+        else:
+        
+            messages.error(
+                request,
+                """Your find was not edited, please try again."""
+            )
+        
+        return HttpResponseRedirect(reverse('view_finds'))
 
 
 class DeleteFind(View):
@@ -260,15 +259,9 @@ class DeleteFind(View):
 
             find.delete()
             
-            messages.success(
+            messages.info(
                 request,
                 """Find deleted."""
             )
 
-            return render(
-                request,
-                "view_finds.html",
-                {
-                    "user_finds":queryset
-                },
-            )
+            return HttpResponseRedirect(reverse('view_finds'))

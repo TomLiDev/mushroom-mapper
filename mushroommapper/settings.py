@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     'location_field.apps.DefaultConfig',
 ]
 
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1
