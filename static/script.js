@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 * if the page is the create find page.
 	 */
 	
-	if (document.getElementsByClassName("hidden")[0].id ==="hidden-create") {
+	if (document.querySelectorAll("div.hidden").length > 1) {
 		initMap()
 	}
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 * map markers, if the page is the index page.
 	 */
 
-	if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
+	if (document.querySelectorAll("div.hidden").length === 1) {
 		/* This section takes the coordinates and slugs from the finds held in
 		the hidden div on the index page. */
 		const coordinates = document.getElementsByClassName("hidden-coordinates")
