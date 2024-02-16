@@ -60,8 +60,11 @@ class FindDetail(View):
             comment = comment_form.save(commit=False)
             comment.find = find
             comment.save()
+            messages.success("Comment created")
+
         else:
             comment_form = CommentForm()
+            messages.error("Comment failed")
 
         return render(
             request,

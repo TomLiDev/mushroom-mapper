@@ -8,7 +8,7 @@
 <!-- Section for storing welcome/information text -->
 <div class="container-fluid width-80">
     <div class="form-text-containers inner rounded p-2 border">
-        <h2 id="create-find">{% if slug %} Edit {% else %} Create New {% endif %} Find</h2>
+        <h2>{% if slug %} Edit {% else %} Create New {% endif %} Find</h2>
         {% if slug %}
         {{ slug }}
         {% endif %}
@@ -38,7 +38,7 @@
 
 <div class="container-fluid width-80 mb-3">
     <div>
-        <form id="create-find-form" method="post" style="margin-top: 1.3em shadow-sm" enctype="multipart/form-data">
+        <form id="create-find-form" method="post" enctype="multipart/form-data">
             {{ find_form | crispy }}
             {% csrf_token %}
             <div class="my-center">

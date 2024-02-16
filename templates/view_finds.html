@@ -15,11 +15,11 @@
         {% for find in user_finds %}
             <div class="container-fluid g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 light-bg">
                 <div class="row col-row-switch">
-                    <div class=" col-6 d-flex flex-column view-find-pad w-120">
+                    <div class="col-6 d-flex flex-column view-find-pad w-120">
                         <h3 class="mb-0">{{ find.title }}</h3>
                         <div class="mb-1 text-body-secondary">{{ find.created_on }}</div>
-                        <p class="card-text mb-auto" id="find-slug-from-views-html">{{ find.content }}.</p>
-                        <p class="card-text mb-auto" id="find-slug-from-views-html">{{ find.habitat }}.</p>
+                        <p class="card-text mb-auto">{{ find.content }}.</p>
+                        <p class="card-text mb-auto">{{ find.habitat }}.</p>
                         <a href="{% url 'find_detail' find.slug %}" class="post-link my-m-bottom">
                         Continue reading
                         </a>
@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-6 view-image-container">
                         {% if "placeholder" in find.featured_image.url %}
-                        <img class="find-image-large" src="{% static 'images\mushroom-icon.jpg' %}"/>
+                        <img class="find-image-large" src="{% static 'images\mushroom-icon.jpg' %}" alt="placeholder mushroom icon image">/>
                         {% else %}
-                        <img class="find-image-large" src="{{ find.featured_image.url }}"/>
+                        <img class="find-image-large" src="{{ find.featured_image.url }}" alt="mushroom image uploaded by user"/>
                         {% endif %}
                     </div>
                 </div>

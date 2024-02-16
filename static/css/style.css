@@ -237,23 +237,7 @@ body {
     border: none;
 }
 
-/** Styling for Toasts and django messages */
-
-#myDeleteFindToast {
-    background-color: #cdcdcd;
-}
-
-#create-find-toast {
-    padding: 30px;
-    font-size: larger;
-    background-color: rgba(1, 131, 1, 0.9);
-    color: white;
-}
-
-#create-find-toast:hover {
-    transition: background-color 1s;
-    background-color: rgba(1, 131, 1);
-}
+/** Styling for messages */
 
 .message-display {
     position: absolute;
