@@ -6,7 +6,7 @@
     <div class="row p-4 m-4">
         <div class="container medium-rounded col-12 light-bg p-4 border-general">
             <div class="row">
-                <div class="col-md-6 masthead-text">
+                <div class="col-md-6">
                     <!-- This section holds the left-top column of find-detail -->
                     <h1 class="post-title">{{ find.title }}</h1>
                     <p class="post-subtitle border-bottom">Created By: {{ find.author }}
@@ -26,11 +26,11 @@
                     {% endif %}
                 </div>
                 <!-- This section holds the right-top column of find-detail, taken up by the image. -->
-                <div class="d-none d-md-block col-md-6 masthead-image">
+                <div class="d-md-block col-md-6 find-detail-image-container">
                     {% if "placeholder" in find.featured_image.url %}
-                    <img src="{% static 'images\mushroom-icon.jpg' %}" width="100%" alt="placeholder image of mushroom">
+                    <img src="{% static 'images\mushroom-icon.jpg' %}" class="find-image-large" width="100%" alt="placeholder image of mushroom">
                     {% else %}
-                    <img src=" {{ find.featured_image.url }}" width="100%" alt="image of mushroom find provided by user">
+                    <img src=" {{ find.featured_image.url }}" class="find-image-large" width="100%" alt="image of mushroom find provided by user">
                     {% endif %}
                 </div>
             </div>

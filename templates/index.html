@@ -4,26 +4,26 @@
 <!-- This section holds the welcome message, with different options depending if 
      user is authenticated or not -->
 
-<div class="p-4 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary">
-    <div class="justify-content-center inner border rounded text-center">
+<div class="p-2 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary">
+    <div class="justify-content-center inner border rounded text-center my-m-bottom">
         <div class="col-12 p-2">
             <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
         </div>
         <div class="row my-center">
             {% if not user.is_authenticated %}
-            <p class="lead my-3 col-4">Please create an account to enjoy the full site</p>
+            <p class="lead col-4">Please create an account to enjoy the full site</p>
             <a class="btn col-4 welcome-buttons btn-signup my-center" href="{% url 'account_signup' %}">Register</a>
             {% else %}
                 <div class="row">
                     <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
                     <p class="lead">Remember the golden rule, if in doubt leave it out</p>
                 </div>
-                <div class="row d-flex">
-                    <div class="col-2">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-2 hide-small-screen">
                     </div>
-                        <a class="btn gap-2 col-3 mx-auto green-button m-4" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
-                        <a class="btn btn-secondary gap-2 col-3 mx-auto m-4" href="{% url 'view_finds' %}">Your Existing Finds</a>
-                    <div class="col-2">
+                        <a class="btn col-3 green-button my-m-bottom my-m-right" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
+                        <a class="btn btn-secondary col-3 my-m-bottom" href="{% url 'view_finds' %}">Your Existing Finds</a>
+                    <div class="col-2 hide-small-screen">
                     </div>
                     </row>
             </div>
@@ -34,7 +34,7 @@
 
 <!-- Section for the map element -->
 <div class="map-container">
-    <div id="map" class="m-5 medium-rounded shadow-sm">
+    <div id="map" class="m-2 medium-rounded shadow-sm">
     <!-- prettier-ignore -->
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
             ({key: "AIzaSyDOq8JAMrKnQQxMk3SRcJGwkbFMOZ-sUko", v: "weekly"});</script>
@@ -65,7 +65,7 @@ creating the map markers. -->
     <div class="row mb-2 p-4">
         {% for find in find_list %}
         
-        <div class="col-md-6 p-4 overflow-visible">
+        <div class="col-md-6 overflow-visible my-padding">
             <div class="row g-0 border rounded overflow-visible flex-md-row mb-4 shadow-sm h-md-250 position-relative light-bg">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">{{ find.title }}</h3>
