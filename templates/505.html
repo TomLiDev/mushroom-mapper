@@ -1,11 +1,13 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 {% load static %}
 
 <div class="my-center">
-    <div class="container-fluid">
+    <div class="container-fluid inner border-general medium-rounded">
         <p>
             Error 505 - Connection Error.
         </p>
         <a class="nav-link active green-button m-4" aria-current="page" href="{% url 'home' %}">Return Home</a>
     </div>
 </div>
+
+{% endblock %}
