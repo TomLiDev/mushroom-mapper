@@ -28,9 +28,9 @@
                 <!-- This section holds the right-top column of find-detail, taken up by the image. -->
                 <div class="d-md-block col-md-6 find-detail-image-container">
                     {% if "placeholder" in find.featured_image.url %}
-                    <img src="{% static 'images\mushroom-icon.jpg' %}" class="find-image-large" width="100%" alt="placeholder image of mushroom">
+                    <img src="{% static 'images\mushroom-icon.jpg' %}" class="find-image-large" alt="placeholder image of mushroom">
                     {% else %}
-                    <img src=" {{ find.featured_image.url }}" class="find-image-large" width="100%" alt="image of mushroom find provided by user">
+                    <img src=" {{ find.featured_image.url }}" class="find-image-large"alt="image of mushroom find provided by user">
                     {% endif %}
                 </div>
             </div>

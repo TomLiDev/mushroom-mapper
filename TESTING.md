@@ -42,13 +42,14 @@ Later issues on first deploying my website, reviewed with my mentor were:
 
 The W3C validator was used to validate all HTML pages and CSS.
 
-- [Screenshot of CSS W3C Validated](documentation/css-w3c-validated.png)
-- [Screenshot of index page W3C Validated](documentation/index-w3c.png)
-- [Screenshot of username page W3C Validated](documentation/username-w3c.png)
-- [Screenshot of quiz start page W3C Validated](documentation/quiz-start-w3c.png)
-- [Screenshot of results page W3C Validated](documentation/result-w3c.png)
-- [Screenshot of leaderboard W3C Validated](documentation/leaderboard-w3c.png)
-- [Screenshot of 404 error page W3C Validated](documentation/error-page-w3c.png)
+- [Screenshot of CSS W3C Validated](documentation/w3c-css-validated.PNG)
+- [Screenshot of homepage W3C Validated](documentation/w3c-homepage.PNG)
+- [Screenshot of create find page W3C Validated](documentation/w3c-create.PNG)
+- [Screenshot of edit find page W3C Validated](documentation/w3c-edit.PNG)
+- [Screenshot of view finds page W3C Validated](documentation/w3c-view-finds.PNG)
+- [Screenshot of registration page W3C Validated](documentation/w3c-registration.PNG)
+- [Screenshot of sign in page W3C Validated](documentation/w3c-login.PNG)
+- [Screenshot of sign out page W3C Validated](documentation/w3c-logout.PNG)
 
 ### Lighthouse Testing
 
@@ -56,43 +57,59 @@ Google chrome Lighthouse tester was used to assess SEO score, accessibility, con
 
 #### Homepage Desktop Lighthouse Scores
 
-![Screenshot of homepage desktop lighthouse scores](documentation/index-desktop-lighthouse.png)
+![Screenshot of homepage desktop lighthouse scores](documentation/lighthouse-homepage-desktop.PNG)
 
 #### Homepage Mobile Lighthouse Scores
 
-![Screenshot of homepage mobile lighthouse scores](documentation/index-mobile-lighthouse.png)
+![Screenshot of homepage mobile lighthouse scores](documentation/lighthouse-homepage-mobile-improved.PNG)
 
-#### Username page Desktop Lighthouse Scores
+#### Create Find Desktop Lighthouse Scores
 
-![Screenshot of username page desktop lighthouse scores](documentation/username-desktop-lighthouse.png)
+![Screenshot of create find desktop lighthouse scores](documentation/lighthouse-create-find-desktop.PNG)
 
-#### Username Page Mobile Lighthouse Scores
+#### Create Find Mobile Lighthouse Scores
 
-![Screenshot of username page mobile lighthouse scores](documentation/username-mobile-lighthouse.png)
+![Screenshot of create find mobile lighthouse scores](documentation/lighthouse-create-find-mobile.PNG)
 
-#### Quiz Start Desktop Lighthouse Scores
+#### Edit Find Desktop Lighthouse Scores
 
-![Screenshot of Quiz Start desktop lighthouse scores](documentation/quiz-start-desktop-lighthouse.png)
+![Screenshot of edit find desktop lighthouse scores](documentation/lighthouse-edit-find-desktop.PNG)
 
-#### Quiz Start Mobile Lighthouse Scores
+#### Edit Find Mobile Lighthouse Scores
 
-![Screenshot of Quiz Start mobile lighthouse scores](documentation/quiz-start-mobile-lighthouse.png)
+![Screenshot of edit find mobile lighthouse scores](documentation/lighthouse-edit-find-mobile.PNG)
 
-#### Results Page Desktop Lighthouse Scores
+#### View Finds Desktop Lighthouse Scores
 
-![Screenshot of Results Page Desktop lighthouse scores](documentation/result-desktop-lighthouse.png)
+![Screenshot of View finds Desktop lighthouse scores](documentation/lighthouse-view-find-desktop.PNG)
 
-#### Results Page Mobile Lighthouse Scores
+#### View Finds Mobile Lighthouse Scores
 
-![Screenshot of Results Page mobile lighthouse scores](documentation/result-mobile-lighthouse.png)
+![Screenshot of View find mobile lighthouse scores](documentation/lighthouse-view-find-mobile.PNG)
 
-#### Leaderboard Desktop Lighthouse Scores
+#### View Sign In Page Desktop Lighthouse Scores
 
-![Screenshot of Leaderboard desktop lighthouse scores](documentation/leaderboard-desktop-lighthouse.png)
+![Screenshot of Sign in page desktop lighthouse scores](documentation/lighthouse-sign-in-desktop.PNG)
 
-#### Leaderboard Mobile Lighthouse Scores
+#### View Sign in Page Mobile Lighthouse Scores
 
-![Screenshot of Leaderboard mobile lighthouse scores](documentation/leaderboard-mobile-lighthouse.png)
+![Screenshot of Sign in mobile lighthouse scores](documentation/lighthouse-sign-in-mobile.PNG)
+
+#### View Sign Out Page Desktop Lighthouse Scores
+
+![Screenshot of Sign out page desktop lighthouse scores](documentation/lighthouse-sign-out-desktop.PNG)
+
+#### View Sign Out Page Mobile Lighthouse Scores
+
+![Screenshot of Sign out mobile lighthouse scores](documentation/lighthouse-sign-out-mobile.PNG)
+
+#### View Sign Up Page Desktop Lighthouse Scores
+
+![Screenshot of Sign Up page desktop lighthouse scores](documentation/lighthouse-sign-up-desktop.PNG)
+
+#### View Sign Up Page Mobile Lighthouse Scores
+
+![Screenshot of Sign Up mobile lighthouse scores](documentation/lighthouse-sign-up-mobile.PNG)
 
 #### 404 Error Page Desktop Lighthouse Scores
 
@@ -104,11 +121,19 @@ Google chrome Lighthouse tester was used to assess SEO score, accessibility, con
 
 #### Findings and Actions
 
-Overall I am very pleased with the Lighthouse scores for my pages. Some of the mobile pages has lower scores for performance, which seemed to be related to the size of the background image. I did consider changing this, however the background was already in a webp format, and worked very well with the overall style and colour scheme. I therefore kept the background as it was only a minor issue on some of the pages from a mobile view.
+The first lighthouse testing actually revealed poor scores for performance, particularly on mobile:
 
-The vast majority of the scores however are 100% or extremely close to, so I am pleased that the work put into accessibility and performance has paid off across the vast majority of the pages.
+![Screenshot of poor lighthouse score on homepage mobile](documentation/lighthouse-homepage-mobile-poor.PNG)
+
+This was due to in part to the format of images which were being loaded. Converting these to webp where possible, for the static images, reduced the overall loading and improved performance. Performance was further improved by removing some CDN's and other links which were no longer needed in the final version.
+
+A great deal of the impact on performance however comes from the imported libraries which are needed to load the Google map and to provide sytling and some of the Javascript. Therefore they need to stay in as they are. Therefore some of the performance for mobile is not as high as I would like, but is necessary for the site to function. 
+
+Overall I am very pleased with the Lighthouse scores for my pages. The vast majority of the scores however are 100% or extremely close to, so I am pleased that the work put into accessibility and performance has paid off across the vast majority of the pages.
 
 In the future I would look at potentially scaling back the background for smaller screen sizes in some way, but from initial investigation this had major impacts on the over all look and feel of the pages, so was not something I could work into the scope of this project.
+
+Other options could be forcing users to upload images of certain formats, but this could detract a lot from the usability and general friendliness of the site so is probably not a practical option. 
 
 ### WAVE Testing
 
