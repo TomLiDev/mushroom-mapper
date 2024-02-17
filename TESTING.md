@@ -333,6 +333,12 @@ Whilst this wasn't a major issue, as view_finds was still returned, it did mean 
 
 4. Triggering Map Initilisation - Oringally map initilisation was based on Javascript which looked for the number of divs that belonged to the 'hidden' class. On the index page there are multiple hidden divs to hold the data needed to create the map markers, on the create find page there is only 1. Therefore by getting the number of hidden div elements with a getElementsByClassName and using an if statement to compare the total number, JS could detect the index and create find page and render a specific map per page. However this option left the issue of an error being presented in the console log for any page which did not have any 'hidden' divs. Whilst this had no impact on the user experience of the site, I wanted to find a way to clear up the error for a general site cleanliness. The solution I found was to use querySelector inside an if statement, with similar counting logic e.g. if (document.querySelectorAll("div.hidden").length === 1) would recognise the create find page as this is the only page with only one hidden div. Any pages without hidden divs do not raise the error. 
 
+5. Map Marker View Find on Heroku - I was very pleased with the eventual creation of the map markers, and that a user could click from the map to view a particular find. I was very worried when, much to my horror, this didn't work on the deployed Heroky app, instead I got a a server 500 error. I investigated if this was due to the find needing to be approved, or perhaps being caught in some king of author-only access. However I realised that on Heroku, when clicking View Find on one of the map markers, it was actually trying to access a local server URL. After investigation this was due to this piece of code in the Javascipt:
+
+[Map marker Javascript code which caused isssue](documentation/edit-delete-http-issue.PNG)
+
+Changing the text2 line, to make the template literal create a URL with the Heroku app URL solved this issue. 
+
 ### Known Issues
 
 1. Leaderboard Revisit
