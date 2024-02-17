@@ -84,7 +84,7 @@ async function initMap() {
 	google.maps.event.addListener(marker, 'click', (function(marker, i) {
 		return function() {
 			let text = slugsTemp[i];
-			let text2 = `http://127.0.0.1:8000/detail/${text}`;
+			let text2 = `https://mushroom-mapper-6a227ba72c70.herokuapp.com/${text}`;
 			let text3 = text2.replace(/['"]+/g, '');
 			let anchor = document.createElement('a');
 			anchor.href = text3;

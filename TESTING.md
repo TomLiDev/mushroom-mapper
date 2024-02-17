@@ -114,11 +114,11 @@ In the future I would look at potentially scaling back the background for smalle
 
 Each page was assessed using the WAVE accessibility tool. Every page passed without any errors, please use the links below to view the scores for each page:
 
-- [Homepage WAVE Test](documentation/wave-homepage.webp)
-- [Register WAVE Test](documentation/wave-register.webp)
-- [Login WAVE Test](documentation/wave-login.webp)
-- [Create Find WAVE Test](documentation/wave-create-find.webp)
-- [Find Detail WAVE Test](documentation/wave-find-detail.webp)
+- ![Homepage WAVE Test](documentation/wave-homepage.webp)
+- ![Register WAVE Test](documentation/wave-register.webp)
+- ![Login WAVE Test](documentation/wave-login.webp)
+- ![Create Find WAVE Test](documentation/wave-create-find.webp)
+- ![Find Detail WAVE Test](documentation/wave-find-detail.webp)
 
 After editing to include all alt tags, all pages passed without any errors. The majority of alerts raised in the testing, such as those on the homepage, were due to 'Very small text'. These were actually coming from the hidden div's which hold the data necessary for making map markers, so were not appearing on screen at all. These divs are needed for the map to function properly and despite exploring other options for holding the map marker data I could not find a suitable mechanism in the time frame for this project so they have remained as is. 
 
