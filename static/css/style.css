@@ -180,7 +180,6 @@ body {
 .green-button {
     color: white;
     background-color: green;
-    border-color: green;
 }
 
 .green-button:hover {
@@ -206,7 +205,6 @@ body {
 
 .delete-button {
     background-color: #b31c1c;
-    border-color: #b31c1c;
 }
 
 .delete-button:hover {
@@ -334,8 +332,6 @@ label {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: none;
-        margin-right: none;
     }
 
     .hide-small-screen {

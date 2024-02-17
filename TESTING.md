@@ -40,7 +40,7 @@ Later issues on first deploying my website, reviewed with my mentor were:
 
 ### W3C Validator
 
-The W3C validator was used to validate all HTML pages and CSS in the style.css.
+The W3C validator was used to validate all HTML pages and CSS.
 
 - [Screenshot of CSS W3C Validated](documentation/css-w3c-validated.png)
 - [Screenshot of index page W3C Validated](documentation/index-w3c.png)
