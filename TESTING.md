@@ -114,20 +114,15 @@ In the future I would look at potentially scaling back the background for smalle
 
 Each page was assessed using the WAVE accessibility tool. Every page passed without any errors, please use the links below to view the scores for each page:
 
-- [Homepage WAVE Test](documentation/index-wave.png)
-- [Username page WAVE Test](documentation/username-wave.png)
-- [Quiz Start WAVE Test](documentation/quiz-start-wave.png)
-- [Result page WAVE Test](documentation/result-wave.png)
-- [Leaderboard WAVE Test](documentation/leaderboard-wave.png)
-- [404 page WAVE Test](documentation/error-page-wave.png)
+- [Homepage WAVE Test](documentation/wave-homepage.webp)
+- [Register WAVE Test](documentation/wave-register.webp)
+- [Login WAVE Test](documentation/wave-login.webp)
+- [Create Find WAVE Test](documentation/wave-create-find.webp)
+- [Find Detail WAVE Test](documentation/wave-find-detail.webp)
 
-A warning which was raised during the wave testing was that the pages used h2 elements instead of h1. As this was a relatively simple change I replaced the h2 elements with h1's where necessary.
+After editing to include all alt tags, all pages passed without any errors. The majority of alerts raised in the testing, such as those on the homepage, were due to 'Very small text'. These were actually coming from the hidden div's which hold the data necessary for making map markers, so were not appearing on screen at all. These divs are needed for the map to function properly and despite exploring other options for holding the map marker data I could not find a suitable mechanism in the time frame for this project so they have remained as is. 
 
-Some of the other pages have similar warnings where the WAVE program thought that text was a possible h2, and should have been made as such, but these were for small pieces of text such as "score" inside the final score box, so semantically I didn't think it made sense to make these headings when they are more similar to labels.
-
-The wave testing also flagged the "check leaderboard" button on the results page as redundant, as there was the same link the nav bar, but I kept this in as I felt it was good UX, and I didn't want to change the nav bar purely for one page.
-
-No errors were raised on any page.
+Another of the common alerts relates to a redundant link. This is the second home link on the nav bar. I have deliberately kept this, as when displayed on smaller screens and the burger menu is shown for the other nav items, I wanted a home option to appear in this dropdown list as well as the main MushroomMappers icon home link.
 
 ## Manual Testing
 
