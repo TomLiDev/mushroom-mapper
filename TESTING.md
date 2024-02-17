@@ -132,21 +132,6 @@ Another of the common alerts relates to a redundant link. This is the second hom
 :-----:|:-----:|:-----:
 one|two|three
 
-#### First Time Visitors
-
-| Aim                                                 | How does the site achieve this?                                                                                                                                                                                                   |
-| :-------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Find out how to play the game                       | The how to play option, accessible from the home page, gives clear instruction on how to play the game                                                                                                                            |
-| Start the quiz easily                               | The quiz can be started very easily and quickly from the option on the home screen, or immediately from the the instructions page to save navigating back to the home page                                                        |
-| Know which questions I got right and wrong          | Each question highlights the correct answer in green when an answer is clicked on. If the answer that has been clicked is incorrect this is highlighted in red                                                                    |
-| Know final score and how I compare to other players | Final score is returned to the player at the end of the quiz with the option to see if that score has been enough to make the leaderboard with a message to confirm whether or not the player has made the leaderboard on viewing |
-
-#### Return Visitor
-
-| Aim                                                    | How does the site achieve this?                                                                                                                                         |
-| :----------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Quickly understand if my score is still in leaderboard | Every page has the option to navigate to the leaderboard in the nav bar at the top, players can go to view their previous scores at any time without doing another quiz |
-| Start a new quiz                                       | A new quiz can be started from the home screen, or directly from the leaderboard, to save having to go to the home page                                                 |
 
 ## Full Testing
 

@@ -3,6 +3,10 @@
 most of this section is for creating the latitude and longitude data points needed to place custom markers
 on the map to show the location of existing finds */
 
+let latsTemp = [];
+let lngsTemp = [];
+let slugsTemp = [];
+
 document.addEventListener("DOMContentLoaded", function () {
 
 	/** This first if statement simply triggers map initiliation, and nothing else
@@ -10,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 */
 	
 	if (document.querySelectorAll("div.hidden").length > 1) {
-		initMap()
+		initMap();
 	}
 
 	/** This if statement triggers the creation of the necessary data to create the 
@@ -20,29 +24,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (document.querySelectorAll("div.hidden").length === 1) {
 		/* This section takes the coordinates and slugs from the finds held in
 		the hidden div on the index page. */
-		const coordinates = document.getElementsByClassName("hidden-coordinates")
-		const slugs = document.getElementsByClassName("hidden-slugs")
-
-		latsTemp = []
-		lngsTemp = []
-		slugsTemp = []
+		const coordinates = document.getElementsByClassName("hidden-coordinates");
+		let slugs = document.getElementsByClassName("hidden-slugs");
 
 		/* The below for loop iterates through the slugs and coordinates and creates a separate array 
 		for the slugs, longitudes, and latitudes. These are used later for the creation of the map
 		markers. */
 
-		for (i = 0; i < slugs.length; i++) {
-			let slugString = JSON.stringify(slugs[i].innerText)
-			slugsTemp.push(slugString)
-			let latiPlace = parseFloat(coordinates[i].innerText.slice(1, 18))
-			let lngiPlace = parseFloat(coordinates[i].innerText.slice(20, 39))
-			latsTemp.push(latiPlace)
-			lngsTemp.push(lngiPlace)
-		};
+		for (let i = 0; i < slugs.length; i++) {
+			let slugString = JSON.stringify(slugs[i].innerText);
+			slugsTemp.push(slugString);
+			let latiPlace = parseFloat(coordinates[i].innerText.slice(1, 18));
+			let lngiPlace = parseFloat(coordinates[i].innerText.slice(20, 39));
+			latsTemp.push(latiPlace);
+			lngsTemp.push(lngiPlace);
+		}
 
 		initMap();
 		
-	};
+	}
 
 });
 
@@ -67,7 +67,7 @@ async function initMap() {
 	/* The below function places the markers on the map */
 
 	function createExistingMarkers () {
-		infowindow = new google.maps.InfoWindow()
+		let infowindow = new google.maps.InfoWindow();
 		var marker, i;
 
 		for (let i = 0; i < latsTemp.length; i++) {
@@ -75,34 +75,34 @@ async function initMap() {
 				map: map,
 				position: new google.maps.LatLng(latsTemp[i], lngsTemp[i]),
 				title: slugsTemp[i],
-			})
+			});
 
 	/* This section of the function places a click listener on each marker and 
 	customises the info window, shown on click, to include an anchor which will
 	redirect to the relevant find detail page. */
 
-			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				return function() {
-					text = slugsTemp[i]
-					text2 = `http://127.0.0.1:8000/detail/${text}`
-					text3 = text2.replace(/['"]+/g, '')
-					anchor = document.createElement('a')
-					anchor.href = text3;
-					anchor.innerText = 'View this find';
+	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		return function() {
+			let text = slugsTemp[i];
+			let text2 = `http://127.0.0.1:8000/detail/${text}`;
+			let text3 = text2.replace(/['"]+/g, '');
+			let anchor = document.createElement('a');
+			anchor.href = text3;
+			anchor.innerText = 'View this find';
 
-				  infowindow.setContent(anchor);
-				  infowindow.open(map, marker);
-				}
-			  })(marker, i));
-		}
-		}
+			infowindow.setContent(anchor);
+			infowindow.open(map, marker);
+		};
+	})(marker, i));
+	}
+	}
 
 	/* The if statement below triggers the create markers function, and
 	customises the welcome marker start message for loading on the index page */
 	
 		if (document.getElementsByClassName("hidden")[0].id === "hidden-index") {
 
-			infoText = "Scoll around the map to view finds"
+			infoText = "Scoll around the map to view finds";
 
 			let infoWindowStart = new google.maps.InfoWindow({
 				content: infoText,
@@ -111,7 +111,7 @@ async function initMap() {
 		
 			infoWindowStart.open(map);
 
-			createExistingMarkers()
+			createExistingMarkers();
 		}
 
 	/* Below is the code for placing and recreating the map marker on create-find page */
@@ -125,7 +125,7 @@ async function initMap() {
 	});
 
 	infoWindow.setContent(
-			JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2),
+			JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
 	);	
 	infoWindow.open(map);
 	});
@@ -134,17 +134,17 @@ async function initMap() {
 	the location clicked on the map and store them in session storage, this value
 	is used to populate the coordinates field on the create find form. */
 
+	function placeMarker(latLng, map) {
+		map.panTo(latLng);
+		sessionStorage.setItem("StoringTest", latLng);
+		document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest");
+	}
+	
 	map.addListener('click', (e) => {
 		placeMarker(e.latLng, map);
 	});
-	  
-	function placeMarker(latLng, map) {
-	map.panTo(latLng)
-	sessionStorage.setItem("StoringTest", latLng)
-	document.getElementById("id_location_coordinates").innerText = sessionStorage.getItem("StoringTest")
-	}
 
-	infoText = "Click the location of your find!"
+	infoText = "Click the location of your find!";
 	
   	let infoWindowStart = new google.maps.InfoWindow({
     	content: infoText,
