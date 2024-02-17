@@ -7,7 +7,7 @@
 <div class="p-2 mx-4 mt-4 rounded text-body-emphasis bg-body-secondary">
     <div class="justify-content-center inner border rounded text-center my-m-bottom">
         <div class="col-12 p-2">
-            <h1 class="display-4 text-center" id="welcome-text">Welcome to Mushroom Mappers</h1>
+            <h1 class="display-4 text-center welcome-text">Welcome to Mushroom Mappers</h1>
         </div>
         <div class="row my-center">
             {% if not user.is_authenticated %}
@@ -16,7 +16,7 @@
         </div>
             {% else %}
                 <div class="row">
-                    <h1 class="display-4" id="welcome-text">Welcome {{ user.username }}</h1>
+                    <h1 class="display-4 welcome-text">Welcome {{ user.username }}</h1>
                     <p class="lead">Remember the golden rule, if in doubt leave it out</p>
                 </div>
                 <div class="row d-flex justify-content-center">
@@ -110,5 +110,7 @@ creating the map markers. -->
         {% endif %}
     </ul>
 </nav>
+
+</div> <!-- This final div closure is for the main-flex div created on base.html -->
 {% endif %}
 {%endblock%}
