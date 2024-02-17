@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-6 view-image-container">
                         {% if "placeholder" in find.featured_image.url %}
-                        <img class="find-image-large" src="{% static 'images\mushroom-icon.jpg' %}" alt="placeholder mushroom icon image">/>
+                        <img class="find-image-large" src="{% static 'images\mushroom-icon.webp' %}" alt="placeholder mushroom icon image">/>
                         {% else %}
                         <img class="find-image-large" src="{{ find.featured_image.url }}" alt="mushroom image uploaded by user"/>
                         {% endif %}
