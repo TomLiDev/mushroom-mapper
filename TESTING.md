@@ -192,153 +192,166 @@ Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Open
 Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
 Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
 Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
-HOMEPAGE SPECIFIC TESTING| | | | 
- | | | | 
+HOMEPAGE| | | | 
+Continue Reading Link on Find - Click|Returns the relevant find detail page|Clicked continue reading link|Returned relevant find detail page|Pass
+Continue Reading Link on Find - Hover|Text turns dark green with dark green box surrounding|Hovered over link|Text turned dark green with dark green box surrounding it|Pass
+Map Marker Start Info Message|Map should load with welcome message centered on London|Map loaded|Welcome message centered on London|Pass
+Map marker - Hover|Marker should display find title in info window|Hovered on map marker|Find title shown in info window|Pass
+Map Marker - Click|Infowindow with "view find" link displayed inside it|Clicked marker|Link displayed in infowindow over marker|Pass
+View Find from Marker|Redirect to relevant find details|Clicked link in map marker|Redirected to relevant find detail page|Pass
 IF USER NOT AUTHENTICATED| | | | 
 Register Button Click|Pale blue highlight around button, redirect to Sign Up page |Clicked button|Blue highlight appeared around button and redirected to sign up page|Pass
-Register Button Hover|Button background turns darker green|Hovered over button|Button turned darker green| 
-Map stuff| | | | 
-Map stuff| | | | 
-Continue Reading Link on Find - Click|Returns the relevant find detail page|Clicked continue reading link|Returned relevant find detail page| 
-Continue Reading Link on Find - Hover|Text turns dark green with dark green box surrounding|Hovered over link|Text turned dark green with dark green box surrounding it| 
-Pagination nav options| | | | 
- | | | | 
+Register Button Hover|Button background turns darker green|Hovered over button|Button turned darker green|Pass
 IF USER AUTHENTICATED| | | | 
-Create Find Button|Returns the create find page|Clicked button|Redirected to create find page| 
-Create Find Button Hover|Button turns dark green|Hovered over button|Button turned dark green| 
-Your Existing Finds Button|Returns the user to view finds page, filtered to display finds they have created|Clicked button|Returned to view finds page with filtered list of finds| 
-Your Existing Finds Button Hover|Button turns darker grey|Hovered over button|Button turned darker grey| 
+Create Find Button|Returns the create find page|Clicked button|Redirected to create find page|Pass
+Create Find Button Hover|Button turns dark green|Hovered over button|Button turned dark green|Pass
+Your Existing Finds Button|Returns the user to view finds page, filtered to display finds they have created|Clicked button|Returned to view finds page with filtered list of finds|Pass
+Your Existing Finds Button Hover|Button turns darker grey|Hovered over button|Button turned darker grey|Pass
 
+### Create Find Page
 
-### OLD OLD OLD
-### Homepage
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+CREATE FIND SPECIFICS| | | | 
+Create new find (Poisonous) |Creation of new record for found mushroom |Form completion and submission via 'Submit' button |Submission created|Pass
+Create new find (Edible)|Creation of new record for found mushroom |Form completion and submission via 'Submit' button |Submission created|Pass
+Create new find - coordinate population |Coordinates accurately recorded in form submission by clicking on map |Clicking of location on map|Coordinates placed in form |Pass
+Review of location view Google Street View |View of location in Google Street View|Clicking on Street View icon in map to review location digitally |Tool loaded and location visible online|Pass
+Expansion of Google Map to full screen|Google Map to expand from partial to ful screen view|Click on full screen expansion button in top right of the map to enlarge map |Map expanded to full screen |Pass
+Zoom of Google Map to closer view of location|Google Map to zoom in to location in greater detail |Click on zoom in/out button on the map to zoom map |Map to zoom in/ out|Pass
+Create new find - Confirm window (Cancel)|Pop up window to appear before submission of record - allows user to cancel submitting new find entry |Click 'Cancel' on pop up window |Entry cancelled |Pass
+Create new find - Confirm window (Submit)|Pop up window to appear before submission of record - allows user to submit new find entry |Click 'Submit' on pop up window |Entry submitted|Pass
+Create new find - Record not submitted if text box is blank |Form will not submit if Title, Content or Location boxes have missing text|Left box blank and attempted to submit entry|Entry will not save, form refreshes with empty box highlighted with blue outline|Pass
 
-| Feature/Function    | Expected Outcome                                          | Method of Test    | Result                           | Pass/Fail |
-| :------------------ | :-------------------------------------------------------- | :---------------- | :------------------------------- | :-------- |
-| NAVBAR              |                                                           |                   |                                  |
-| Home Link           | Return/refresh home page on click                         | Clicked link      | Returned to home                 | Pass      |
-| Home Link Hover     | Underline appears under text.                             | Hovered over link | Underline appeared               | Pass      |
-| Leaderboard Link    | Return/refresh to Leaderboard page on click               | Clicked link      | Returned to Leaderboard page     | Pass      |
-| Leaderboard Hover   | Underline appears under text.                             | Hovered over link | Underline appeared               | Pass      |
-| FOOTER              |                                                           |                   |                                  |
-| Facebook Icon Link  | Opens Facebook in separate browser on click               | Clicked icon      | Opened Facebook in separate tab  | Pass      |
-| Instagram Icon Link | Opens Instagram in separate browser on click              | Clicked icon      | Opened Instagram in separate tab | Pass      |
-| Twitter Icon Link   | Opens Twitter in separate browser on click                | Clicked icon      | Opened Twitter in separate tab   | Pass      |
-| Linkedin Icon Link  | Opens Linkedin in separate browser on click               | Clicked icon      | Opened Linkedin in separate tab  | Pass      |
-| HOMEPAGE            |                                                           |                   |                                  |
-| Begin! Link         | When clicked user will be directed to username page       | Clicked link      | Redirected to username page      | Pass      |
-| How to play Link    | When clicked user will be redirected to instructions page | Clicked link      | Redirected to instructions page  | Pass      |
-| Leaderboard Link    | When clicked user will be redirected to Leaderboard page  | Clicked link      | Redirected to Leaderboard page   | Pass      |
+### Edit Find Page
 
-### Username Page
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+EDIT FIND PAGE SPECIFICS| | | | 
+Edit Find Button|Enter the edit find form - Confirmation window prompted|Clicked edit find button|Confirmation window prompted|Pass
+Edit Find Button - Confirm Yes on prompt with valid form|With valid form data - find is edited and user returned to view finds page|Clicked okay on confirm window|Form details edited and user returned to view finds |Pass
+Edit Find Button - Confirm Yes on prompt with invalid|returned to form with no submission|Clicked confirm button in confirmation message|Returned to form with no submission|Pass
+Edit Find Button - Cancel on prompt|returned to form with no submission|Clicked cancel on confirmation window|Returned to form with no submission|Pass
+Edit new find - coordinate population |Coordinates accurately replaced in form by clicking on map |Clicking of location on map|Coordinates placed in form |Pass
+Review of location view Google Street View |View of location in Google Street View|Clicking on Street View icon in map to review location digitally |Tool loaded and location visible online|Pass
+Expansion of Google Map to full screen|Google Map to expand from partial to ful screen view|Click on full screen expansion button in top right of the map to enlarge map |Map expanded to full screen |Pass
+Zoom of Google Map to closer view of location|Google Map to zoom in to location in greater detail |Click on zoom in/out button on the map to zoom map |Map to zoom in/ out|Pass
 
-| Feature/Function    | Expected Outcome                                                                             | Method of Test    | Result                                                                                          | Pass/Fail |
-| :------------------ | :------------------------------------------------------------------------------------------- | :---------------- | :---------------------------------------------------------------------------------------------- | :-------- |
-| NAVBAR              |                                                                                              |                   |                                                                                                 |
-| Home Link           | Return/refresh home page on click                                                            | Clicked link      | Returned to home                                                                                | Pass      |
-| Home Link Hover     | Underline appears under text.                                                                | Hovered over link | Underline appeared                                                                              | Pass      |
-| Leaderboard Link    | Return/refresh to Leaderboard page on click                                                  | Clicked link      | Returned to Leaderboard page                                                                    | Pass      |
-| Leaderboard Hover   | Underline appears under text.                                                                | Hovered over link | Underline appeared                                                                              | Pass      |
-| FOOTER              |                                                                                              |                   |                                                                                                 |
-| Facebook Icon Link  | Opens Facebook in separate browser on click                                                  | Clicked icon      | Opened Facebook in separate tab                                                                 | Pass      |
-| Instagram Icon Link | Opens Instagram in separate browser on click                                                 | Clicked icon      | Opened Instagram in separate tab                                                                | Pass      |
-| Twitter Icon Link   | Opens Twitter in separate browser on click                                                   | Clicked icon      | Opened Twitter in separate tab                                                                  | Pass      |
-| Linkedin Icon Link  | Opens Linkedin in separate browser on click                                                  | Clicked icon      | Opened Linkedin in separate tab                                                                 | Pass      |
-| Username Page       |                                                                                              |                   |                                                                                                 |
-| Enter Name Field    | When clicked placeholder text will clear OR user will get suggestions for previous names     | Clicked in field  | Placeholder text cleared OR given suggestions to select from previous name which populate field | Pass      |
-| Start Quiz!         | When clicked user will be redirected to quiz-start page and first question will be presented | Clicked link      | Redirected to quiz-start page and first question loaded                                         | Pass      |
+### View Finds Page
 
-### Instructions Page
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+VIEW FIND SPECIFICS| | | | 
+Filtered list of Finds|Finds listed in View Finds should be filtered to currently logged in user|Entered View Finds|Finds listed filtered to logged in user|Pass
+Edit Find Button|Enter the edit find form|Clicked edit find button|Entered edit find form|Pass
+Delete Button|Confirmation message asking "Are you sure you want to delete this find?"|Clicked button|Confirmation message prompted|Pass
+Delete Button Confirmation Message - Cancel|Confirmation message cancelled and returned to View Finds with no action taken.|Clicked cancel button in confirmation message|Confirmation message cancelled and returned to View Finds with no action taken.|Pass
+Delete Button Confirmation Message - Confirm|Delete Find and returned to View Finds with updated list of Finds|Clicked confirm button in confirmation message|Find deleted and returned to View Finds with up to date list of Finds.|Pass
 
-| Feature/Function    | Expected Outcome                                    | Method of Test    | Result                           | Pass/Fail |
-| :------------------ | :-------------------------------------------------- | :---------------- | :------------------------------- | :-------- |
-| NAVBAR              |                                                     |                   |                                  |
-| Home Link           | Return/refresh home page on click                   | Clicked link      | Returned to home                 | Pass      |
-| Home Link Hover     | Underline appears under text.                       | Hovered over link | Underline appeared               | Pass      |
-| Leaderboard Link    | Return/refresh to Leaderboard page on click         | Clicked link      | Returned to Leaderboard page     | Pass      |
-| Leaderboard Hover   | Underline appears under text.                       | Hovered over link | Underline appeared               | Pass      |
-| FOOTER              |                                                     |                   |                                  |
-| Facebook Icon Link  | Opens Facebook in separate browser on click         | Clicked icon      | Opened Facebook in separate tab  | Pass      |
-| Instagram Icon Link | Opens Instagram in separate browser on click        | Clicked icon      | Opened Instagram in separate tab | Pass      |
-| Twitter Icon Link   | Opens Twitter in separate browser on click          | Clicked icon      | Opened Twitter in separate tab   | Pass      |
-| Linkedin Icon Link  | Opens Linkedin in separate browser on click         | Clicked icon      | Opened Linkedin in separate tab  | Pass      |
-| Instructions Page   |                                                     |                   |                                  |
-| Begin! Button       | When clicked user will be returned to username page | Clicked button    | Returned to username page        | Pass      |
+### Find Detail Page
 
-### Quiz Start
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+FIND DETAIL SPECIFICS| | | | 
+Edible Icon|If Find has suspected\_edible = True, then an icon of knife, fork and plate should appear |Entered find detail view of Find with suspected\_edible = True|Knife, fork and plate icon present on find description|Pass
+Poisonous Icon|If Find has suspected\_poisonours = True, then a skull and crossbones warning icon should appear|Entered find detail view of Find with suspected\_poisonous = True|Skull and crossbones warning icon present on find description|Pass
+Like Find|Counter of likes should increase by 1 and icon should change colour|Clicked Like Find|Likes counter increased by 1 and colour changed |Pass
+Like Counter|Like counter should display heart icon with accurate count number next to it|View Find likes with multiple likes|Icon and count displayed accurately. |Pass
+Comment Submit|Display message confirming comment succesfully created on find, and is now awaiting approval|Typed text for a comment and clicked submit|Confirmation message displayed|Pass
+View Comments|Other, authorised comments, displayed in relevant section on find detail|Viewed find with multiple approved comments, and other non-yet approved comments|Only approved comments visible on Find|Pass
+Comments Counter|Speech bubble icon with number accurately displaying the number of approved comments|Viewed find with multiple approved comments, and other non-yet approved comments|Only approved comments included in count|Pass
 
-| Feature/Function       | Expected Outcome                                                                                                                                                                                                  | Method of Test           | Result                                                                                                                            | Pass/Fail |
-| :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------- | :-------- |
-| NAVBAR                 |                                                                                                                                                                                                                   |                          |                                                                                                                                   |
-| Home Link              | Return/refresh home page on click                                                                                                                                                                                 | Clicked link             | Returned to home                                                                                                                  | Pass      |
-| Home Link Hover        | Underline appears under text.                                                                                                                                                                                     | Hovered over link        | Underline appeared                                                                                                                | Pass      |
-| Leaderboard Link       | Return/refresh to Leaderboard page on click                                                                                                                                                                       | Clicked link             | Returned to Leaderboard page                                                                                                      | Pass      |
-| Leaderboard Hover      | Underline appears under text.                                                                                                                                                                                     | Hovered over link        | Underline appeared                                                                                                                | Pass      |
-| FOOTER                 |                                                                                                                                                                                                                   |                          |                                                                                                                                   |
-| Facebook Icon Link     | Opens Facebook in separate browser on click                                                                                                                                                                       | Clicked icon             | Opened Facebook in separate tab                                                                                                   | Pass      |
-| Instagram Icon Link    | Opens Instagram in separate browser on click                                                                                                                                                                      | Clicked icon             | Opened Instagram in separate tab                                                                                                  | Pass      |
-| Twitter Icon Link      | Opens Twitter in separate browser on click                                                                                                                                                                        | Clicked icon             | Opened Twitter in separate tab                                                                                                    | Pass      |
-| Linkedin Icon Link     | Opens Linkedin in separate browser on click                                                                                                                                                                       | Clicked icon             | Opened Linkedin in separate tab                                                                                                   | Pass      |
-| Quiz Start             |                                                                                                                                                                                                                   |                          |                                                                                                                                   |
-| Click correct Answer   | When clicked user will have their selected button highlighted in green, all buttons will be disabled until next question, a score of 10 will be added to current score                                            | Clicked correct answer   | Correct answer/answer clicked highlighted in green, all buttons disabled until next question, score of 10 added                   | Pass      |
-| Click incorrect Answer | When clicked user will have their selected button highlighted in red, correct answer will be highlighted in green, all buttons will be disabled until next question, a score of 10 will be added to current score | Clicked incorrect answer | Clicked answer/incorrect answer highlighted in red, correct answer highlighted in green, all buttons disabled until next question | Pass      |
-| Next question load     | After correct/incorrect action, 2 seconds pass and then next question loaded with answer buttons enabled                                                                                                          | Clicked Answer           | 2 seconds pass and next question loaded with answer buttons enabled                                                               | Pass      |
-| Max questions reached  | At max questions answered quiz is ended and user redirected to results page                                                                                                                                       | Max questions reached    | Returned to results page                                                                                                          | Pass      |
+### Sign in Page
 
-### Result Page
+Feature/Function	Expected Outcome	Method of Test	Result	Pass/Fail
+NAVBAR				
+Home Link	Return/refresh home page on click	Clicked link	Returned to home	Pass
+Home Link Hover	Underline appears under text.	Hovered over link	Underline appeared	Pass
+MushroomMappers Home Text	Return/refresh home page on click	Clicked link	Returned to home	Pass
+MushroomMappers Home Text Hover	Underline appears under text.	Hovered over link	Underline appeared	Pass
+FOOTER				
+Facebook Icon Link	Opens Facebook in separate browser on click	Clicked icon	Opened Facebook in separate tab	Pass
+Instagram Icon Link	Opens Instagram in separate browser on click	Clicked icon	Opened Instagram in separate tab	Pass
+Twitter Icon Link	Opens Twitter in separate browser on click	Clicked icon	Opened Twitter in separate tab	Pass
+Youtube Icon Link	Opens Youtube in separate browser on click	Clicked icon	Opened Youtube in separate tab	Pass
+SIGN IN SPECIFICS				
+Log in Button (fields not filled in)	No progress, prompted to fill in necessary fields	Clicked button	No progress, prompted to fill in fields	Pass
+Log in Button (fields filled in)	Returned to home page as logged in user	Clicked button	Returned to home page as signed in user	Pass
 
-| Feature/Function           | Expected Outcome                                                                                                            | Method of Test    | Result                                                                    | Pass/Fail |
-| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------ | :-------- |
-| NAVBAR                     |                                                                                                                             |                   |                                                                           |
-| Home Link                  | Return/refresh home page on click                                                                                           | Clicked link      | Returned to home                                                          | Pass      |
-| Home Link Hover            | Underline appears under text.                                                                                               | Hovered over link | Underline appeared                                                        | Pass      |
-| Leaderboard Link           | Return/refresh to Leaderboard page on click                                                                                 | Clicked link      | Returned to Leaderboard page                                              | Pass      |
-| Leaderboard Hover          | Underline appears under text.                                                                                               | Hovered over link | Underline appeared                                                        | Pass      |
-| FOOTER                     |                                                                                                                             |                   |                                                                           |
-| Facebook Icon Link         | Opens Facebook in separate browser on click                                                                                 | Clicked icon      | Opened Facebook in separate tab                                           | Pass      |
-| Instagram Icon Link        | Opens Instagram in separate browser on click                                                                                | Clicked icon      | Opened Instagram in separate tab                                          | Pass      |
-| Twitter Icon Link          | Opens Twitter in separate browser on click                                                                                  | Clicked icon      | Opened Twitter in separate tab                                            | Pass      |
-| Linkedin Icon Link         | Opens Linkedin in separate browser on click                                                                                 | Clicked icon      | Opened Linkedin in separate tab                                           | Pass      |
-| Results Page               |                                                                                                                             |                   |                                                                           |
-| Player name                | When returned to result page, player name inputted on username field to show in space between Well done and You Scored text | Returned to page  | Inputted player name shown in space between Well done and You Scored text | Pass      |
-| Player Score               | When returned to result page, player score should be taken and displayed next to Score:                                     | Returned to page  | Correct player score shown next to Score:                                 | Pass      |
-| Check the leaderboard link | When clicked, return use to the leaderboard                                                                                 | Clicked link      | Returned to leaderboard                                                   | Pass      |
+### Sign Out Page
 
-### Leaderboard
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+SIGN OUT SPECIFICS| | | | 
+Log out Button|Returned to home page as generic, non authenticated user|Clicked button|Returned to home page as non authenticated user|Pass
 
-| Feature/Function                      | Expected Outcome                                                                                                                                                   | Method of Test                          | Result                                                               | Pass/Fail |
-| :------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- | :------------------------------------------------------------------- | :-------- |
-| NAVBAR                                |                                                                                                                                                                    |                                         |                                                                      |
-| Home Link                             | Return/refresh home page on click                                                                                                                                  | Clicked link                            | Returned to home                                                     | Pass      |
-| Home Link Hover                       | Underline appears under text.                                                                                                                                      | Hovered over link                       | Underline appeared                                                   | Pass      |
-| Leaderboard Link                      | Return/refresh to Leaderboard page on click                                                                                                                        | Clicked link                            | Returned to Leaderboard page                                         | Pass      |
-| Leaderboard Hover                     | Underline appears under text.                                                                                                                                      | Hovered over link                       | Underline appeared                                                   | Pass      |
-| FOOTER                                |                                                                                                                                                                    |                                         |                                                                      |
-| Facebook Icon Link                    | Opens Facebook in separate browser on click                                                                                                                        | Clicked icon                            | Opened Facebook in separate tab                                      | Pass      |
-| Instagram Icon Link                   | Opens Instagram in separate browser on click                                                                                                                       | Clicked icon                            | Opened Instagram in separate tab                                     | Pass      |
-| Twitter Icon Link                     | Opens Twitter in separate browser on click                                                                                                                         | Clicked icon                            | Opened Twitter in separate tab                                       | Pass      |
-| Linkedin Icon Link                    | Opens Linkedin in separate browser on click                                                                                                                        | Clicked icon                            | Opened Linkedin in separate tab                                      | Pass      |
-| Leaderboard                           |                                                                                                                                                                    |                                         |                                                                      |
-| Well done! Alert                      | On being returned to leaderboard, if score is high enough to make leaderboard, alert appears on screen, saying Well done! Leaderboard shuffled accordingly (below) | Returned to page with high enough score | Well done! Alert                                                     | Pass      |
-| Not this time pilot, try again. Alert | When returned to leaderboard with score lower than lowest score on leaderboard, alert will appear with text Not this time pilot, try again.                        | Returned to page with low score         | Not this time pilot, try again. Alert                                | Pass      |
-| Leaderboard reorder                   | If player score is high enough, after clicking okay on alert, leaderboard is shuffled with player score and name inputted into relevant rank                       | Clicked alert after high enough score   | leaderboard reordered with name and score inputted into correct rank | Pass      |
+### Registration Page 
 
-### 404 Error Page
-
-| Feature/Function    | Expected Outcome                             | Method of Test    | Result                           | Pass/Fail |
-| :------------------ | :------------------------------------------- | :---------------- | :------------------------------- | :-------- |
-| NAVBAR              |                                              |                   |                                  |
-| Home Link           | Return/refresh home page on click            | Clicked link      | Returned to home                 | Pass      |
-| Home Link Hover     | Underline appears under text.                | Hovered over link | Underline appeared               | Pass      |
-| Leaderboard Link    | Return/refresh to Leaderboard page on click  | Clicked link      | Returned to Leaderboard page     | Pass      |
-| Leaderboard Hover   | Underline appears under text.                | Hovered over link | Underline appeared               | Pass      |
-| FOOTER              |                                              |                   |                                  |
-| Facebook Icon Link  | Opens Facebook in separate browser on click  | Clicked icon      | Opened Facebook in separate tab  | Pass      |
-| Instagram Icon Link | Opens Instagram in separate browser on click | Clicked icon      | Opened Instagram in separate tab | Pass      |
-| Twitter Icon Link   | Opens Twitter in separate browser on click   | Clicked icon      | Opened Twitter in separate tab   | Pass      |
-| Linkedin Icon Link  | Opens Linkedin in separate browser on click  | Clicked icon      | Opened Linkedin in separate tab  | Pass      |
-| Instructions Page   |                                              |                   |                                  |
-| Back to home        | When clicked user returned to home page      | Clicked button    | Returned to homepage             | Pass      |
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+REGISTRATION SPECIFICS| | | | 
+Create Account Button (Fields not filled in)|No progression, prompted to fill out missing fields|Clicked button|No progression, prompted to fill out missing fields|Pass
+Create Account Button (Fields filled in)|Confirmation |Clicked button|Returned to home page as non authenticated user|Pass
 
 ## Bugs
 
