@@ -175,6 +175,15 @@ body {
     border: solid 1px gray;
 }
 
+.error-box-container {
+    margin-top: 5%;
+}
+
+.error-box {
+    width: 50%;
+    margin: auto;
+}
+
 /** Button Styling and hover effects **/
 
 .green-button {

@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
 
-<div class="my-center">
-    <div class="container-fluid inner border-general medium-rounded">
-        <p>
+<div class="my-center error-box-container">
+    <div class="container-fluid inner border-general medium-rounded my-m-top error-box">
+        <h1>
             Error 403 - Access forbidden.
-        </p>
-        <a class="nav-link active green-button m-4" aria-current="page" href="{% url 'home' %}"> Return Home</a>
+        </h1>
+        <a class="nav-link active green-button m-4 medium-rounded" aria-current="page" href="{% url 'home' %}"> Return Home</a>
     </div>
 </div>
 

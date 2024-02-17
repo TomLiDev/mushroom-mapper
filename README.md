@@ -238,9 +238,13 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 #### Colour Scheme
 
-As a site dedicated to a natural outdoor pursuit, I will use greens, browns and blues in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom adundance I may also use dark reds and yellows.
+As a site dedicated to a largely autumnal, natural outdoor pursuit, I will use greens, browns and yellows and in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom adundance I may also use dark reds and yellows.
 
-![Image of Color Palette](documentation/spacequiz-colour-pallette.png)
+The background, a mushroom outline repeating pattern, gives a nice pale backdrop with the mushroom outlines themselves in a mustard-yellow. This gives a good canvass for more bold colours for specific points of interest on the site, whilst also allowing sections, such as individual find 'cards' and other site messages to stand out relatively easily with a simple all-white background.
+
+For points of interest, such as buttons, green and red were used, white white text inside, whilst the rest of the site used a dark grey text.
+
+![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.png)
 
 #### Typography
 
@@ -250,11 +254,27 @@ San's serif is used as the back-up font if FONT cannot be loaded for any reason.
 
 Apart from some relatively small icons and logos the site imagery itself will be kept minimal as to maximise focus on attention on users images of mushrooms.
 
-Mushroom Mapper is designed to be an easy to use application for foraging enthusiasts to share information about their mushroom finds and share advice on identification. Many thousands of people in Britain enjoy foraging, however there is a great deal of uncertainty when it comes to mushrooms which are safe to eat and which should be left alone. This application is intended to help bridge that gap .
+The exception to this will be the poisonous mushroom logo which will deliberately be made bold so that it stands out.
 
 ## Future Implementations/Plans
 
 In the future I would like to incorporate:
+
+1. JSON/AJAX to Communicate Data - Getting Javascript and Django/Python to 'talk' to each other was an ongoing challenge during this project. This most prominent in creating the map markers (more detail below). I did explore in detail the possibility of incorporating JSON and AJAX calls to push/pull data from different parts of the system, however this isn't something I was familliar with and simply couldn't afford to spend the time to learn from scratch for functionality which wasn't crucial for the project. 
+
+The closest I got was having data pulled from the elephant sql, into a db.js file. Using this, I was able to retrieve and see the find data by running the db.js in js.node, image of the code below.
+
+![An image of the original db.js](documentation/db.js-image.PNG)
+
+With this I was able to print the Find data to the terminal. However I than ran into a similar issue of getting the data over from db.js into script.js (have come to understand this is server side vs browser side Javascript). Despite a lot of investigation with these mechanisms and different combinations, it was simply taking too much time to find a working solution and this was beyond the scope of what student support could reasonably be expected to help with. I therefore settled on creating hidden divs on the index page which container the data using a django for loop. Whilst this is less 'slick' it is perfectly functional, although the hidden text did raise alerts on WAVE testing. 
+
+In the future I would like to explore a more advanced mechanism to acheive this communication of data between the different parts of the application. One of the key reasons is described below. 
+
+2. Customised Advanced Google map markers - Initially I began the creation of the map markers with the relatively new, Advanced Marker available with the Google maps API and imported libraries. I did get to the point where I had markers being plotted on the map with a custom image, the same image as the placeholder mushroom icon, with it sized appropriately to fit on the map. 
+
+My intention was to have each find represented on the map with its uploaded image, in miniature, as the marker icon. This would be accompanied with a the title of the each find, so as to make each marker truly unique and make the map highly engaging for the user. However I ran into issues with incorporating the user-uploaded image into Javascript using Django code, the 2 things simply weren't compatible. Despite a lot of exploration (described above) I couldn't get this working ideally as I would have liked. I did consider pushing the Find image to the hidden index divs, along with the other data, but this could have led a lot of image data being loaded on the page and caused performance issues. 
+
+In the end I settled for the simpler, but still perfectly functional, standard marker, with a custom InfoWindow, within which is incorporated an anchor element which redirects to the detail of the find it represents. Annoyingly, the standard InfoWindow does not seem capable of supporting both the find-slug variable and the created anchor variable. In the future I would like to incorporate advanced markers which still provide the functionality to view the detail of the particular find as a link, whilst supporting the finds particular image and title. 
 
 ### Accessibility
 
