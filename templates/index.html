@@ -9,27 +9,27 @@
         <div class="col-12 p-2">
             <h1 class="display-4 text-center welcome-text">Welcome to Mushroom Mappers</h1>
         </div>
-        <div class="row my-center">
-            {% if not user.is_authenticated %}
-            <p class="lead col-4">Please create an account to enjoy the full site</p>
+        {% if not user.is_authenticated %}
+        <div class="row my-center col-row-switch">
+            <p class="lead width-80 col-4">Please create an account to enjoy the full site</p>
             <a class="btn col-4 welcome-buttons btn-signup my-center my-m-bottom" href="{% url 'account_signup' %}">Register</a>
         </div>
-            {% else %}
-                <div class="row">
-                    <h1 class="display-4 welcome-text">Welcome {{ user.username }}</h1>
-                    <p class="lead">Remember the golden rule, if in doubt leave it out</p>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-2 hide-small-screen">
-                    </div>
-                        <a class="btn col-3 green-button my-m-bottom my-m-right" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
-                        <a class="btn btn-secondary col-3 my-m-bottom" href="{% url 'view_finds' %}">Your Existing Finds</a>
-                    <div class="col-2 hide-small-screen">
-                    </div>
-                </div>
+        {% else %}
+        <div class="row my-center">
+            <h1 class="display-4 welcome-text">Welcome {{ user.username }}</h1>
+            <p class="lead">Remember the golden rule, if in doubt leave it out</p>
         </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-2 hide-small-screen">
+                </div>
+                    <a class="btn col-3 green-button my-m-bottom my-m-right" href="{% url 'create_find' %}" id="create-find-button">Create New Find</a>
+                    <a class="btn btn-secondary col-3 my-m-bottom" href="{% url 'view_finds' %}">Your Existing Finds</a>
+                <div class="col-2 hide-small-screen">
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
 </div>
 
 <!-- Section for the map element -->
@@ -91,6 +91,7 @@ creating the map markers. -->
         </div>
     </div>
     {% endfor %}
+    </div>
 </div>
 
 <!-- This section displays pagination options -->

@@ -12,8 +12,8 @@ Early issues identified in meetings with my mentor were:
 
 Later issues on first deploying my website, reviewed with my mentor were:
 
-- Having the leaderboard remain updated/changed after receiving values and not reverting back to original.
-- Some styling issues where questions with larger answers would overflow the answers section.
+- Ensuring any custom created strings and URL's were correctly configured for the Heroku app. 
+- Ensuring static files were collected and presented properly. 
 
 ## CONTENTS
 
