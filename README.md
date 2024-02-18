@@ -33,7 +33,7 @@ Please use the link below to view the live, deployed site:
       - [404 Error Page](#404-error-page)
     - [The Skeleton Plane](#the-skeleton-plane)
       - [Wireframes](#wireframes)
-      - [Datebase Design](#database-design)
+      - [Database Design](#database-design)
       - [Security](#security)
     - [The Surface Plane](#the-surface-plane)
       - [Design](#design)
@@ -69,7 +69,7 @@ The site aims to be fun, easy to use and promote the values of safe, sustainable
 
 This application was designed and built in line with Agile methodologies, with small, incremental features developed over controlled sprints. There were XXXXXX sprints spaced out XXX weeks. 
 
-Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on percieved requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
+Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on perceived requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
 ![An Image of the mushroom mappers kanban board in progress](documentation/kanban-progress.PNG)
 
@@ -85,11 +85,11 @@ The project had 6 Epics which encompass the main development effort for Mushroom
 
 EPIC 1 - Project Set Up
 
-This epic incorporates the user stories requird for the initial project set up and initial deployment. This epic and the user stories within was the first to be completed.
+This epic incorporates the user stories required for the initial project set up and initial deployment. This epic and the user stories within was the first to be completed.
 
 - Install Django and other necessary libraries
 - Ensure env.py and other sensitive information kept secure
-- Succesfully deploy via Heroku early prior to main development effort
+- Successfully deploy via Heroku early prior to main development effort
 
 EPIC 2 - Create Project Documentation
 
@@ -97,7 +97,7 @@ An ongoing epic until project completion, although this does include user storie
 
 - Write and maintain project Readme
 - Write and maintain testing doc
-- Create github issue request, epics and project board whilst maintain clear commit messages thorughout dev lifecycle.
+- Create github issue request, epics and project board whilst maintain clear commit messages throughout dev lifecycle.
 
 EPIC 3 - Authentication: Sign in/out and registration
 
@@ -133,7 +133,7 @@ As a developer I will create the project documentation so that other developers 
 
 #27 Write and maintain project Readme - 4 story points
 #28 Write and maintain testing doc - 4 story points
-#29 Create github issue request, epics and project board whilst maintain clear commit messages thorughout dev lifecycle - 2 story points
+#29 Create github issue request, epics and project board whilst maintain clear commit messages throughout dev lifecycle - 2 story points
 
 EPIC 3 - Authentication: Sign in/out and registration
 As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
@@ -217,7 +217,7 @@ Every page has the same footer bar comprising icon links to Facebook, Twitter (X
 
 ### Register/Sign Up Page
 
-To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password of suitable complexity. Once these steps have been succesfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
+To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password of suitable complexity. Once these steps have been successfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
 
 ![Image of the registration page on different devices](documentation/register-devices.png)
 
@@ -285,7 +285,7 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 [Error page Wireframe](documentation/wireframe-error-page.png)
 
-As the edit find page is structurally the same as create find a seperate wireframe is not needed.
+As the edit find page is structurally the same as create find a separate wireframe is not needed.
 
 #### Database Design
 
@@ -313,11 +313,11 @@ One API key which required particular security management was the Google maps AP
 
 #### Colour Scheme
 
-As a site dedicated to a largely autumnal, natural outdoor pursuit, I will use greens, browns and yellows and in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom adundance I may also use dark reds and yellows.
+As a site dedicated to a largely autumnal, natural outdoor pursuit, I will use greens, browns and yellows and in my colour scheme. Care will be taken to ensure that their is sufficient contrast between text and any background colours to support easy reading. Similarly, many mushrooms are not particularly colourful, so care will need to be taken to ensure images of mushrooms themselves are not overpowered by background or theme colours. As autumn is typically the time of year for greatest mushroom abundance I may also use dark reds and yellows.
 
 The background, a mushroom outline repeating pattern, gives a nice pale backdrop with the mushroom outlines themselves in a mustard-yellow. This gives a good canvass for more bold colours for specific points of interest on the site, whilst also allowing sections, such as individual find 'cards' and other site messages to stand out relatively easily with a simple all-white background.
 
-For points of interest, such as buttons, green and red were used, white white text inside, whilst the rest of the site used a dark grey text.
+For points of interest, such as buttons, green and red were used, with white text inside, whilst the rest of the site used a dark grey text.
 
 ![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.png)
 
@@ -335,19 +335,19 @@ The exception to this will be the poisonous mushroom logo which will deliberatel
 
 In the future I would like to incorporate:
 
-1. JSON/AJAX to Communicate Data - Getting Javascript and Django/Python to 'talk' to each other was an ongoing challenge during this project. This most prominent in creating the map markers (more detail below). I did explore in detail the possibility of incorporating JSON and AJAX calls to push/pull data from different parts of the system, however this isn't something I was familliar with and simply couldn't afford to spend the time to learn from scratch for functionality which wasn't crucial for the project. 
+1. JSON/AJAX to Communicate Data - Getting Javascript and Django/Python to 'talk' to each other was an ongoing challenge during this project. This most prominent in creating the map markers (more detail below). I did explore in detail the possibility of incorporating JSON and AJAX calls to push/pull data from different parts of the system, however this isn't something I was familiar with and simply couldn't afford to spend the time to learn from scratch for functionality which wasn't crucial for the project. 
 
 The closest I got was having data pulled from the elephant sql, into a db.js file. Using this, I was able to retrieve and see the find data by running the db.js in js.node, image of the code below.
 
 ![An image of the original db.js](documentation/db.js-image.PNG)
 
-With this I was able to print the Find data to the terminal. However I than ran into a similar issue of getting the data over from db.js into script.js (have come to understand this is server side vs browser side Javascript). Despite a lot of investigation with these mechanisms and different combinations, it was simply taking too much time to find a working solution and this was beyond the scope of what student support could reasonably be expected to help with. I therefore settled on creating hidden divs on the index page which container the data using a django for loop. Whilst this is less 'slick' it is perfectly functional, although the hidden text did raise alerts on WAVE testing. 
+With this I was able to print the Find data to the terminal. However I than ran into a similar issue of getting the data over from db.js into script.js (have come to understand this is server side vs browser side Javascript). Despite a lot of investigation with these mechanisms and different combinations, it was simply taking too much time to find a working solution and this was beyond the scope of what student support could reasonably be expected to help with. I therefore settled on creating hidden divs on the index page which container the data using a Django for loop. Whilst this is less 'slick' it is perfectly functional, although the hidden text did raise alerts on WAVE testing. 
 
-In the future I would like to explore a more advanced mechanism to acheive this communication of data between the different parts of the application. One of the key reasons is described below. 
+In the future I would like to explore a more advanced mechanism to achieve this communication of data between the different parts of the application. One of the key reasons is described below. 
 
 2. Customised Advanced Google map markers - Initially I began the creation of the map markers with the relatively new, Advanced Marker available with the Google maps API and imported libraries. I did get to the point where I had markers being plotted on the map with a custom image, the same image as the placeholder mushroom icon, with it sized appropriately to fit on the map. 
 
-My intention was to have each find represented on the map with its uploaded image, in miniature, as the marker icon. This would be accompanied with a the title of the each find, so as to make each marker truly unique and make the map highly engaging for the user. However I ran into issues with incorporating the user-uploaded image into Javascript using Django code, the 2 things simply weren't compatible. Despite a lot of exploration (described above) I couldn't get this working ideally as I would have liked. I did consider pushing the Find image to the hidden index divs, along with the other data, but this could have led a lot of image data being loaded on the page and caused performance issues. 
+My intention was to have each find represented on the map with its uploaded image, in miniature, as the marker icon. This would be accompanied with the title of the each find, so as to make each marker truly unique and make the map highly engaging for the user. However I ran into issues with incorporating the user-uploaded image into Javascript using Django code, the 2 things simply weren't compatible. Despite a lot of exploration (described above) I couldn't get this working ideally as I would have liked. I did consider pushing the Find image to the hidden index divs, along with the other data, but this could have led a lot of image data being loaded on the page and caused performance issues. 
 
 In the end I settled for the simpler, but still perfectly functional, standard marker, with a custom InfoWindow, within which is incorporated an anchor element which redirects to the detail of the find it represents. Annoyingly, the standard InfoWindow does not seem capable of supporting both the find-slug variable and the created anchor variable. In the future I would like to incorporate advanced markers which still provide the functionality to view the detail of the particular find as a link, whilst supporting the finds particular image and title. 
 
@@ -457,7 +457,7 @@ This was website was deployed using Heroku. Instructions to do this are:
 
 ## Testing
 
-Please see seperate testing.md for full details.
+Please see separate testing.md for full details.
 
 [Testing](TESTING.md)
 
