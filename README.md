@@ -264,7 +264,23 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 #### Database Design
 
+The database was designed to support CRUD functionality to logged in users. A custom model was not needed for users as the Allauth standard user model was sufficient. 
+
+I was keen to keep the database relatively simple and not create excess models/fields simply for the sake of it. The User and Find models are the key aspects of the site. Habitats are linked to Finds by a Many to one relationship. Comments are linked to finds in a One to Many relationship. 
+
+The entity relationship diagram below was created using Lucid charts and shows schemas for each model, their relationships to the other models, field types, and any relevant notes on each field. 
+
+![Database Diagram](documentation/database-diagram.PNG)
+
 #### Security
+
+Views and data are secured in the first instance by user authentication. Finds which are yet to be approved can only be viewed by the authenticated user. Only the original author can edit or delete their specific finds. The exception is of course admins via the admin console.
+
+This security is further enforced by incorporating a check in the views, to ensure that the logged in user equals the find author.
+
+Environment variable were stored in env.py which was never committed to the github repository. This ensured all keys and secrets remained safe and secure.
+
+One API key which required particular security management was the Google maps API key. After thorough research to ensure I was not mistaken, a Google maps API key has to made visible in the site code to allow the script to function properly. This is unavoidable, the key cannot be stored in env.py and called in. To protect against any malicious attack, I used restrictions on my Google API credentials to ensure that only calls coming from specific pages of my site would be allowed to use the API. In addition, I set a volume cap on how much the API can be called. 
 
 ### The Surface Plane
 

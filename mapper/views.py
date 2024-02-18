@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
+from django.http import HttpResponseRedirect
 from .models import Find
 from .forms import CommentForm, FindForm
 from django.utils.text import slugify
@@ -95,8 +95,8 @@ class FindLike(View):
 
 class CreateFind(View):
     """
-    This is the class with function to get and display the create find page for
-    a user to then create their own finds.
+    This is the class to get and display the create find page
+    for a user to then create their own finds.
     """
 
     def get(self, request):
@@ -138,7 +138,8 @@ class CreateFind(View):
 
 class ViewAccount(generic.ListView):
     """
-    This is the view which allows a user to view their accound and posts they have previously made
+    This is the view which allows a user to view their accound and posts
+    they have previously made.
     """
     model = Find
     template_name = 'view_account.html'
@@ -147,8 +148,8 @@ class ViewAccount(generic.ListView):
 
 class ViewFinds(generic.ListView):
     """
-    This is the view which allows a user to view their previously created finds so they can edit/remove
-    as desired
+    This is the view which allows a user to view their previously created
+    finds so they can edit/remove as desired.
     """
 
     def get(self, request):
@@ -173,8 +174,6 @@ class EditFind(View):
 
     def get(self, request, slug):
 
-        print("Edit find get entered")
-
         find = get_object_or_404(Find, slug=slug)
 
         if not find.author == request.user:
@@ -191,10 +190,6 @@ class EditFind(View):
 
         else:
 
-            print("Cleaned fields test", find.clean_fields)
-            data = find.clean_fields
-            print("data test", data)
-
             return render(
             request,
                 "create_find.html",
@@ -206,7 +201,6 @@ class EditFind(View):
     def post(self, request, slug):
 
         find = get_object_or_404(Find, slug=slug)
-        queryset = Find.objects.filter(author=request.user)
 
         find_form = FindForm(data=request.POST, instance=find)
 
@@ -214,7 +208,6 @@ class EditFind(View):
             find_form.instance.slug = slugify(find_form.instance.title)
             find = find_form.save()
             find.slug = slugify(find.title)
-            newSlug = find.slug
             find.save()
 
             messages.success(
@@ -240,7 +233,6 @@ class DeleteFind(View):
     """
 
     def get(self, request, slug):
-        print("Delete find entered")
         find = get_object_or_404(Find, slug=slug)
 
         if not find.author == request.user:
