@@ -81,7 +81,7 @@ https://github.com/users/TomLiDev/projects/2/views/1
 
 #### Epics
 
-The project had 6 Epics which encompass the main development effort for Mushroom Mappers. Each epic includes some key elements with more detailed user stories explained below.
+The project had 4 Epics which encompass the main development effort for Mushroom Mappers. Each epic includes some key elements with more detailed user stories explained below. 
 
 EPIC 1 - Project Set Up
 
@@ -93,7 +93,7 @@ This epic incorporates the user stories required for the initial project set up 
 
 EPIC 2 - Create Project Documentation
 
-An ongoing epic until project completion, although this does include user stories in the traditional Agile sense, I felt it was important and useful to have a note to keep aspects such as project secrets hidden as necessary throughout the project. Due to issues with reliability several different workspaces were created during the development of this project, therefore the reminder to keep relevant pieces of information secret was useful.
+An ongoing epic until project completion, although this does warrant user stories in the traditional Agile sense, I felt it was important and useful to have a note to keep aspects such as project secrets hidden as necessary throughout the project. Due to issues with reliability several different workspaces were created during the development of this project, therefore the reminder to keep relevant pieces of information secret was useful. I have also found that planning time in to create documentation is very useful and something I have overlooked and had to rush in the past, so factoring this in was helpful. 
 
 - Write and maintain project Readme
 - Write and maintain testing doc
@@ -124,47 +124,48 @@ The below is a list of the user stories linked and required to achieve completio
 EPIC 1 - Project Set Up
 As a Developer I will perform the initial project set up so I can continue and complete the development of this project
 
-#15 Django and Required Library Set Up - 2 story points
-#25 Keep secret details safe - 1 story point
-#26 Deploy App Early to Heroku - 1 story
+- #15 Django and Required Library Set Up - 2 story points
+- #25 Keep secret details safe - 1 story point
+- #26 Deploy App Early to Heroku - 1 story
 
 EPIC 2 - Project Documentation
 As a developer I will create the project documentation so that other developers and interested parties can understand the project and its purpose in more detail and create their own if desired.
 
-#27 Write and maintain project Readme - 4 story points
-#28 Write and maintain testing doc - 4 story points
-#29 Create github issue request, epics and project board whilst maintain clear commit messages throughout dev lifecycle - 2 story points
+- #27 Write and maintain project Readme - 4 story points
+- #28 Write and maintain testing doc - 4 story points
+- #29 Create github issue request, epics and project board whilst maintain clear commit messages throughout dev lifecycle - 2 story points
 
 EPIC 3 - Authentication: Sign in/out and registration
 As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
 
-#30 USER STORY - Create Profile - 2 story points
-#34 USER STORY - Sign In - 1 story points
-#35 USER STORY - Sign Out - 1 story points
+- #30 USER STORY - Create Profile - 2 story points
+- #34 USER STORY - Sign In - 1 story points
+- #35 USER STORY - Sign Out - 1 story points
 
 EPIC 4 - CRUD User Finds
 
 As a User I can Create, read, update and delete my finds so I can share my finds and information, update information I have already shared and delete any information I no longer want to be public.
 
-#36 USER STORY - Create Finds - 4 story points
-#38 USER STORY - User Update/Edit Finds - 2 story points
-#37 USER STORY - Read Finds - 1 story point
-#39 USER STORY - User Delete Finds - 1 story points
-#5 USER STORY - Upload photos - 1 story point
-#6 USER STORY - Add location to Finds - 2 story points
-#13 USER STORY - View Map - 4 story points
-#43 USER STORY - View Full Find Details - 2 story points
+- #36 USER STORY - Create Finds - 4 story points
+- #38 USER STORY - User Update/Edit Finds - 2 story points
+- #37 USER STORY - Read Finds - 1 story point
+- #39 USER STORY - User Delete Finds - 1 story points
+- #5 USER STORY - Upload photos - 1 story point
+- #6 USER STORY - Add location to Finds - 2 story points
+- #13 USER STORY - View Map - 4 story points
+- #43 USER STORY - View Full Find Details - 2 story points
 
-#50 USER STORY - Admin approve comments
-#7 USER STORY - Admin approve finds
+- #7 USER STORY - Admin approve finds
 
 EPIC 5 - Interact with finds
 
 As a user I want to comment and like other user finds, as well as interact with my own in a similar way so I can respond to other users comments and interaction.
 
-#40 USER STORY - User Like finds - 2 story point
-#11 USER STORY - Comment on finds - 2 story points
-#44 USER STORY - View Liked Finds Page - 4 story points
+- #40 USER STORY - User Like finds - 2 story point
+- #11 USER STORY - Comment on finds - 2 story points
+- #44 USER STORY - View Liked Finds Page - 4 story points
+
+- #50 USER STORY - Admin approve comments
 
 As a could have, the epic of User Notification was not prioritised over others in the development and were therefore not completed. The below are the epics and stories which were not included in the final application, but I would like to explore in the future.
 
@@ -172,15 +173,15 @@ COULD HAVE - EPIC 6 - User Notification
 
 As a User I can be notified when someone likes/comments my finds so I can Keep track of which posts are most popular and report any offensive comments to admin
 
-#45 USER STORY - Notification on the site when Find liked/commented on - 2 story points
-#46 USER STORY - Email notification when Find liked/commented - 4 story points
+- #45 USER STORY - Notification on the site when Find liked/commented on - 2 story points
+- #46 USER STORY - Email notification when Find liked/commented - 4 story points
 
 WON'T HAVE - EPIC 7 - Location Based Suggestion
 
 Although specifically tagged as Won't Have, I felt it was useful to include this Epic in the readme as a record of possible future work. A User I can be notified when another user creates a find which is geographically close to my address so I can be automatically notified on other users finds in areas close to me
 
-#47 USER STORY - Option for location based notifications - 1 story point
-#48 USER STORY - Receive Location Based Suggestions - 4 story points
+- #47 USER STORY - Option for location based notifications - 1 story point
+- #48 USER STORY - Receive Location Based Suggestions - 4 story points
 
 
 ### The Scope Plane
@@ -188,7 +189,7 @@ Although specifically tagged as Won't Have, I felt it was useful to include this
 - Home page. A visually attractive home page capturing the core essence of thee Mushroom Mappers site. 
 
 - Ability to perform CRUD functionality on Finds. Users and admins will have the ability to create, read, update and delete finds. 
-
+ 
 - Authentication/Role based functionality. Different functionality and abilities will be available to users who have registered and logged in to their account, unauthenticated users will have a more limited option of functionality to encourage sign up and long term engagement with the site. 
 
 - Responsive Design. The application will resize and maintain relevant functionality across all modern device screen sizes. 
@@ -214,19 +215,19 @@ Home - Return to home page
 View Account - Display details of the users account with some options for account management
 Logout - Display logout page to confirm account log out and return to homepage
 
-![Image of the Nav Bar, found at the top of all pages](documentation/nav-bar.png)
+![Image of the Nav Bar, found at the top of all pages](documentation/nav-bar.PNG)
 
 #### Footer
 
 Every page has the same footer bar comprising icon links to Facebook, Twitter (X), Instagram and Youtube with 'Made by Mushroom Mappers' above the icons. This will remain the same throughout site navigation for all users. 
 
-![Image of the footer, found at the bottom of all pages](documentation/footer.png)
+![Image of the footer, found at the bottom of all pages](documentation/footer.PNG)
 
 ### Register/Sign Up Page
 
 To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password of suitable complexity. Once these steps have been successfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
 
-![Image of the registration page on different devices](documentation/register-devices.png)
+![Image of the registration page on different devices](documentation/register-devices.PNG)
 
 ### Homepage
 
@@ -274,7 +275,7 @@ All error pages will be shown if there is an error somewhere in the navigation/d
 
 This will incorporate the nav bar and footer links as all the other pages. Centrally, a simple message will inform the user of the error type with a green button to return to home page. 
 
-![An image of the 404 error page shown on different devices](documentation/error-pages-devices.png)
+![An image of the 404 error page shown on different devices](documentation/error-pages-devices.PNG)
 
 ### The Skeleton Plane
 
@@ -290,7 +291,7 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 [Find (Individual) Detail Wireframe](documentation/find-detail-wireframe.PNG)
 
-[Error page Wireframe](documentation/wireframe-error-page.png)
+[Error page Wireframe](documentation/error-page-wireframe.PNG)
 
 As the edit find page is structurally the same as create find a separate wireframe is not needed.
 
@@ -326,7 +327,7 @@ The background, a mushroom outline repeating pattern, gives a nice pale backdrop
 
 For points of interest, such as buttons, green and red were used, with white text inside, whilst the rest of the site used a dark grey text.
 
-![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.png)
+![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.PNG)
 
 #### Typography
 

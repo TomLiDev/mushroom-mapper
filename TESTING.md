@@ -22,8 +22,6 @@ Later issues on first deploying my website, reviewed with my mentor were:
 - [Lighthouse Testing](#lighthouse-testing)
 - [Wave Testing](#wave-testing)
 - [Manual Testing](#manual-testing)
-- [First Time Visitors](#first-time-visitors)
-- [Return Visitors](#return-visitor)
 - [Full Testing](#full-testing)
 - [Homepage](#homepage)
 - [Create Find Page](#create-find-page)
@@ -88,7 +86,7 @@ Google chrome Lighthouse tester was used to assess SEO score, accessibility, con
 
 #### View Finds Mobile Lighthouse Scores
 
-![Screenshot of View find mobile lighthouse scores](documentation/lighthouse-view-find-mobile.PNG)
+![Screenshot of View find mobile lighthouse scores](documentation/lighthouse-view-finds-mobile.PNG)
 
 #### View Sign In Page Desktop Lighthouse Scores
 
@@ -116,11 +114,11 @@ Google chrome Lighthouse tester was used to assess SEO score, accessibility, con
 
 #### 404 Error Page Desktop Lighthouse Scores
 
-![Screenshot of Error Page desktop lighthouse scores](documentation/error-page-desktop-lighthouse.png)
+![Screenshot of Error Page desktop lighthouse scores](documentation/error-page-desktop-lighthouse.PNG)
 
 #### 404 Error Page Mobile Lighthouse Scores
 
-![Screenshot of 404 Error Page Mobile lighthouse scores](documentation/error-page-mobile-lighthouse.png)
+![Screenshot of 404 Error Page Mobile lighthouse scores](documentation/error-page-mobile-lighthouse.PNG)
 
 #### Findings and Actions
 
@@ -431,7 +429,7 @@ find_form = FindForm(request.POST, request.FILES)  , specifying that the view sh
 
 3. Http on edit or delete - Due to the way in which my views were set up, when a user edited or deleted a view (correctly) the form data would be edited or the entire find deleted respectively and the user would be returned to the view finds page. This would happen without any issues, and would appear okay, however with the original view set up the acted-on find slug would appear in the http:
 
-[http issue image](documentation/edit-delete-http-issue.PNG)
+![http issue image](documentation/edit-delete-http-issue.PNG)
 
 Whilst this wasn't a major issue, as view_finds was still returned, it did mean that if for some reason a user refreshed at that particular moment after editing or deleting a find, the site would error, as that finds specific slug may have been edited or deleted entirely. To resolve this I used return HttpResponseRedirect(reverse('view_finds')) to specifically return the view_finds http, which would then correctly show an updated find list. 
 
@@ -439,7 +437,7 @@ Whilst this wasn't a major issue, as view_finds was still returned, it did mean 
 
 5. Map Marker View Find on Heroku - I was very pleased with the eventual creation of the map markers, and that a user could click from the map to view a particular find. I was very worried when, much to my horror, this didn't work on the deployed Heroku app, instead I got a server 500 error. I investigated if this was due to the find needing to be approved, or perhaps being caught in some king of author-only access. However I realised that on Heroku, when clicking View Find on one of the map markers, it was actually trying to access a local server URL. After investigation this was due to this piece of code in the Javascipt:
 
-[Map marker Javascript code which caused isssue](documentation/edit-delete-http-issue.PNG)
+![Map marker Javascript code which caused isssue](documentation/edit-delete-http-issue.PNG)
 
 Changing the text2 line, to make the template literal create a URL with the Heroku app URL solved this issue. 
 
