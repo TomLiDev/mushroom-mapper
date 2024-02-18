@@ -4,7 +4,7 @@
 
 Mushroom Mappers is a project intended to provide an interactive application for foraging enthusiasts to share images, thoughts and research on mushrooms they have found in their local area.
 
-![An image of the finished website on different devices](documentation/space-quiz-homepage-devices.png)
+![An image of the finished website on different devices](documentation/homepage-devices.PNG)
 
 Please use the link below to view the live, deployed site:
 
@@ -71,11 +71,12 @@ This application was designed and built in line with Agile methodologies, with s
 
 Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on percieved requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
-A kanban board was used to track the progress and manage the development lifecycle, this can be viewed here:
+![An Image of the mushroom mappers kanban board in progress](documentation/kanban-progress.PNG)
+
+A kanban board was used to track the progress and manage the development lifecycle, the completed board can be viewed here:
 
 https://github.com/users/TomLiDev/projects/2/views/1
 
-![An Image of the mushroom mappers kanban board in progress](documentation/kanban-progress.PNG)
 
 
 #### Epics
@@ -197,54 +198,76 @@ Every page will retain the same navigation bar across the top of the screen. Thi
 
 All users:
 Home - Return to home page
-Search - Bar to search desired content
 
 Unauthenticated User:
-Register - Redirect to a signup.html page providing a form to create an account
+Register - Redirect to a signup page providing a form to create an account
 
 Authenticated/logged in user
 Home - Return to home page
 View Account - Display details of the users account with some options for account management
-Logout - Display logout.html page to confirm account log out and return to homepage
-Search - Bar to search desired content
+Logout - Display logout page to confirm account log out and return to homepage
 
 ![Image of the Nav Bar, found at the top of all pages](documentation/nav-bar.png)
 
 #### Footer
 
-Every page has the same footer bar comprising icon links to Facebook, Instagram, Twitter and Linkedin, with Made by Mushroom Mappers just hovering aboe the icons. This will remain the same throughout site navigation for all users. 
+Every page has the same footer bar comprising icon links to Facebook, Twitter (X), Instagram and Youtube with 'Made by Mushroom Mappers' above the icons. This will remain the same throughout site navigation for all users. 
 
 ![Image of the footer, found at the bottom of all pages](documentation/footer.png)
 
 ### Register/Sign Up Page
 
-To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password. Once these steps have been succesfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
+To access the site each user will be required to create an account. This page will prompt them to enter their name, email address and create a password of suitable complexity. Once these steps have been succesfully carried out the user will see a message confirming account creation and will be allowed to access the main site.
+
+![Image of the registration page on different devices](documentation/register-devices.png)
 
 ### Homepage
 
 All users will be able to see a home page. 
 
-After logging in the user will be presented with the homepage. This will comprise a list of the latest posts with some of the brief key pieces of information shown against each. Each post will have a link prompting the user to view the full post details. Each post may have a small thumbnail like image presented against it on the homepage, however this will require testing to ensure that different image sizes, resolutions etc don't result in a messy homepage.
+After logging in the user will be presented with the homepage. This will show a welcome message with the option to register an account for a non authenticated user, or options to create find and view existing finds for an authenticated user. 
 
-Map link per post?
+Below this will be the map for any user to scroll and view existing finds.
 
-![An image of the homepage on different devices](documentation/space-quiz-homepage-devices.png)
+Below this will be a list of the latest finds with some of the brief key pieces of information shown against each. Each find will have a link prompting the user to continue reading and view find details. Each find will have a small thumbnail like image presented against it on the homepage.
+
+![An image of the homepage on different devices](documentation/homepage-devices.PNG)
 
 ### Find Details Page
 
-If a user clicks into a post they will be presented with the full details of that post. This will comprise a larger image of the find on the left of the page, with the post title, creator, created date displayed on the right. Below these pieces of information will be the full text of the post itself. Each post will include a link to view the location of the find on Google maps.
+If a user clicks into a find they will be presented with the full details of that find. This will comprise a larger image of the find with the title, creator, created date displayed, the content of the find and icons indicating is the find is potentially edible or poisonous. Below these pieces of information is the full text of the post itself.
+
+Below this are the options to like, with a counter, and comment, with a counter for comments. Only authenticated users will be able to leave a comment.
+
+![An image of the Find Detail page on different devices](documentation/find-detail-devices.PNG)
 
 ### Create Find Page
 
-### View Account Page
+Authenticated users will be able to enter the create find page, which displays a short piece of text explaining what needs to be done to complete and submit a find for approval. 
 
-### 404 Error Page
+A map is displayed to allow a user to easily and intuitively click on the map where they found their find. The rest of the form follows below this with boxes of information to be filled in for the form submission, and finally a submit button in green to create the find.
 
-The 404 error page will be shown if there is an error somewhere in the navigation/direction in using the page.
+![An image of the create find page on different devices](documentation/create-find-devices.PNG)
 
-This will incorporate the nav bar and footer links as all the other pages. Centrally, a simple message will inform the user that this is the 404 error page with a link to take the user back to the home page.
+### Edit Find Page
 
-![An image of the 404 error page shown on different devices](documentation/error-page-devices.png)
+Very similar to the Create Find page, except the details of the find will be populated in the form to be edited. A different Edit Find button is also displayed at the end of the form and a different confirmation message is displayed on successful submit. 
+
+![An image of the edit find page on different devices](documentation/edit-find-devices.PNG)
+
+### View Finds Page
+
+This page will display a list of the logged in users finds. Each find will be displayed with the options to edit, which will open the edit find form, and delete find. The delete find button will return a confirmation window, if confirmed the find will be deleted and an updated list of the user finds will be displayed back to them.
+
+A responsive image of View Finds could not be provided as a user has to be authenticated to view their own finds, and this meant Am I Responsive could not access it. 
+
+### Error Pages (404, 403 and 500)
+
+All error pages will be shown if there is an error somewhere in the navigation/direction in using the page.
+
+This will incorporate the nav bar and footer links as all the other pages. Centrally, a simple message will inform the user of the error type with a green button to return to home page. 
+
+![An image of the 404 error page shown on different devices](documentation/error-pages-devices.png)
 
 ### The Skeleton Plane
 
@@ -260,7 +283,9 @@ Please use the links below to view the relevant wireframes, both desktop and mob
 
 [Find (Individual) Detail Wireframe](documentation/find-detail-wireframe.PNG)
 
-[404 Error page Wireframe](documentation/wireframe-error-page.png)
+[Error page Wireframe](documentation/wireframe-error-page.png)
+
+As the edit find page is structurally the same as create find a seperate wireframe is not needed.
 
 #### Database Design
 
@@ -298,7 +323,7 @@ For points of interest, such as buttons, green and red were used, white white te
 
 #### Typography
 
-San's serif is used as the back-up font if FONT cannot be loaded for any reason.
+Lato is used as the standard font across the site. 
 
 #### Imagery
 
@@ -342,7 +367,7 @@ This site has been built to be as accessible as possible, specifically:
 
 ### Languages Used
 
-HTML, CSS and Python were used. 
+HTML, CSS, Python and Javascript were used. 
 
 ### Libraries and External Sources
 

@@ -124,6 +124,10 @@ body {
     width: 80%;
 }
 
+.w-80-log {
+    width: 80%;
+}
+
 .border-general {
     border: 1px solid gray;
     border-radius: 5px;

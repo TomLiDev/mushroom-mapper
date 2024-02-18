@@ -124,7 +124,8 @@ class CreateFind(View):
             find.save()
             messages.success(
                 request,
-                "Find successfully created."
+                """Find successfully created. Please wait for approval before you place
+                any comments."""
             )
 
         else:

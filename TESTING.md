@@ -50,6 +50,7 @@ The W3C validator was used to validate all HTML pages and CSS.
 - [Screenshot of registration page W3C Validated](documentation/w3c-registration.PNG)
 - [Screenshot of sign in page W3C Validated](documentation/w3c-login.PNG)
 - [Screenshot of sign out page W3C Validated](documentation/w3c-logout.PNG)
+- [Screenshot of error page W3C Validated](documentation/w3c-404.PNG)
 
 ### Lighthouse Testing
 
@@ -149,18 +150,9 @@ After editing to include all alt tags, all pages passed without any errors. The 
 
 Another of the common alerts relates to a redundant link. This is the second home link on the nav bar. I have deliberately kept this, as when displayed on smaller screens and the burger menu is shown for the other nav items, I wanted a home option to appear in this dropdown list as well as the main MushroomMappers icon home link.
 
+The view finds page could not be accessed by the WAVE testing site as it requires an authenticated user access. 
+
 ## Manual Testing
-
-## Functional Testing
-
-Functional Testing was carried out to test functionalities and processes which may span several pages of the site. These were done in line with user stories and epics:
-
-### Authentication
-
-Test:
-
-Ensure when creating an account a user is forced to enter a username, suitable email and a suitable password. 
-On succesful login, an authenticated user is able 
 
 ## Full Testing
 
@@ -383,4 +375,5 @@ Changing the text2 line, to make the template literal create a URL with the Hero
 
 ### Known Issues
 
-1. Leaderboard Revisit
+1. User Comment on Own Find Before Approval - It is possible, if a little self-indulgent, for a user to place a comment on their own find before it has been approved, if they access via View Finds. Normally any find which is not approved does not display in lists as per the querysets in views, however I feel it is important that a user has a place where they can still come and edit/delete finds whether or not they have been approved. A potential option to this is to remove the 'continue reading' option when viewing finds on View Finds, however this would mean all information, about every user find, would need to be displayed in the one page which would be large and cumbersome. Another option is to not give the user the ability to edit/delete until a find has been approved, but this seems a big loss of functionality for what is quite a specific case that is unlikely to come up in reality. If a user did need to come back to make changes to a find before it has been approved, they can, there is very little reason why in reality a use would comment on their own find before approval. 
+To mitigate this I have incorporated instructions in the pages and messages, not to try and comment on a find before approval to help steer users away from the error. 
