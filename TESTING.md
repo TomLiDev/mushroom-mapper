@@ -44,13 +44,14 @@ The W3C validator was used to validate all HTML pages and CSS.
 
 - [Screenshot of CSS W3C Validated](documentation/w3c-css-validated.PNG)
 - [Screenshot of homepage W3C Validated](documentation/w3c-homepage.PNG)
-- [Screenshot of create find page W3C Validated](documentation/w3c-create.PNG)
+- [Screenshot of create find page W3C Validated](documentation/w3c-create-find.PNG)
 - [Screenshot of edit find page W3C Validated](documentation/w3c-edit.PNG)
 - [Screenshot of view finds page W3C Validated](documentation/w3c-view-finds.PNG)
-- [Screenshot of registration page W3C Validated](documentation/w3c-registration.PNG)
 - [Screenshot of sign in page W3C Validated](documentation/w3c-login.PNG)
 - [Screenshot of sign out page W3C Validated](documentation/w3c-logout.PNG)
 - [Screenshot of error page W3C Validated](documentation/w3c-404.PNG)
+
+The trailing slash info message being raised by the viewport declaration was resolved. 
 
 ### Lighthouse Testing
 
