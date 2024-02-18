@@ -8,7 +8,7 @@ Mushroom Mappers is a project intended to provide an interactive application for
 
 Please use the link below to view the live, deployed site:
 
-[Space Quiz - Pilot Assessment Live Site](https://tomlidev.github.io/Space-Quiz-Pilot-Assessment/)
+[Mushroom Mappers - Live Site](https://mushroom-mapper-6a227ba72c70.herokuapp.com/)
 
 ## CONTENTS
 
@@ -71,73 +71,109 @@ This application was designed and built in line with Agile methodologies, with s
 
 Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on percieved requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
-A kanban board was used to track the progress and manage the development lifecycle, this can be viewed here: XXXXX
+A kanban board was used to track the progress and manage the development lifecycle, this can be viewed here:
+
+https://github.com/users/TomLiDev/projects/2/views/1
+
+![An Image of the mushroom mappers kanban board in progress](documentation/kanban-progress.PNG)
+
 
 #### Epics
 
-The project had 6 Epics which encompass the main development effort for Mushroom Mappers. Each epic includes user stories for specific functionalities and site requirements.
+The project had 6 Epics which encompass the main development effort for Mushroom Mappers. Each epic includes some key elements with more detailed user stories explained below.
 
 EPIC 1 - Project Set Up
 
 This epic incorporates the user stories requird for the initial project set up and initial deployment. This epic and the user stories within was the first to be completed.
 
-EPIC 2 - Create Project Documentation
-
-An ongoing epic until project completion, although this does include user stories in the traditional Agile sense, I felt it was important and useful to have a note to keep aspects such as project secrets hidden as necessary throughout the project. Due to issues with reliability several different workspaces were created during the development of this project, therefore the reminder to keep relevant pieces of information secret was useful. 
-
-EPIC 3 - CRUD User Profile
-
-This epic includes the functionality and user stories needed for user to create, read, update and delete certain aspects of their user profile from within the application itself. 
-
-EPIC 4 - Authentication: Sign in/out and registration
-
-A key epic, this includes the user stories to allow a user to create their initial profile and access the full site, sign out and sign in, whilst also providing security and control and users accessing and managing their own accounts. This epic also includes specifying and controlling what content and functionalities an authenticated, signed in user can access versus a 'generic' user who has not yet created an account.
-
-EPIC 5 - CRUD User Finds
-
-This epic includes the user stories for users creating, reading, updating and deleting their own finds on the application. Finds are intended to be the key, main content of the application, which users will create, read, like and generally interactive with. To achieve these in a user friendly, appealing way user stories such as users being able to view a single, filtered page of their own finds was also included in this epic. 
-
-#### User Stories
-
-The below is a list of the user stories linked and required to achieve completion of each Epic, with a brief one line description of the epic itself. Each user story was created with a specific list of tasks which act as acceptance criteria and facilitate an objective determination on whether the functionality was developed, and user story completed, to the required level. Some user stories do not have a more detailed acceptance criteria as this is not necessary, e.g. create Readme. 
-
-EPIC 1 - Project Set Up
-As a Developer I will perform the initial project set up so I can continue and complete the development of this project
-
 - Install Django and other necessary libraries
 - Ensure env.py and other sensitive information kept secure
 - Succesfully deploy via Heroku early prior to main development effort
 
+EPIC 2 - Create Project Documentation
 
-EPIC 2 - Project Documentation
-As a developer I will create the project documentation so that other developers and interested parties can understand the project and its purpose in more detail and create their own if desired.
+An ongoing epic until project completion, although this does include user stories in the traditional Agile sense, I felt it was important and useful to have a note to keep aspects such as project secrets hidden as necessary throughout the project. Due to issues with reliability several different workspaces were created during the development of this project, therefore the reminder to keep relevant pieces of information secret was useful.
 
 - Write and maintain project Readme
 - Write and maintain testing doc
 - Create github issue request, epics and project board whilst maintain clear commit messages thorughout dev lifecycle.
 
-EPIC 3 - CRUD User Profile
-As a User I can Create/register, read, update and delete my profile so I can Log in to the site with my details and information saved, amend details as needs be and remove my account completely if I no longer want to use it, without the involvment of an admin.
+EPIC 3 - Authentication: Sign in/out and registration
 
-- Create User Account
-- Read/View User Profile
-- Edit/Update User Profile
+A key epic, this includes the user stories to allow a user to create their initial profile and access the full site, sign out and sign in, whilst also providing security and control and users accessing and managing their own accounts. This epic also includes specifying and controlling what content and functionalities an authenticated, signed in user can access versus a 'generic' user who has not yet created an account.
 
-EPIC 4 - Authentication: Sign in/out and registration
-As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
-
+- Create user account
 - Sign In
 - Sign Out
 - Control site access based on authentication
 
-EPIC 5 - CRUD User Finds
+EPIC 4 - CRUD User Finds
 
-As a User I can Create, read, update and delete my finds so I can share my finds and information, update information I have already shared and delete any information I no longer want to be public.
+This epic includes the user stories for users creating, reading, updating and deleting their own finds on the application. Finds are intended to be the key, main content of the application, which users will create, read, like and generally interactive with. To achieve these in a user friendly, appealing way user stories such as users being able to view a single, filtered page of their own finds was also included in this epic. 
 
 - User Create Finds
 - User Update/Edit Finds
 - User read Finds
 - User Delete Finds
+
+#### User Stories
+
+The below is a list of the user stories linked and required to achieve completion of each Epic, with a brief one line description of the epic itself and some of the key elements for it to be completed. Each user story was created with a specific list of tasks which act as acceptance criteria and facilitate an objective determination on whether the functionality was developed, and user story completed, to the required level. Some user stories do not have a more detailed acceptance criteria as this is not necessary, e.g. create Readme. 
+
+EPIC 1 - Project Set Up
+As a Developer I will perform the initial project set up so I can continue and complete the development of this project
+
+#15 Django and Required Library Set Up - 2 story points
+#25 Keep secret details safe - 1 story point
+#26 Deploy App Early to Heroku - 1 story
+
+EPIC 2 - Project Documentation
+As a developer I will create the project documentation so that other developers and interested parties can understand the project and its purpose in more detail and create their own if desired.
+
+#27 Write and maintain project Readme - 4 story points
+#28 Write and maintain testing doc - 4 story points
+#29 Create github issue request, epics and project board whilst maintain clear commit messages thorughout dev lifecycle - 2 story points
+
+EPIC 3 - Authentication: Sign in/out and registration
+As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
+
+#30 USER STORY - Create Profile - 2 story points
+#34 USER STORY - Sign In - 2 story points
+#35 USER STORY - Sign Out - 2 story points
+
+EPIC 4 - CRUD User Finds
+
+As a User I can Create, read, update and delete my finds so I can share my finds and information, update information I have already shared and delete any information I no longer want to be public.
+
+#36 USER STORY - Create Finds - 4 story points
+#38 USER STORY - User Update/Edit Finds - 2 story points
+#37 USER STORY - Read Finds - 1 story points
+#39 USER STORY - User Delete Finds - 2 story points
+
+EPIC 5 - Interact with finds
+
+As a user I want to comment and like other user finds, as well as interact with my own in a similar way so I can respond to other users comments and interaction.
+
+#40 USER STORY - User Like Posts
+#11 USER STORY - Comment on finds
+
+
+As a could have, the epic of User Notification was not prioritised over others in the development and were therefore not completed. The below are the epics and stories which were not included in the final application, but I would like to explore in the future.
+
+COULD HAVE - EPIC 6 - User Notification
+
+As a User I can be notified when someone likes/comments my finds so I can Keep track of which posts are most popular and report any offensive comments to admin
+
+#45 USER STORY - Notification on the site when Find liked/commented on
+#46 USER STORY - Email notification when Find liked/commented
+
+WON'T HAVE - EPIC 7 - Location Based Suggestion
+
+As a User I can be notified when another user creates a find which is geographically close to my address so I can be automatically notified on other users finds in areas close to me
+
+#47 USER STORY - Option for location based notifications
+#48 USER STORY - Receive Location Based Suggestions
+
 
 ### The Scope Plane
 
@@ -146,8 +182,6 @@ As a User I can Create, read, update and delete my finds so I can share my finds
 - Ability to perform CRUD functionality on Finds. Users and admins will have the ability to create, read, update and delete finds. 
 
 - Authentication/Role based functionality. Different functionality and abilities will be available to users who have registered and logged in to their account, unauthenticated users will have a more limited option of functionality to encourage sign up and long term engagement with the site. 
-
-- Account Management. Users will have the ability to manage certian aspects of their account themselves without the need for admin/super user involvement. 
 
 - Responsive Design. The application will resize and maintain relevant functionality across all modern device screen sizes. 
 

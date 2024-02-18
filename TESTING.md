@@ -151,12 +151,16 @@ Another of the common alerts relates to a redundant link. This is the second hom
 
 ## Manual Testing
 
-### Testing User Stories
+## Functional Testing
 
-**col1 **|**col2**|**col3**
-:-----:|:-----:|:-----:
-one|two|three
+Functional Testing was carried out to test functionalities and processes which may span several pages of the site. These were done in line with user stories and epics:
 
+### Authentication
+
+Test:
+
+Ensure when creating an account a user is forced to enter a username, suitable email and a suitable password. 
+On succesful login, an authenticated user is able 
 
 ## Full Testing
 
