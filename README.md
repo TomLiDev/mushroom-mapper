@@ -327,7 +327,7 @@ The background, a mushroom outline repeating pattern, gives a nice pale backdrop
 
 For points of interest, such as buttons, green and red were used, with white text inside, whilst the rest of the site used a dark grey text.
 
-![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.PNG)
+![An image of the colour palette used across mushroom mappers](documentation/mushroom-palette.png)
 
 #### Typography
 
