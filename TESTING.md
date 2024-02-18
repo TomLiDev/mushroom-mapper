@@ -26,12 +26,14 @@ Later issues on first deploying my website, reviewed with my mentor were:
 - [Return Visitors](#return-visitor)
 - [Full Testing](#full-testing)
 - [Homepage](#homepage)
-- [Rise Page](#rise-page)
-- [Reign Page](#reign-page)
-- [Legacy Page](#legacy-page)
-- [Form Page](#form-page)
-- [Thank you Page](#thankyou-page)
-- [404 Error Page](#404-error-page)
+- [Create Find Page](#create-find-page)
+- [Edit find Page](#edit-find-page)
+- [View Finds Page](#view-finds-page)
+- [Find Detail Page](#find-detail-page)
+- [Sign In Page](#sign-in-page)
+- [Sign Out](#sign-out-page)
+- [Registration Page](#registration-page)
+-
 - [Bugs](#bugs)
 - [Solved Bugs](#solved-bugs)
 - [Known Issues](#known-issues)
@@ -151,6 +153,20 @@ After editing to include all alt tags, all pages passed without any errors. The 
 Another of the common alerts relates to a redundant link. This is the second home link on the nav bar. I have deliberately kept this, as when displayed on smaller screens and the burger menu is shown for the other nav items, I wanted a home option to appear in this dropdown list as well as the main MushroomMappers icon home link.
 
 The view finds page could not be accessed by the WAVE testing site as it requires an authenticated user access. 
+
+### Pep8 
+
+Pep8 standards were maintained and checked for prior to final deployment using an in-built Pylint tool within MS Visual Code (Official Microsoft Pylint Tool). This raised some errors in relation to Find.Objects filtering, the tool seemed to suggest that there were no objects of Find, therefore no filtering could be done. However this clearly wasn't the case as removing this code presented all finds on the relevant screens. After reseach I discovered many other developers had the same issue when it comes to Django code, and that this is the linter being 'over sensitive' and not always accurate/useful for validating Django code. This was particularly evident in settings.py where the linter raised on issue stating that the import of env was not being used, which is clearly not the case.
+
+For this reason, and the need to keep the code the same for functional purposes, I have kept the code as is and hope this is acceptable.
+
+### JSHint
+
+JS hint was used to check the script.js file. This raised a small number of variables which needed declaring more explicitly, some which needed moving to be in scope of other functions and some unused variables.
+
+Warnings were also raised in relation to 'async functions only being available in ES8' however this function is required for the Google map to be created. This is a key part of Mushroom Mappers, therefore I have chosen to keep this as is, and accept that older browsers may run into issues with loading the code.
+
+A warning was also raised in relation to a function being declared within a loop, however this is the standard panto() method which is imported as part of the library needed to run Google maps. I did not think it would be a good use of time to recreate this rather neat, ready made function, which operated perfectly well across multiple devices during the manual testing. Therefore, this code has been kept as is.
 
 ## Manual Testing
 
@@ -348,6 +364,60 @@ Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened
 REGISTRATION SPECIFICS| | | | 
 Create Account Button (Fields not filled in)|No progression, prompted to fill out missing fields|Clicked button|No progression, prompted to fill out missing fields|Pass
 Create Account Button (Fields filled in)|Confirmation |Clicked button|Returned to home page as non authenticated user|Pass
+
+### 404 Error Page
+
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+-----|-----|-----|-----|-----
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+404 Error Page Specifics| | | | 
+404 error displayed|404 error displayed|Forced 404 error page|404 error displayed|Pass
+Return home button|Returned to homepage|Clicked return home button|Returned to homepage|Pass
+
+### 403 Error Page
+
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+-----|-----|-----|-----|-----
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+403 Error Page Specifics| | | | 
+403 error text displayed|403 error text displayed|Forced 403 error page|403 error text displayed|Pass
+Return home button|Returned to homepage|Clicked return home button|Returned to homepage|Pass
+
+### 500 Error Page
+
+**Feature/Function**|**Expected Outcome**|**Method of Test**|**Result**|**Pass/Fail**
+-----|-----|-----|-----|-----
+NAVBAR| | | | 
+Home Link|Return/refresh home page on click|Clicked link|Returned to home|Pass
+Home Link Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+MushroomMappers Home Text|Return/refresh home page on click|Clicked link|Returned to home|Pass
+MushroomMappers Home Text Hover|Underline appears under text.|Hovered over link|Underline appeared|Pass
+FOOTER| | | | 
+Facebook Icon Link|Opens Facebook in separate browser on click|Clicked icon|Opened Facebook in separate tab|Pass
+Instagram Icon Link|Opens Instagram in separate browser on click|Clicked icon|Opened Instagram in separate tab|Pass
+Twitter Icon Link|Opens Twitter in separate browser on click|Clicked icon|Opened Twitter in separate tab|Pass
+Youtube Icon Link|Opens Youtube in separate browser on click|Clicked icon|Opened Youtube in separate tab|Pass
+Error 500 Page Specifics| | | | 
+Error 500 text displayed|Error 500 text displayed|Forced 500 error page|Error 500 text displayed|Pass
+Return home button|Returned to homepage|Clicked return home button|Returned to homepage|Pass
 
 ## Bugs
 

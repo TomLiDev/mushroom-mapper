@@ -22,10 +22,10 @@ class FindList(generic.ListView):
 class FindDetail(View):
     """
     This is class with functions to get and display the detail of a find from
-    the homepage. The post function allows the creation and posting of comments. 
-    """
+    the homepage. The post function allows the creation and posting of
+    comments."""
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
         find = get_object_or_404(Find, slug=slug)
         comments = find.comments.filter(approved=True).order_by('created_on')
         liked = False
@@ -44,7 +44,7 @@ class FindDetail(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
         queryset = Find.objects.filter(status=1)
         find = get_object_or_404(queryset, slug=slug)
         comments = find.comments.filter(approved=True).order_by('created_on')
@@ -63,7 +63,7 @@ class FindDetail(View):
 
         else:
             comment_form = CommentForm()
-            
+
         return render(
             request,
             "find_detail.html",
@@ -82,7 +82,7 @@ class FindLike(View):
     This class contains the function to find likes, if they exist on a find.
     """
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
         find = get_object_or_404(Find, slug=slug)
 
         if find.likes.filter(id=request.user.id).exists():
@@ -101,7 +101,6 @@ class CreateFind(View):
 
     def get(self, request):
 
-        find_form = FindForm(initial={'author': request.user})
         return render(
             request,
             "create_find.html",
@@ -112,7 +111,8 @@ class CreateFind(View):
 
     def post(self, request):
 
-        find_form = FindForm(request.POST, request.FILES, initial={'author': request.user})
+        find_form = FindForm(request.POST, request.FILES,
+                             initial={'author': request.user})
 
         if find_form.is_valid():
             find_form.save()
@@ -124,16 +124,16 @@ class CreateFind(View):
             find.save()
             messages.success(
                 request,
-                """Find successfully created. Please wait for approval before you place
-                any comments."""
+                """Find successfully created. Please wait for approval
+                before you place any comments."""
             )
 
         else:
             messages.error(
                 request,
                 """Your find was not created, please try again."""
-            )
-            
+                )
+        
         return HttpResponseRedirect(request.path_info)
     
 
@@ -164,7 +164,7 @@ class ViewFinds(generic.ListView):
                 "user_finds":queryset
             },
         )
-    
+
     
 class EditFind(View):
     """
@@ -248,8 +248,6 @@ class DeleteFind(View):
             )
         
         else:
-
-            queryset = Find.objects.filter(author=request.user)
 
             find.delete()
             
