@@ -67,7 +67,7 @@ The site aims to be fun, easy to use and promote the values of safe, sustainable
 
 #### Agile Planning
 
-This application was designed and built in line with Agile methodologies, with small, incremental features developed over controlled sprints. There were XXXXXX sprints spaced out XXX weeks. 
+This application was designed and built in line with Agile methodologies, with small, incremental features developed over controlled sprints. There were 6 sprints spaced out across 8 weeks. 
 
 Each feature was assigned an epic and individually prioritised following the MoSCoW rating system, being designated Must have, Should have, Could have and Won't have. These designations were assigned based on perceived requirements of the site users and the effort required to develop them. Features were developed with Must have's being completed first, and so on, to ensure that the most useful and fundamental aspects of the site were built first, with 'bells and whistles' features being completed later depending on the time left. 
 
@@ -139,8 +139,8 @@ EPIC 3 - Authentication: Sign in/out and registration
 As a User or Admin I can log in and out of the site so I can ensure details are kept secure and access to the site is controlled.
 
 #30 USER STORY - Create Profile - 2 story points
-#34 USER STORY - Sign In - 2 story points
-#35 USER STORY - Sign Out - 2 story points
+#34 USER STORY - Sign In - 1 story points
+#35 USER STORY - Sign Out - 1 story points
 
 EPIC 4 - CRUD User Finds
 
@@ -148,16 +148,23 @@ As a User I can Create, read, update and delete my finds so I can share my finds
 
 #36 USER STORY - Create Finds - 4 story points
 #38 USER STORY - User Update/Edit Finds - 2 story points
-#37 USER STORY - Read Finds - 1 story points
-#39 USER STORY - User Delete Finds - 2 story points
+#37 USER STORY - Read Finds - 1 story point
+#39 USER STORY - User Delete Finds - 1 story points
+#5 USER STORY - Upload photos - 1 story point
+#6 USER STORY - Add location to Finds - 2 story points
+#13 USER STORY - View Map - 4 story points
+#43 USER STORY - View Full Find Details - 2 story points
+
+#50 USER STORY - Admin approve comments
+#7 USER STORY - Admin approve finds
 
 EPIC 5 - Interact with finds
 
 As a user I want to comment and like other user finds, as well as interact with my own in a similar way so I can respond to other users comments and interaction.
 
-#40 USER STORY - User Like Posts
-#11 USER STORY - Comment on finds
-
+#40 USER STORY - User Like finds - 2 story point
+#11 USER STORY - Comment on finds - 2 story points
+#44 USER STORY - View Liked Finds Page - 4 story points
 
 As a could have, the epic of User Notification was not prioritised over others in the development and were therefore not completed. The below are the epics and stories which were not included in the final application, but I would like to explore in the future.
 
@@ -165,15 +172,15 @@ COULD HAVE - EPIC 6 - User Notification
 
 As a User I can be notified when someone likes/comments my finds so I can Keep track of which posts are most popular and report any offensive comments to admin
 
-#45 USER STORY - Notification on the site when Find liked/commented on
-#46 USER STORY - Email notification when Find liked/commented
+#45 USER STORY - Notification on the site when Find liked/commented on - 2 story points
+#46 USER STORY - Email notification when Find liked/commented - 4 story points
 
 WON'T HAVE - EPIC 7 - Location Based Suggestion
 
-As a User I can be notified when another user creates a find which is geographically close to my address so I can be automatically notified on other users finds in areas close to me
+Although specifically tagged as Won't Have, I felt it was useful to include this Epic in the readme as a record of possible future work. A User I can be notified when another user creates a find which is geographically close to my address so I can be automatically notified on other users finds in areas close to me
 
-#47 USER STORY - Option for location based notifications
-#48 USER STORY - Receive Location Based Suggestions
+#47 USER STORY - Option for location based notifications - 1 story point
+#48 USER STORY - Receive Location Based Suggestions - 4 story points
 
 
 ### The Scope Plane
