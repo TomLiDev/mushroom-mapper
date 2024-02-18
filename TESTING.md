@@ -437,7 +437,7 @@ Whilst this wasn't a major issue, as view_finds was still returned, it did mean 
 
 5. Map Marker View Find on Heroku - I was very pleased with the eventual creation of the map markers, and that a user could click from the map to view a particular find. I was very worried when, much to my horror, this didn't work on the deployed Heroku app, instead I got a server 500 error. I investigated if this was due to the find needing to be approved, or perhaps being caught in some king of author-only access. However I realised that on Heroku, when clicking View Find on one of the map markers, it was actually trying to access a local server URL. After investigation this was due to this piece of code in the Javascipt:
 
-![Map marker Javascript code which caused isssue](documentation/edit-delete-http-issue.PNG)
+![Map marker Javascript code which caused isssue](documentation/marker-find-code.PNG)
 
 Changing the text2 line, to make the template literal create a URL with the Heroku app URL solved this issue. 
 
