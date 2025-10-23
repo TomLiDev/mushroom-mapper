@@ -41,6 +41,7 @@ ALLOWED_HOSTS = ['8000-tomlidev-mushroom-mapper-v6jmg0s734.us2.codeanyapp.com',
                  '8000-tomlidev-mushroommapper-jufevz20usn.ws-eu107.gitpod.io',
                  'mushroom-mapper-6a227ba72c70.herokuapp.com',
                  'mushroom-mapper.herokuapp.com',
+                 'https://mushroom-mapper.onrender.com/'
                  '127.0.0.1',
                  'mushroom-mapper.herokuapp.com', 'localhost']
 
